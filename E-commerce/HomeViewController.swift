@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
@@ -14,11 +15,22 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
     
+    var brands:Brands?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let API_URL = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/smart_collections.json"
+        
+        ApiService.fetchFromApi(API_URL: API_URL) { [weak self] data in
+            self?.brands = data
+            DispatchQueue.main.async{ [weak self] in
+                self?.Brands_CollectionV.reloadData()
+            }
+        }
+        
     }
     
     
@@ -28,7 +40,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         {
             return 5
         }
-        return 15
+        return brands?.smart_collections.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,8 +57,8 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brand", for: indexPath) as! BrandsCollectionViewCell
         
-        cell.Brand_imageV.image = UIImage(named: "H")
-        cell.Brand_title.text = "BrandTitle"
+        cell.Brand_imageV.kf.setImage(with: URL(string: brands?.smart_collections[indexPath.row].image.src ?? ""))
+        cell.Brand_title.text = brands?.smart_collections[indexPath.row].title
         
         return cell
         
@@ -58,7 +70,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             return CGSize(width:self.view.frame.width*0.9, height: self.view.frame.height*0.34)
         }
         
-        return CGSize(width:self.view.frame.width*0.39, height: self.view.frame.height*0.24)
+        return CGSize(width:self.view.frame.width*0.42, height: self.view.frame.height*0.24)
 //        return CGSize()
     }
 

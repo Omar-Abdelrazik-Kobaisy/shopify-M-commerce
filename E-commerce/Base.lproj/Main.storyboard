@@ -367,45 +367,47 @@
                                     <constraint firstAttribute="width" constant="361" id="knl-Xj-chW"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B1L-qG-uP5">
-                                    <size key="itemSize" width="176" height="166"/>
+                                    <size key="itemSize" width="170" height="184"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="brand" id="oR0-RD-Xhi" customClass="BrandsCollectionViewCell" customModule="E_commerce" customModuleProvider="target">
-                                        <rect key="frame" x="92.666666666666671" y="0.0" width="176" height="166"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="92e-Xr-pFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="176" height="166"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u7D-KQ-eCd">
-                                                    <rect key="frame" x="0.0" y="8" width="176" height="121"/>
+                                                    <rect key="frame" x="16" y="8" width="138" height="113"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="176" id="R2T-z0-Axa"/>
-                                                        <constraint firstAttribute="height" constant="121" id="mVL-pf-UNl"/>
+                                                        <constraint firstAttribute="width" constant="138" id="gcH-FS-4PI"/>
+                                                        <constraint firstAttribute="height" constant="113" id="mVL-pf-UNl"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K00-x7-isI">
-                                                    <rect key="frame" x="0.0" y="129" width="176" height="37"/>
+                                                    <rect key="frame" x="16" y="138" width="138" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="37" id="l96-c8-eCP"/>
-                                                        <constraint firstAttribute="width" constant="176" id="sJq-cR-DbD"/>
+                                                        <constraint firstAttribute="height" constant="30" id="l96-c8-eCP"/>
+                                                        <constraint firstAttribute="width" constant="138" id="sJq-cR-DbD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="K00-x7-isI" firstAttribute="top" secondItem="u7D-KQ-eCd" secondAttribute="bottom" id="8uI-ev-x89"/>
-                                                <constraint firstItem="u7D-KQ-eCd" firstAttribute="leading" secondItem="92e-Xr-pFd" secondAttribute="leading" id="PDd-9E-K9p"/>
+                                                <constraint firstItem="K00-x7-isI" firstAttribute="top" secondItem="u7D-KQ-eCd" secondAttribute="bottom" constant="17" id="8uI-ev-x89"/>
                                                 <constraint firstItem="K00-x7-isI" firstAttribute="leading" secondItem="u7D-KQ-eCd" secondAttribute="leading" id="UD6-Ma-WvK"/>
                                                 <constraint firstItem="u7D-KQ-eCd" firstAttribute="top" secondItem="92e-Xr-pFd" secondAttribute="top" constant="8" id="qjp-vh-BKx"/>
+                                                <constraint firstItem="u7D-KQ-eCd" firstAttribute="centerX" secondItem="92e-Xr-pFd" secondAttribute="centerX" id="rSZ-NB-JBx"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="176" height="166"/>
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <size key="customSize" width="170" height="184"/>
                                         <connections>
                                             <outlet property="Brand_imageV" destination="u7D-KQ-eCd" id="Rq2-EE-OuR"/>
                                             <outlet property="Brand_title" destination="K00-x7-isI" id="ZYC-93-mDM"/>
@@ -587,6 +589,9 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="tablecells.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
