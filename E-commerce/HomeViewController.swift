@@ -74,7 +74,12 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
 //        return CGSize()
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
+        
+        
+        self.navigationController?.pushViewController(productVC, animated: true)
+    }
     
 
     /*
