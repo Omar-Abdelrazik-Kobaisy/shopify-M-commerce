@@ -16,20 +16,22 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
     
     var brands:Brands?
-    
+    var viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        viewModel.getBrands()
         
-        let API_URL = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/smart_collections.json"
         
-        ApiService.fetchFromApi(API_URL: API_URL) { [weak self] data in
+        viewModel.bindingResultToHomeView = { [weak self] data in
             self?.brands = data
-            DispatchQueue.main.async{ [weak self] in
+            DispatchQueue.main.async{ [self] in
                 self?.Brands_CollectionV.reloadData()
             }
         }
+        
+        
         
     }
     
@@ -75,10 +77,14 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
-        
-        
-        self.navigationController?.pushViewController(productVC, animated: true)
+        if collectionView == Brands_CollectionV
+        {
+            let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
+            
+            productVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(productVC, animated: true)
+            
+        }
     }
     
 
