@@ -32,6 +32,7 @@
 		0783EFB629AFB8EF009592E7 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB529AFB8EF009592E7 /* CategoryViewController.swift */; };
 		0783EFB829AFB954009592E7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB729AFB954009592E7 /* CategoryCollectionViewCell.swift */; };
 		07D25D0429B0C5B200A99E92 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D25D0329B0C5B200A99E92 /* HomeViewModel.swift */; };
+		07D25D0929B0DC4F00A99E92 /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D25D0829B0DC4F00A99E92 /* product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		0783EFB529AFB8EF009592E7 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		0783EFB729AFB954009592E7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		07D25D0329B0C5B200A99E92 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		07D25D0829B0DC4F00A99E92 /* product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				071FAB7829B00315003D1D3A /* Brands.swift */,
+				07D25D0829B0DC4F00A99E92 /* product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				071FAB7929B00315003D1D3A /* Brands.swift in Sources */,
 				0783EFB629AFB8EF009592E7 /* CategoryViewController.swift in Sources */,
 				0738B1C129AF8AB900F9375F /* E_commerce.xcdatamodeld in Sources */,
+				07D25D0929B0DC4F00A99E92 /* product.swift in Sources */,
 				0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */,
 				0738B1B929AF8AB900F9375F /* SceneDelegate.swift in Sources */,
 			);

@@ -81,6 +81,8 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         {
             let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
             
+            productVC.brandId = brands?.smart_collections[indexPath.row].id
+            
             productVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(productVC, animated: true)
             
