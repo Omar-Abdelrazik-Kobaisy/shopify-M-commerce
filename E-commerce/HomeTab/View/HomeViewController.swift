@@ -21,7 +21,15 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        viewModel.getBrands()
         
+        
+        viewModel.bindingResultToHomeView = { [weak self] data in
+            self?.brands = data
+            DispatchQueue.main.async{ [self] in
+                self?.Brands_CollectionV.reloadData()
+            }
+        }
         
         
         
