@@ -6,10 +6,9 @@
 //
 
 import Foundation
-
-class Image : Decodable
+class Brands : Decodable
 {
-    var src : String?
+    var smart_collections : [BrandItem]
 }
 
 class BrandItem : Decodable
@@ -19,7 +18,12 @@ class BrandItem : Decodable
     var image : Image
 }
 
-class Brands : Decodable
+class Image : Decodable
 {
-    var smart_collections : [BrandItem]
+    var src : String?
 }
+
+
+
+
+

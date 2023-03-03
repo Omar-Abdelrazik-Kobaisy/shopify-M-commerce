@@ -140,22 +140,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		071FAB7129AFF38B003D1D3A /* NetworkManger */ = {
-			isa = PBXGroup;
-			children = (
-				071FAB7729B002FD003D1D3A /* Model */,
-				071FAB7229AFF3DD003D1D3A /* ApiService.swift */,
-			);
-			path = NetworkManger;
-			sourceTree = "<group>";
-		};
-		071FAB7729B002FD003D1D3A /* Model */ = {
+		071FAB7729B002FD003D1D3A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				071FAB7829B00315003D1D3A /* Brands.swift */,
 				07D25D0829B0DC4F00A99E92 /* product.swift */,
 			);
-			path = Model;
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		0738B1AA29AF8AB900F9375F = {
@@ -181,12 +172,12 @@
 		0738B1B529AF8AB900F9375F /* E-commerce */ = {
 			isa = PBXGroup;
 			children = (
+				395149EA29B1697E00DCCA13 /* Model */,
+				395149E729B1635A00DCCA13 /* Modules */,
 				07D25D0729B0C67700A99E92 /* Products */,
 				07D25D0629B0C64100A99E92 /* MeTab */,
 				07D25D0529B0C5F000A99E92 /* CategoryTab */,
-				07D25D0029B0C40900A99E92 /* HomeTab */,
 				07D25CFF29B0C38F00A99E92 /* Delegate */,
-				071FAB7129AFF38B003D1D3A /* NetworkManger */,
 				0738B1BA29AF8AB900F9375F /* ViewController.swift */,
 				0738B1BC29AF8AB900F9375F /* Main.storyboard */,
 				DD8813FF29B11E2A006C791A /* AddNewAddressViewController.swift */,
@@ -241,6 +232,7 @@
 		07D25D0029B0C40900A99E92 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				395149E829B1645900DCCA13 /* Model */,
 				07D25D0229B0C58300A99E92 /* ViewModel */,
 				07D25D0129B0C53C00A99E92 /* View */,
 			);
@@ -291,6 +283,38 @@
 				071FAB7F29B01EF5003D1D3A /* ProductCollectionViewCell.swift */,
 			);
 			path = Products;
+			sourceTree = "<group>";
+		};
+		395149E729B1635A00DCCA13 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				07D25D0029B0C40900A99E92 /* HomeTab */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		395149E829B1645900DCCA13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				071FAB7729B002FD003D1D3A /* DataModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		395149E929B164CB00DCCA13 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				071FAB7229AFF3DD003D1D3A /* ApiService.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		395149EA29B1697E00DCCA13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				395149E929B164CB00DCCA13 /* NetworkServices */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

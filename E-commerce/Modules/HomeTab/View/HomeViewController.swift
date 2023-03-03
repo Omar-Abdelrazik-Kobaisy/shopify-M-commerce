@@ -12,26 +12,24 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     
     @IBOutlet weak var Ads_CollectionV: UICollectionView!
-    
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
     
     var brands:Brands?
     var viewModel = HomeViewModel()
+    
+    var couponArr :[coupon]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-
-        let API_URL = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/smart_collections.json"
-        ApiService.fetchFromApi(API_URL: API_URL) { [weak self] data in
-            self?.brands = data
-                        DispatchQueue.main.async{ [self] in
-                            self?.Brands_CollectionV.reloadData()
-                        }
+        viewModel.bindingBrands = { [weak self] in
+            self!.brands = self!.viewModel.ObservableBrands
+            DispatchQueue.main.async{ [self] in
+                self?.Brands_CollectionV.reloadData()
+            }
         }
-        
-        
-        
+        viewModel.getAllBrands()
+        couponArr = [coupon(img: UIImage(named: "c1")!, id: "70%") , coupon(img: UIImage(named: "c2")!, id: "80%") ,coupon(img: UIImage(named: "c1")!, id: "50%") ,coupon(img: UIImage(named: "c2")!, id: "40%")  ]
     }
     
     
@@ -39,7 +37,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         
         if collectionView == Ads_CollectionV
         {
-            return 5
+            return couponArr!.count
         }
         return brands?.smart_collections.count ?? 0
     }
@@ -51,7 +49,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ad", for: indexPath) as! AdsCollectionViewCell
             
             
-            cell.Ad_imageV.image = UIImage(named: "M")
+            cell.Ad_imageV.image = couponArr![indexPath.row].img
             
             return cell
         }
@@ -76,6 +74,9 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         
+            
+        
         if collectionView == Brands_CollectionV
         {
             let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
@@ -86,6 +87,8 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             self.navigationController?.pushViewController(productVC, animated: true)
             
         }
+        UIPasteboard.general.string = couponArr![indexPath.row].id
+        
     }
     
 
