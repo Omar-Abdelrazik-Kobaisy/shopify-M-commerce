@@ -82,13 +82,16 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             let productVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
             
             productVC.brandId = brands?.smart_collections[indexPath.row].id
+            productVC.brandTitle = brands?.smart_collections[indexPath.row].title
             
             productVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(productVC, animated: true)
             
         }
-        UIPasteboard.general.string = couponArr![indexPath.row].id
-        
+        else
+        {
+            UIPasteboard.general.string = couponArr![indexPath.row].id
+        }
     }
     
 
