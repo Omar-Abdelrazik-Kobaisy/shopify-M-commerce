@@ -7,23 +7,23 @@
 
 import Foundation
 
-
-class ProductDetails : Decodable
-{
-    var id : Int?
-    var price : String?
-}
-
-
-class productItemDetails : Decodable
-{
-    var id : Int?
-    var vendor : String?
-    var product_type :String?
-    var variants : [ProductDetails]
-}
-
-
-class Products : Decodable {
-    var products : [productItemDetails]
-}
+//
+//class ProductDetails : Decodable
+//{
+//    var id : Int?
+//    var price : String?
+//}
+//
+//
+//class productItemDetails : Decodable
+//{
+//    var id : Int?
+//    var vendor : String?
+//    var product_type :String?
+//    var variants : [ProductDetails]
+//}
+//
+//
+//class Products : Decodable {
+//    var products : [productItemDetails]
+//}

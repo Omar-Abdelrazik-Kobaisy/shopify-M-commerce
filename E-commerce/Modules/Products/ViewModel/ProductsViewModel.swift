@@ -12,7 +12,7 @@ class ProductsViewModel
 {
     
     var bindingproductsBrand:(()->())?
-    var bindingproduct:(()->())?
+    
 
 
     
@@ -21,11 +21,7 @@ class ProductsViewModel
             bindingproductsBrand!()
         }
     }
-    var Observableproduct : Products? {
-        didSet {
-            bindingproduct!()
-        }
-    }
+   
     
     func getproductsBrand(PRODUCTS_BRAND_URL : String)
     {
@@ -34,10 +30,4 @@ class ProductsViewModel
         }
     }
     
-    func getproduct(PRODUCT_DETAILS_URL :String)
-    {
-        ApiService.fetchFromApi(API_URL: PRODUCT_DETAILS_URL) {[weak self] data in
-            self?.Observableproduct = data
-        }
-    }
 }

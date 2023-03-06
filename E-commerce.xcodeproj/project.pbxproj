@@ -30,6 +30,7 @@
 		07525D2829AFC6E20056EEAB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2729AFC6E20056EEAB /* MeViewController.swift */; };
 		07525D2A29AFC7830056EEAB /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2929AFC7830056EEAB /* OrderTableViewCell.swift */; };
 		07525D2C29AFC8830056EEAB /* WishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2B29AFC8830056EEAB /* WishTableViewCell.swift */; };
+		0769CB9829B537C60022C11F /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 0769CB9729B537C60022C11F /* Floaty */; };
 		0783EFAE29AF9748009592E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFAD29AF9748009592E7 /* HomeViewController.swift */; };
 		0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */; };
 		0783EFB429AFA240009592E7 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */; };
@@ -129,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071FAB7C29B00581003D1D3A /* Kingfisher in Frameworks */,
+				0769CB9829B537C60022C11F /* Floaty in Frameworks */,
 				071FAB7629AFF51C003D1D3A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				071FAB7829B00315003D1D3A /* Brands.swift */,
-				07D25D0829B0DC4F00A99E92 /* product.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -226,6 +227,14 @@
 				074A079E29B3B2BD00921383 /* CategoryProduct.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0769CB9529B4BCAC0022C11F /* GenericModel */ = {
+			isa = PBXGroup;
+			children = (
+				07D25D0829B0DC4F00A99E92 /* product.swift */,
+			);
+			path = GenericModel;
 			sourceTree = "<group>";
 		};
 		07D25CFF29B0C38F00A99E92 /* Delegate */ = {
@@ -344,7 +353,7 @@
 		395149EA29B1697E00DCCA13 /* GenericModel */ = {
 			isa = PBXGroup;
 			children = (
-				ABF2000029B18F4F0007845D /* DataModels */,
+				0769CB9529B4BCAC0022C11F /* GenericModel */,
 				395149E929B164CB00DCCA13 /* NetworkServices */,
 			);
 			path = GenericModel;
@@ -356,13 +365,6 @@
 				ABC55C3629B19E8C00444FE8 /* AddNewAddressViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABF2000029B18F4F0007845D /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataModels;
 			sourceTree = "<group>";
 		};
 		ABF2FFB429B187A60007845D /* GenericView */ = {
@@ -719,6 +721,7 @@
 			packageProductDependencies = (
 				071FAB7529AFF51C003D1D3A /* Alamofire */,
 				071FAB7B29B00581003D1D3A /* Kingfisher */,
+				0769CB9729B537C60022C11F /* Floaty */,
 			);
 			productName = "E-commerce";
 			productReference = 0738B1B329AF8AB900F9375F /* E-commerce.app */;
@@ -795,6 +798,7 @@
 			packageReferences = (
 				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0769CB9629B537C50022C11F /* XCRemoteSwiftPackageReference "Floaty" */,
 			);
 			productRefGroup = 0738B1B429AF8AB900F9375F /* Products */;
 			projectDirPath = "";
@@ -1236,6 +1240,14 @@
 				kind = branch;
 			};
 		};
+		0769CB9629B537C50022C11F /* XCRemoteSwiftPackageReference "Floaty" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kciter/Floaty.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1248,6 +1260,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0769CB9729B537C60022C11F /* Floaty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0769CB9629B537C50022C11F /* XCRemoteSwiftPackageReference "Floaty" */;
+			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
 

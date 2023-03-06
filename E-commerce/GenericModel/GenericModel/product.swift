@@ -14,11 +14,18 @@ class ProductImage : Decodable
     var src : String?
 }
 
+class Prices : Decodable
+{
+    var id : Int?
+    var price : String?
+}
+
 class productItem : Decodable
 {
     var id : Int?
     var product_type : String?
     var image : ProductImage
+    var variants : [Prices]
 }
 class product : Decodable {
     var products : [productItem]
