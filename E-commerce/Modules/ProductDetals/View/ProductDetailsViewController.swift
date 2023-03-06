@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     
     
     
@@ -23,9 +23,11 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate,UI
     var ProductViewModel:ProductDetailViewModel?
     var productInfo:ProductDetails?
     var prodId:Int?
+    var currentpagee = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ProductViewModel = ProductDetailViewModel()
         
         ProductViewModel?.bindingProduct={ [weak self] in
@@ -34,16 +36,33 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate,UI
                 self?.ProductName.text = self?.productInfo?.product.title
                 self?.productPrice.text = self?.productInfo?.product.variants[0].price
                 self?.ProductDescription.text = self?.productInfo?.product.body_html
+                
+                self?.imageSlider.numberOfPages = self?.productInfo?.product.images.count ?? 0
                 self?.ProductImagesCollection.reloadData()
             }
         }
         
-         print(prodId)
-        
+ 
+        imageSlider.currentPage = currentpagee
+                
         ProductViewModel?.getProductDetails(productId:prodId ?? 0)
         
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let width = scrollView.frame.width
+        currentpagee = Int(scrollView.contentOffset.x / width)
+        imageSlider.currentPage = currentpagee
+    }
+
+  
+
+}
+
+
+
+extension ProductDetailsViewController:UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -60,11 +79,17 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate,UI
         
         return cell
     }
-    
+}
+
+
+
+extension ProductDetailsViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-
-  
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
