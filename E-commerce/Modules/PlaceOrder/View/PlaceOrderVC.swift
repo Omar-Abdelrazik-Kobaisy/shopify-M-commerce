@@ -20,8 +20,8 @@ class PlaceOrderVC: UIViewController {
     @IBOutlet weak var DiscountLabel: UILabel!
     
     @IBOutlet weak var GrandTotalLabel: UILabel!
-    
-    
+    var coupon : String?
+    var PaymentMethod: String?
     var subTotal : Int?
     var shippingFees : Int = 30
     var discount : Int = 0
