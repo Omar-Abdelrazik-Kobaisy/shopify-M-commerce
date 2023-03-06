@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startShopping(_ sender: Any) {
+        let HomeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeTabBarController")as! HomeTabBarController
+        
+        navigationController?.pushViewController(HomeScreen, animated: true)
         
     }
     

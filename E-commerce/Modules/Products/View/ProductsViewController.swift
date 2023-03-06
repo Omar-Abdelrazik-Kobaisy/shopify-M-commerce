@@ -114,6 +114,8 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate , UICo
         
         navigationController?.pushViewController(productDetail, animated: true)
     }
+    
+    
   
 
 }

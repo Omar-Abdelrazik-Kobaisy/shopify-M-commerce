@@ -61,6 +61,7 @@
 		DDA4BBB329B12733004C6406 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */; };
 		DDAFFB5129B62B0800C07CCA /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5029B62B0800C07CCA /* ProductDetailModel.swift */; };
 		DDAFFB5329B6360E00C07CCA /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */; };
+		DDAFFB5629B6691F00C07CCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		DDAFFB5029B62B0800C07CCA /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
 		DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
+		DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 		395149E729B1635A00DCCA13 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DDAFFB5429B668F700C07CCA /* WishList */,
 				ABF2FFEF29B18CEE0007845D /* FirstAppScreen */,
 				ABF2FFEC29B18C150007845D /* ProductDetals */,
 				07D25D0529B0C5F000A99E92 /* CategoryTab */,
@@ -731,6 +734,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DDAFFB5429B668F700C07CCA /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -889,6 +900,7 @@
 				071FAB7329AFF3DD003D1D3A /* ApiService.swift in Sources */,
 				07525D2A29AFC7830056EEAB /* OrderTableViewCell.swift in Sources */,
 				DDA4BBAF29B12733004C6406 /* MainViewController.swift in Sources */,
+				DDAFFB5629B6691F00C07CCA /* WishListViewController.swift in Sources */,
 				DD0FA17329B42257002692E8 /* CustomerLoginModel.swift in Sources */,
 				0783EFB829AFB954009592E7 /* CategoryCollectionViewCell.swift in Sources */,
 				DD0FA16E29B3F95B002692E8 /* LoginNetworkService.swift in Sources */,

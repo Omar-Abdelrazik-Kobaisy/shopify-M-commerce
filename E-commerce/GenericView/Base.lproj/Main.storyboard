@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T9e-L6-Ysv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qnb-mt-bK7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -230,8 +230,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Me" id="8rv-gD-fXD">
                         <rightBarButtonItems>
-                            <barButtonItem image="gearshape" catalog="system" id="euB-iX-N3j"/>
-                            <barButtonItem image="cart.fill" catalog="system" id="9px-eB-ak5"/>
+                            <barButtonItem image="gearshape" catalog="system" id="euB-iX-N3j">
+                                <connections>
+                                    <action selector="settingButton:" destination="BYZ-38-t0r" id="nPY-z3-31p"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="cart.fill" catalog="system" id="9px-eB-ak5">
+                                <connections>
+                                    <action selector="cartButton:" destination="BYZ-38-t0r" id="SpN-NP-s8l"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -345,8 +353,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Category" id="TFm-wx-kka">
                         <rightBarButtonItems>
-                            <barButtonItem image="heart" catalog="system" id="IMb-0T-KBa"/>
-                            <barButtonItem image="cart.fill" catalog="system" id="G56-Vx-0Sq"/>
+                            <barButtonItem image="heart" catalog="system" id="IMb-0T-KBa">
+                                <connections>
+                                    <action selector="favoriteButton:" destination="4bT-zu-FKn" id="2vU-hN-m6E"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="cart.fill" catalog="system" id="G56-Vx-0Sq">
+                                <connections>
+                                    <action selector="cartButton:" destination="4bT-zu-FKn" id="eTA-Yx-Wrw"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -641,8 +657,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Qq1-DF-rdG">
                         <rightBarButtonItems>
-                            <barButtonItem image="heart" catalog="system" id="1Zp-Hb-OFd"/>
-                            <barButtonItem image="cart.fill" catalog="system" id="Oje-mX-GBv"/>
+                            <barButtonItem image="heart" catalog="system" id="1Zp-Hb-OFd">
+                                <connections>
+                                    <action selector="favourite:" destination="pDk-Jn-36Z" id="Bq3-X9-eQ3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="cart.fill" catalog="system" id="Oje-mX-GBv">
+                                <connections>
+                                    <action selector="cart:" destination="pDk-Jn-36Z" id="YVc-Ge-uzB"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -1405,6 +1429,34 @@
             </objects>
             <point key="canvasLocation" x="1227" y="1210"/>
         </scene>
+        <!--Wish List View Controller-->
+        <scene sceneID="d7x-gs-PqL">
+            <objects>
+                <tableViewController storyboardIdentifier="WishListViewController" id="C3Z-Tl-m43" customClass="WishListViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Tbx-qN-FCE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ibE-rj-Y0o">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ibE-rj-Y0o" id="hR7-QS-YvE">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C3Z-Tl-m43" id="gWe-yg-rBP"/>
+                            <outlet property="delegate" destination="C3Z-Tl-m43" id="slw-pX-nvA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipt-nf-x8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1245" y="1242"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="Qwf-4z-n3O">
             <objects>
@@ -1436,7 +1488,7 @@
                                     <color key="baseBackgroundColor" red="0.91363972429999996" green="0.41884213689999999" blue="0.20774668460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="SignUp:" destination="fTt-7K-tqV" eventType="touchUpInside" id="VcB-56-dfM"/>
+                                    <action selector="startShopping:" destination="fTt-7K-tqV" eventType="touchUpInside" id="LJE-x4-e1D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the store of your dreams.you will find here what you need" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOj-RA-K6N">
@@ -1549,6 +1601,9 @@
                                     <color key="baseForegroundColor" red="0.91363972429999996" green="0.41884213689999999" blue="0.20774668460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" red="0.95773106809999997" green="0.83137166500000004" blue="0.56072759630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButton:" destination="Zaq-NF-dm0" eventType="touchUpInside" id="012-q0-aYh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-Yo-tFk">
                                 <rect key="frame" x="111" y="685" width="170" height="34.333333333333371"/>

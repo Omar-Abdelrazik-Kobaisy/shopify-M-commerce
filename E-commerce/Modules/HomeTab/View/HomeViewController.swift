@@ -63,6 +63,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (collectionView == Ads_CollectionV)
         {
@@ -70,7 +71,6 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         }
         
         return CGSize(width:self.view.frame.width*0.42, height: self.view.frame.height*0.24)
-//        return CGSize()
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -94,15 +94,15 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func cart(_ sender: Any) {
+        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+        
+        navigationController?.pushViewController(cart, animated: true)
     }
-    */
-
+    
+    @IBAction func favourite(_ sender: Any) {
+        let favouite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as!WishListViewController
+        
+        navigationController?.pushViewController(favouite, animated: true)
+    }
 }

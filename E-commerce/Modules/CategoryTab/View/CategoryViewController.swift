@@ -154,6 +154,20 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
         
         navigationController?.pushViewController(productDetail, animated: true)
     }
+    
+    @IBAction func cartButton(_ sender: Any) {
+        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+        
+        navigationController?.pushViewController(cart, animated: true)
+    }
+    
+
+    @IBAction func favoriteButton(_ sender: Any) {
+        let favorite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as! WishListViewController
+        
+        navigationController?.pushViewController(favorite, animated: true)
+    }
+    
     }
 
     
