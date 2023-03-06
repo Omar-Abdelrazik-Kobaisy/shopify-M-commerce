@@ -11,7 +11,6 @@ class ProductsViewModel
 {
     
     var bindingproductsBrand:(()->())?
-    var bindingproduct:(()->())?
 
 
     

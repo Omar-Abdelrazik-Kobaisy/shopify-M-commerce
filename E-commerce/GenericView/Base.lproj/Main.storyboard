@@ -262,6 +262,9 @@
                                     <segment title="Kid"/>
                                     <segment title="Sale"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didSelectSegment:" destination="4bT-zu-FKn" eventType="valueChanged" id="Kdj-MU-fdL"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eda-fg-Zbb">
                                 <rect key="frame" x="16" y="156" width="361" height="613"/>
@@ -307,7 +310,7 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="heart.circle" catalog="system"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.9879719615" green="0.83402794599999996" blue="0.77054464820000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="hWc-vR-u52" firstAttribute="top" secondItem="DvD-7k-6Vh" secondAttribute="top" constant="5" id="0Kh-Kd-f67"/>
                                                 <constraint firstItem="hWc-vR-u52" firstAttribute="centerX" secondItem="DvD-7k-6Vh" secondAttribute="centerX" id="7n6-wp-CQ2"/>
@@ -346,6 +349,10 @@
                             <barButtonItem image="cart.fill" catalog="system" id="G56-Vx-0Sq"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="category_segment" destination="MV6-DM-bEV" id="xPO-QS-DXN"/>
+                        <outlet property="productCollectionV" destination="Eda-fg-Zbb" id="lCN-bQ-DWX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4M-Uj-BZE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -28,6 +28,9 @@
 		07525D2829AFC6E20056EEAB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2729AFC6E20056EEAB /* MeViewController.swift */; };
 		07525D2A29AFC7830056EEAB /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2929AFC7830056EEAB /* OrderTableViewCell.swift */; };
 		07525D2C29AFC8830056EEAB /* WishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07525D2B29AFC8830056EEAB /* WishTableViewCell.swift */; };
+		076DCFA929B6116A006D90FF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DCFA829B6116A006D90FF /* Category.swift */; };
+		076DCFAC29B61191006D90FF /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 076DCFAB29B61191006D90FF /* Floaty */; };
+		076DCFAF29B61529006D90FF /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DCFAE29B61529006D90FF /* CategoryViewModel.swift */; };
 		0783EFAE29AF9748009592E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFAD29AF9748009592E7 /* HomeViewController.swift */; };
 		0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */; };
 		0783EFB429AFA240009592E7 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */; };
@@ -100,6 +103,8 @@
 		07525D2729AFC6E20056EEAB /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		07525D2929AFC7830056EEAB /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		07525D2B29AFC8830056EEAB /* WishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTableViewCell.swift; sourceTree = "<group>"; };
+		076DCFA829B6116A006D90FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		076DCFAE29B61529006D90FF /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		0783EFAD29AF9748009592E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071FAB7C29B00581003D1D3A /* Kingfisher in Frameworks */,
+				076DCFAC29B61191006D90FF /* Floaty in Frameworks */,
 				071FAB7629AFF51C003D1D3A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +240,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		076DCFA729B61157006D90FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				076DCFA829B6116A006D90FF /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		076DCFAD29B61512006D90FF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				076DCFAE29B61529006D90FF /* CategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		07D25CFF29B0C38F00A99E92 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,9 +297,9 @@
 		07D25D0529B0C5F000A99E92 /* CategoryTab */ = {
 			isa = PBXGroup;
 			children = (
-				ABF2FFF429B18E050007845D /* Model */,
+				076DCFAD29B61512006D90FF /* ViewModel */,
+				076DCFA729B61157006D90FF /* Model */,
 				ABF2FFEA29B18BE20007845D /* View */,
-				ABF2FFEB29B18BEB0007845D /* ViewModel */,
 			);
 			path = CategoryTab;
 			sourceTree = "<group>";
@@ -550,13 +572,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ABF2FFEB29B18BEB0007845D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		ABF2FFEC29B18C150007845D /* ProductDetals */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,13 +631,6 @@
 			sourceTree = "<group>";
 		};
 		ABF2FFF329B18E010007845D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		ABF2FFF429B18E050007845D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -747,6 +755,7 @@
 			packageProductDependencies = (
 				071FAB7529AFF51C003D1D3A /* Alamofire */,
 				071FAB7B29B00581003D1D3A /* Kingfisher */,
+				076DCFAB29B61191006D90FF /* Floaty */,
 			);
 			productName = "E-commerce";
 			productReference = 0738B1B329AF8AB900F9375F /* E-commerce.app */;
@@ -823,6 +832,7 @@
 			packageReferences = (
 				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */,
 			);
 			productRefGroup = 0738B1B429AF8AB900F9375F /* Products */;
 			projectDirPath = "";
@@ -903,12 +913,14 @@
 				DDA4BBB329B12733004C6406 /* ProductDetailsViewController.swift in Sources */,
 				07D25D0929B0DC4F00A99E92 /* product.swift in Sources */,
 				DD88141929B122AE006C791A /* ShopingCartVC.swift in Sources */,
+				076DCFAF29B61529006D90FF /* CategoryViewModel.swift in Sources */,
 				DD88141B29B122AE006C791A /* OrderDetialsTableViewCell.swift in Sources */,
 				0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */,
 				DD88141C29B122AE006C791A /* OrderDetailsVC.swift in Sources */,
 				DDA4BBB129B12733004C6406 /* ProductDetailsCellViewController.swift in Sources */,
 				DD0FA16829B3BA4C002692E8 /* CustomerNetworkManager.swift in Sources */,
 				0738B1B929AF8AB900F9375F /* SceneDelegate.swift in Sources */,
+				076DCFA929B6116A006D90FF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1268,6 +1280,14 @@
 				kind = branch;
 			};
 		};
+		076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kciter/Floaty.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1280,6 +1300,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		076DCFAB29B61191006D90FF /* Floaty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */;
+			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
 

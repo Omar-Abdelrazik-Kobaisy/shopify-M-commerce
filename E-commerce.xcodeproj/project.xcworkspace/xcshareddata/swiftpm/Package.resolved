@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "floaty",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kciter/Floaty.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d0e637db60828d49e403ff0b7dc11b1458e67095"
+      }
+    },
+    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
