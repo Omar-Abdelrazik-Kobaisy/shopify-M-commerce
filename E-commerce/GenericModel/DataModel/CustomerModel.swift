@@ -15,8 +15,7 @@ class Customer:Codable{
     var first_name:String?
     var last_name:String?
     var email:String?
-    var password:String?
-    var password_confirmation:String?
+    var note:String?
 }
 
 

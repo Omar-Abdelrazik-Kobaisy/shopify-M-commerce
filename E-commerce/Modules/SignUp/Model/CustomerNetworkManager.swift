@@ -7,23 +7,20 @@
 
 import Foundation
 protocol CustomerNetwork{
-   static func CustomereRegister(Newcustomer:Customer)
+    static func CustomereRegister(Newcustomer:Customer,complication:@escaping (Int) -> Void)
 }
 class CustomerReg:CustomerNetwork{
-    
-    static var satatusCodeCheck:Int?
 
     
-    static func CustomereRegister(Newcustomer:Customer) {
+    static func CustomereRegister(Newcustomer:Customer,complication:@escaping (Int) -> Void) {
 
-        let url = URL(string: "https://48c74805e51e9dc89a6b69d3f0c3e6bf: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@mad-3-ism2023.myshopify.com/admin/api/2023-01/customers.json")
+        let url = URL(string: "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers.json")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
         let userDictionary = ["customer": ["first_name": Newcustomer.first_name,
                                            "last_name" : Newcustomer.last_name,
                                            "email": Newcustomer.email,
-                                           "password": Newcustomer.password,
-                                           "password_confirmation":Newcustomer.password_confirmation
+                                           "note": Newcustomer.note
                                           ]]
         urlRequest.httpShouldHandleCookies = false
         do {
@@ -37,7 +34,10 @@ class CustomerReg:CustomerNetwork{
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if (data != nil && data?.count != 0){
                 if let httpResponse = response as? HTTPURLResponse {
-                    satatusCodeCheck = httpResponse.statusCode
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
                    }
             }
             

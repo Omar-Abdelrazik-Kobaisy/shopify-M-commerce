@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController {
     
     var ViewModel:SignUpViewModel?
     var newCustomer:Customer?
+    var confirmPasswordCheck :String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,10 @@ class SignUpViewController: UIViewController {
         textFieldBorder(textField: ConfirmPassword)
         
         
-        
 
+            
+        
+        
     }
     
 
@@ -40,25 +43,40 @@ class SignUpViewController: UIViewController {
         print(userName.text!)
         newCustomer?.last_name = lastName.text
         newCustomer?.email = email.text
-        newCustomer?.password = password.text
-        newCustomer?.password_confirmation = ConfirmPassword.text
+        newCustomer?.note = password.text
+        confirmPasswordCheck = ConfirmPassword.text
         
         
         
         guard let customer = newCustomer else{
             return
         }
-        
         ViewModel?.setCustomer(setcustomer: customer)
+
         
-        if CustomerReg.satatusCodeCheck == 201{
-            showToast(message: "Account Created", seconds: 2.0)
+        ViewModel?.bindingSignUp = { [weak self] in
+            DispatchQueue.main.async {
+                
+                print("ObservableSignUp")
+
+                if self?.ViewModel?.ObservableSignUp  == 201{
+            
+                    self?.showToast(message: "Account Created", seconds: 2.0)
+                }
+                else{
+                    self?.showToast(message: "Check your Input", seconds: 2.0)
+                }
+                
+            }
+            
         }
+                
+    
+}
+            
+
         
-        else{
-            showToast(message: "Check your Input", seconds: 2.0)
-        }
-    }
+    
     
     func showToast(message : String, seconds: Double){
         

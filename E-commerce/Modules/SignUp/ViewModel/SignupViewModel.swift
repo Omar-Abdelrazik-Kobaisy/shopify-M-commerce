@@ -8,9 +8,18 @@
 import Foundation
 class SignUpViewModel{
     
-
+    var bindingSignUp:(()->())?
+    
+    var ObservableSignUp : Int? {
+        didSet {
+            bindingSignUp!()
+        }
+    }
+    
 func setCustomer(setcustomer:Customer){
-            CustomerReg.CustomereRegister(Newcustomer: setcustomer)
+    CustomerReg.CustomereRegister(Newcustomer: setcustomer) { check in
+        self.ObservableSignUp = check
+    }
     }
    
     
