@@ -140,19 +140,23 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
         return CGSize(width:self.view.frame.width*0.43, height: self.view.frame.height*0.24)
 
     }
-    
-
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productDetail = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as!ProductDetailsViewController
+        
+        if isFilterd{
+            productDetail.prodId = arr_filtered[indexPath.row].id
+        }
+        else{
+            
+            productDetail.prodId = products?.products[indexPath.row].id
+        }
+       
+        
+        navigationController?.pushViewController(productDetail, animated: true)
     }
-    */
+    }
 
-}
+    
+    
+
+

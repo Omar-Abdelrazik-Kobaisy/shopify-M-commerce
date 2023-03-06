@@ -101,6 +101,19 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate , UICo
             return CGSize(width:self.view.frame.width*0.25, height: self.view.frame.height*0.25)
         }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productDetail = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as!ProductDetailsViewController
+        if filter_slider.isHidden{
+            productDetail.prodId = arr_product[indexPath.row].id
+        }
+        else{
+            
+            productDetail.prodId = arr_product_filtered[indexPath.row].id
+        }
+       
+        
+        navigationController?.pushViewController(productDetail, animated: true)
+    }
   
 
 }

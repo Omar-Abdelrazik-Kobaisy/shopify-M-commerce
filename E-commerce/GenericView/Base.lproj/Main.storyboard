@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qnb-mt-bK7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T9e-L6-Ysv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -1688,7 +1688,7 @@
         <!--Product Details View Controller-->
         <scene sceneID="Zww-sM-F2H">
             <objects>
-                <viewController id="2UP-HH-YIc" customClass="ProductDetailsViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailsViewController" hidesBottomBarWhenPushed="YES" id="2UP-HH-YIc" customClass="ProductDetailsViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="an3-dc-iag">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1843,6 +1843,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8QA-X2-AM1"/>
+                    <connections>
+                        <outlet property="ProductDescription" destination="NX3-HK-pVh" id="qfR-Gn-eKN"/>
+                        <outlet property="ProductImagesCollection" destination="SHx-dw-ND9" id="8Z7-xs-pMl"/>
+                        <outlet property="ProductName" destination="5cX-po-XDe" id="6J0-CG-zP5"/>
+                        <outlet property="imageSlider" destination="cQb-Ha-w1v" id="viL-Y6-neS"/>
+                        <outlet property="productPrice" destination="IkT-1n-A29" id="5W6-JJ-xuY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kz-wr-fcp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
