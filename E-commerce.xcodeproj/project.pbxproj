@@ -162,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				071FAB7829B00315003D1D3A /* Brands.swift */,
-				07D25D0829B0DC4F00A99E92 /* product.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -699,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0FA16429B3AAF1002692E8 /* CustomerModel.swift */,
+				07D25D0829B0DC4F00A99E92 /* product.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
