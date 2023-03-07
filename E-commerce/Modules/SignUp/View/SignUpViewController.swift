@@ -52,15 +52,15 @@ class SignUpViewController: UIViewController {
             return
         }
         ViewModel?.setCustomer(setcustomer: customer)
-
+        
         
         ViewModel?.bindingSignUp = { [weak self] in
             DispatchQueue.main.async {
                 
                 print("ObservableSignUp")
-
+                
                 if self?.ViewModel?.ObservableSignUp  == 201{
-            
+                    
                     self?.showToast(message: "Account Created", seconds: 2.0)
                 }
                 else{
@@ -70,9 +70,9 @@ class SignUpViewController: UIViewController {
             }
             
         }
-                
-    
-}
+        
+        
+    }
             
 
         

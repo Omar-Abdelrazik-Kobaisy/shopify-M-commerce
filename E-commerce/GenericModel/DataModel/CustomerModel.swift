@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class Newcustomer:Codable{
     var customers:[Customer]
 }

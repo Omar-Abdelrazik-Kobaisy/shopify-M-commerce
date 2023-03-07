@@ -53,7 +53,8 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row){
         case 0 :
-            print("mina")
+            let addrVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+            self.navigationController?.pushViewController(addrVC, animated: true)
         case 1 :
             print("one")
         case 2 :
