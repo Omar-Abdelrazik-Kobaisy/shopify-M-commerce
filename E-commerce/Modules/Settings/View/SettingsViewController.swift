@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-       switch indexPath.row {
+        switch indexPath.row {
         case 0:
             cell.imageView?.image=UIImage(systemName: "homekit")
             cell.imageView?.tintColor = .label
@@ -44,10 +44,10 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
             cell.textLabel?.text="Contact Us"
             cell.imageView?.tintColor = .label
             cell.accessoryType = .disclosureIndicator
-
-       default:
-           break
-       }
+            
+        default:
+            break
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,5 +70,14 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-
+    
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        
+        UserDefaults.standard.set(0, forKey: "loginid")
+        let userDefultId =  UserDefaults.standard.integer(forKey:"loginid")
+        print("JSON STRING IS", userDefultId ?? 0)
+        let logOut = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        navigationController?.pushViewController(logOut, animated: true)
+    }
 }

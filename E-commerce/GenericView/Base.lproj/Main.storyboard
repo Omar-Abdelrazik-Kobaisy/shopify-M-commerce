@@ -760,7 +760,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Rs5-mh-EVg">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="v8i-iE-fVx" customClass="SettingsViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" hidesBottomBarWhenPushed="YES" id="v8i-iE-fVx" customClass="SettingsViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Fe-lT-Cds">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -795,6 +795,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="LogOutBtnClicked:" destination="v8i-iE-fVx" eventType="touchUpInside" id="8Ox-xm-gf6"/>
+                                    <action selector="logOutAction:" destination="v8i-iE-fVx" eventType="touchUpInside" id="IMi-Ia-3Sr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1460,7 +1461,7 @@
         <!--Main View Controller-->
         <scene sceneID="Qwf-4z-n3O">
             <objects>
-                <viewController id="fTt-7K-tqV" customClass="MainViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="fTt-7K-tqV" customClass="MainViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a1m-Ea-WHQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
