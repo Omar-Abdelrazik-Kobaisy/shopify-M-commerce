@@ -22,15 +22,28 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
         var arr_filtered : [productItem]!
         var arr_products : [productItem] = []
         var isFilterd : Bool = false
-        
+       var CatogoryFilter : [productItem] = []
+
         var arr_category_id : [Int] = []
     
     var viewModel = CategoryViewModel()
     
     
+    
+    let searchController = UISearchController(searchResultsController: nil)
+
+    var isSearchBarEmpty: Bool{
+            return searchController.searchBar.text!.isEmpty
+        }
+    var isFiltering : Bool{
+            return searchController.isActive && !isSearchBarEmpty
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
+        makeSearchBar()
+        
         filterByFloatyButton()
         
         viewModel.getCategory()
@@ -111,8 +124,10 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
                {
                    return arr_filtered.count
                }
-               return products?.products.count ?? 0
-       //        return arr_products.count
+        else if isFiltering {
+            return CatogoryFilter.count
+        }
+        return products?.products.count ?? 0
 
     }
     
@@ -126,6 +141,13 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
                    
                    return cell
                }
+        else if isFiltering {
+
+            cell.product_image.kf.setImage(with: URL(string: CatogoryFilter[indexPath.row].image.src ?? ""))
+            cell.product_name.text = CatogoryFilter[indexPath.row].variants[0].price
+
+            return cell
+        }
                cell.product_image.kf.setImage(with: URL(string: products?.products[indexPath.row].image.src ?? ""))
                cell.product_name.text = products?.products[indexPath.row].variants[0].price
                
@@ -170,7 +192,30 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
     
     }
 
+//------------------for-------------search-----------------
+extension CategoryViewController: UISearchResultsUpdating, UISearchBarDelegate{
+
+    func makeSearchBar(){
+
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .black
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+
+        textFieldInsideSearchBar?.textColor = .black
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
+                
+    }
     
-    
+    func updateSearchResults(for searchController: UISearchController) {
+        CatogoryFilter = (products?.products)!.filter({ filter in
+            return filter.title!.lowercased().contains(searchController.searchBar.text!.lowercased())
+        })
+        productCollectionV.reloadData()
+    }
+}
+
 
 

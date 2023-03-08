@@ -25,6 +25,7 @@ class productItem : Decodable
     var product_type : String?
     var image : ProductImage
     var variants : [Prices]
+    var title : String?
 }
 class product : Decodable {
     var products : [productItem]
