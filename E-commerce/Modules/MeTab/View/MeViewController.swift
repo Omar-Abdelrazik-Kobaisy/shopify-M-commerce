@@ -16,21 +16,23 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     @IBOutlet weak var Wish_TableV: UITableView!
     
     var orders : GetOrder?
+    
+    var viewModel = MeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.integer(forKey:"loginid"))
                
                let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(UserDefaults.standard.integer(forKey:"loginid"))/orders.json"
                
-               ApiService.fetchFromApi(API_URL: url) { [weak self] data in
-                   self?.orders = data
-
-                   DispatchQueue.main.async {
-                       self?.Order_TableV.reloadData()
-                   }
-               }
-
-
+        
+        viewModel.getOrders(url: url)
+        
+        viewModel.bindingResultToMeTab = {[weak self] data in
+            self?.orders = data
+            DispatchQueue.main.async {
+                self?.Order_TableV.reloadData()
+            }
+        }
     }
     
     
