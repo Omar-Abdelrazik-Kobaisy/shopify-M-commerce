@@ -291,6 +291,7 @@
 			children = (
 				0783EFAD29AF9748009592E7 /* HomeViewController.swift */,
 				0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */,
+				DD89C9EB29B575EB006F1A93 /* HomeTabBarController.swift */,
 				0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */,
 			);
 			path = View;
@@ -300,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				07D25D0329B0C5B200A99E92 /* HomeViewModel.swift */,
-				DD89C9EB29B575EB006F1A93 /* HomeTabBarController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
