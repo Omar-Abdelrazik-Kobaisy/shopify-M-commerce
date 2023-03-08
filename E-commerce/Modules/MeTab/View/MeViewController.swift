@@ -14,8 +14,22 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     
     @IBOutlet weak var Wish_TableV: UITableView!
+    
+    var orders : GetOrder?
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.integer(forKey:"loginid"))
+               
+               let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(UserDefaults.standard.integer(forKey:"loginid"))/orders.json"
+               
+               ApiService.fetchFromApi(API_URL: url) { [weak self] data in
+                   self?.orders = data
+
+                   DispatchQueue.main.async {
+                       self?.Order_TableV.reloadData()
+                   }
+               }
+
 
     }
     
@@ -24,7 +38,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == Order_TableV
         {
-            return 5
+            return orders?.orders.count ?? 0
         }
         return 19
     }
@@ -34,8 +48,8 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "order", for: indexPath) as! OrderTableViewCell
             
-            cell.order_price.text = "9999$"
-            cell.order_createdat.text = "3-3-2022"
+            cell.order_price.text = orders?.orders[indexPath.row].current_total_price
+            cell.order_createdat.text = orders?.orders[indexPath.row].created_at
             
             return cell
         }
@@ -65,6 +79,19 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC") as! ShopingCartVC
         
         navigationController?.pushViewController(cart, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsVC") as! OrderDetailsVC
+                
+                orderDetailsVC.created_at = orders?.orders[indexPath.row].created_at
+                orderDetailsVC.user_name = (orders?.orders[indexPath.row].customer.first_name ?? "") + " " + (orders?.orders[indexPath.row].customer.last_name ?? "")
+                
+                orderDetailsVC.arr_of_orders = orders?.orders[indexPath.row].line_items
+                
+                
+                self.navigationController?.pushViewController(orderDetailsVC, animated: true)
+
     }
 
     
