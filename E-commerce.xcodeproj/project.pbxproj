@@ -44,6 +44,8 @@
 		399D85C229B795D6002B7308 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C129B795D6002B7308 /* AddressModel.swift */; };
 		399D85C429B795D6002B7308 /* AddressNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C329B795D6002B7308 /* AddressNetworkService.swift */; };
 		399D85C629B7AC28002B7308 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C529B7AC28002B7308 /* AddressViewModel.swift */; };
+		39A8019729B7F1DE00204A69 /* getAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8019629B7F1DD00204A69 /* getAddressModel.swift */; };
+		39A8019A29B7FB2200204A69 /* getViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8019929B7FB2200204A69 /* getViewModel.swift */; };
 		ABC55C3729B19E8C00444FE8 /* AddNewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC55C3629B19E8C00444FE8 /* AddNewAddressViewController.swift */; };
 		DD0FA16529B3AAF1002692E8 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FA16429B3AAF1002692E8 /* CustomerModel.swift */; };
 		DD0FA16829B3BA4C002692E8 /* CustomerNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FA16729B3BA4C002692E8 /* CustomerNetworkManager.swift */; };
@@ -126,6 +128,8 @@
 		399D85C129B795D6002B7308 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		399D85C329B795D6002B7308 /* AddressNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetworkService.swift; sourceTree = "<group>"; };
 		399D85C529B7AC28002B7308 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		39A8019629B7F1DD00204A69 /* getAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAddressModel.swift; sourceTree = "<group>"; };
+		39A8019929B7FB2200204A69 /* getViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getViewModel.swift; sourceTree = "<group>"; };
 		ABC55C3629B19E8C00444FE8 /* AddNewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressViewController.swift; sourceTree = "<group>"; };
 		DD0FA16429B3AAF1002692E8 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
 		DD0FA16729B3BA4C002692E8 /* CustomerNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerNetworkManager.swift; sourceTree = "<group>"; };
@@ -381,6 +385,14 @@
 			path = GenericModel;
 			sourceTree = "<group>";
 		};
+		39A8019829B7FAFC00204A69 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39A8019929B7FB2200204A69 /* getViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		ABC55C2F29B19A1600444FE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +492,7 @@
 		ABF2FFCA29B188FA0007845D /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				39A8019829B7FAFC00204A69 /* viewModel */,
 				ABF2FFFA29B18E780007845D /* Model */,
 				ABF2FFCC29B188FA0007845D /* View */,
 			);
@@ -654,6 +667,7 @@
 		ABF2FFFA29B18E780007845D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39A8019629B7F1DD00204A69 /* getAddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -932,6 +946,7 @@
 				DDAFFB5329B6360E00C07CCA /* ProductDetailsViewModel.swift in Sources */,
 				39661D6129B692FF00B2C8A5 /* AboutViewController.swift in Sources */,
 				39661D6529B693A200B2C8A5 /* SettingsViewController.swift in Sources */,
+				39A8019A29B7FB2200204A69 /* getViewModel.swift in Sources */,
 				DDAFFB5129B62B0800C07CCA /* ProductDetailModel.swift in Sources */,
 				DDA4BBB029B12733004C6406 /* LoginViewController.swift in Sources */,
 				0783EFB629AFB8EF009592E7 /* CategoryViewController.swift in Sources */,
@@ -944,6 +959,7 @@
 				DDA4BBB329B12733004C6406 /* ProductDetailsViewController.swift in Sources */,
 				07D25D0929B0DC4F00A99E92 /* product.swift in Sources */,
 				DD88141929B122AE006C791A /* ShopingCartVC.swift in Sources */,
+				39A8019729B7F1DE00204A69 /* getAddressModel.swift in Sources */,
 				076DCFAF29B61529006D90FF /* CategoryViewModel.swift in Sources */,
 				DD88141B29B122AE006C791A /* OrderDetialsTableViewCell.swift in Sources */,
 				0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */,

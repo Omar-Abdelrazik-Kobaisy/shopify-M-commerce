@@ -854,14 +854,18 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAy-VF-apa">
                                                     <rect key="frame" x="235" y="33" width="132" height="21"/>
-                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="132" id="BrM-4s-oOT"/>
+                                                        <constraint firstAttribute="height" constant="21" id="VWZ-1x-k8l"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-8s-hBN">
                                                     <rect key="frame" x="235" y="62" width="138" height="21"/>
-                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="138" id="ezJ-wZ-u9d"/>
                                                     </constraints>
@@ -871,7 +875,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyX-Hl-xDv">
                                                     <rect key="frame" x="235" y="90" width="138" height="21"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="dHD-dZ-Lbl"/>
                                                     </constraints>
@@ -918,7 +922,7 @@
                                     <outlet property="delegate" destination="Aog-Mo-w8E" id="5b2-sX-FO3"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-4d-pla">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-4d-pla">
                                 <rect key="frame" x="116.66666666666669" y="617" width="160" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34.329999999999998" id="Bx7-gc-cFK"/>
@@ -945,6 +949,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BjK-LU-LxK"/>
+                    <connections>
+                        <outlet property="AddBtn" destination="4Re-4d-pla" id="3Wl-wj-g93"/>
+                        <outlet property="tableView" destination="sGK-bG-3Ez" id="EM4-EH-G2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1y-MW-aOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1031,6 +1039,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AddAddressBtn" destination="fze-Rh-MeQ" id="v4q-jx-S0h"/>
                         <outlet property="AddressTF" destination="fvw-e7-1Mv" id="QH2-x5-9P0"/>
                         <outlet property="CityTF" destination="NGy-LC-XJS" id="wT3-Ss-aME"/>
                         <outlet property="CountryTF" destination="4uH-a0-ydh" id="v6C-vz-2dX"/>
@@ -2124,7 +2133,7 @@ Mina Eid</string>
         <image name="cart (1)" width="563" height="581"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="gearshape" catalog="system" width="32" height="32"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.circle" catalog="system" width="128" height="123"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
@@ -2139,6 +2148,9 @@ Mina Eid</string>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

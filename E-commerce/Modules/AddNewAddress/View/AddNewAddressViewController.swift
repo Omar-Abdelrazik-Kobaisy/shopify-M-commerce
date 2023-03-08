@@ -8,7 +8,7 @@ import UIKit
 
 class AddNewAddressViewController: UIViewController {
     
-    
+    @IBOutlet weak var AddAddressBtn: UIButton!
     @IBOutlet weak var CountryTF: UITextField!
     @IBOutlet weak var AddressTF: UITextField!
     @IBOutlet weak var PhoneTF: UITextField!
@@ -80,35 +80,11 @@ class AddNewAddressViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-}
-/* newCustomer?.first_name = userName.text
- print(userName.text!)
- newCustomer?.last_name = lastName.text
- newCustomer?.email = email.text
- newCustomer?.note = password.text
- confirmPasswordCheck = ConfirmPassword.text
- 
- 
- 
- guard let customer = newCustomer else{
-     return
- }
- ViewModel?.setCustomer(setcustomer: customer)
- 
- 
- ViewModel?.bindingSignUp = { [weak self] in
-     DispatchQueue.main.async {
-         
-         print("ObservableSignUp")
-         
-         if self?.ViewModel?.ObservableSignUp  == 201{
-             
-             self?.showToast(message: "Account Created", seconds: 2.0)
-         }
-         else{
-             self?.showToast(message: "Check your Input", seconds: 2.0)
-         }
-         
+     func editBtn()
+     {
+      AddAddressBtn.backgroundColor = .clear
+      AddAddressBtn.layer.cornerRadius = 5
+      AddAddressBtn.layer.borderWidth = 1
+      AddAddressBtn.layer.borderColor = UIColor.tintColor.cgColor
      }
-     
- }*/
+}

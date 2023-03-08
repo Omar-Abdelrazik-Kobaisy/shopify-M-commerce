@@ -10,11 +10,20 @@ import UIKit
 class AddressViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
     
-
+    @IBOutlet weak var AddBtn: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    var customerAddressTable : CustomerAddress?
+    var GetModel : gettingViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        GetModel = gettingViewModel()
+        GetModel?.getAddress()
+        GetModel?.bindingGet = { [weak self] in
+            DispatchQueue.main.async {
+                self!.customerAddressTable = self!.GetModel?.ObservableGet
+                self!.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func AddnewAddressBtn(_ sender: Any) {
@@ -23,17 +32,24 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return customerAddressTable?.addresses?.count ?? 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddressTableViewCell
-        cell.Countrylbl.text = "Egypt"
-        cell.Addresslbl.text = "Helwan"
-        cell.phonelbl.text = "012"
+        cell.detailsOfCountrylbl.text = customerAddressTable?.addresses![indexPath.row].country
+        cell.detailsOfAddresslbl.text = customerAddressTable?.addresses![indexPath.row].address1
+        cell.detailsOfPhonelbl.text = customerAddressTable?.addresses![indexPath.row].phone
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    func editBtn()
+    {
+        AddBtn.backgroundColor = .clear
+        AddBtn.layer.cornerRadius = 5
+        AddBtn.layer.borderWidth = 1
+        AddBtn.layer.borderColor = UIColor.tintColor.cgColor
     }
 
 }
