@@ -11,7 +11,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     
     @IBOutlet weak var totalItemsPriceLabel: UILabel!
     @IBOutlet weak var tableViewOutlet: UITableView!
-    
+    @IBOutlet weak var SubTotallbl: UILabel!
     var models : [OrderListModel]?
     
     var orderViewModel : OrderViewModel?
@@ -86,6 +86,8 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     func checkCartIsEmpty() {
         if models?.count == 0{
             tableViewOutlet.isHidden = true
+            SubTotallbl.isHidden = true
+            totalItemsPriceLabel.isHidden = true
         }
     }
     

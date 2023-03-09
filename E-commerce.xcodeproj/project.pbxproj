@@ -72,7 +72,6 @@
 		DDA4BBB129B12733004C6406 /* ProductDetailsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4BBAC29B12733004C6406 /* ProductDetailsCellViewController.swift */; };
 		DDA4BBB229B12733004C6406 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4BBAD29B12733004C6406 /* SignUpViewController.swift */; };
 		DDA4BBB329B12733004C6406 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */; };
-		DDAFFB5129B62B0800C07CCA /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5029B62B0800C07CCA /* ProductDetailModel.swift */; };
 		DDAFFB5329B6360E00C07CCA /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */; };
 		DDAFFB5629B6691F00C07CCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -161,7 +160,6 @@
 		DDA4BBAC29B12733004C6406 /* ProductDetailsCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsCellViewController.swift; sourceTree = "<group>"; };
 		DDA4BBAD29B12733004C6406 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
-		DDAFFB5029B62B0800C07CCA /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
 		DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -784,7 +782,6 @@
 		DDAFFB4E29B62ADD00C07CCA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DDAFFB5029B62B0800C07CCA /* ProductDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -982,7 +979,6 @@
 				39661D6129B692FF00B2C8A5 /* AboutViewController.swift in Sources */,
 				39661D6529B693A200B2C8A5 /* SettingsViewController.swift in Sources */,
 				39A8019A29B7FB2200204A69 /* getViewModel.swift in Sources */,
-				DDAFFB5129B62B0800C07CCA /* ProductDetailModel.swift in Sources */,
 				DDA4BBB029B12733004C6406 /* LoginViewController.swift in Sources */,
 				0783EFB629AFB8EF009592E7 /* CategoryViewController.swift in Sources */,
 				DD88140729B11E2B006C791A /* AddressTableViewCell.swift in Sources */,
