@@ -8,16 +8,14 @@
 import Foundation
 
 
-class OrderItem : Decodable
-{
+struct OrderItem : Codable {
     var id : Int?
     var name : String?
     var price : String?
     var quantity : Int?
 }
 
-class Order : Decodable
-{
+struct Order : Codable{
     var id : Int?
     var customer : Customer
     var line_items : [OrderItem]
@@ -26,12 +24,12 @@ class Order : Decodable
     var current_total_discounts : String?
 }
 
-class PostOrder : Decodable
+struct PostOrder : Codable
 {
     var order : Order
 }
 
-class GetOrder : Decodable
+struct GetOrder : Codable
 {
     var orders : [Order]
 }

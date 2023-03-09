@@ -17,6 +17,7 @@ class ShopingCartTableViewCell: UITableViewCell {
     var itemPriceIntValu :Int = 0
     var priceOfTotalItemCount : Int = 0
     let shopingCartViewObj = ShopingCartVC()
+    
     @IBAction func decreaseItemCount(_ sender: Any) {
         
         ItemCount.text = String(itemCountInt)
@@ -30,6 +31,8 @@ class ShopingCartTableViewCell: UITableViewCell {
             ItemCount.text = String(itemCountInt)
         }
     }
+    
+    
     
     @IBAction func increaseItemCount(_ sender: Any) {
         if itemCountInt == 1{

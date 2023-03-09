@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Newcustomer:Codable{
+struct Newcustomer:Codable{
     var customers:[Customer]
 }
 
-class Customer:Codable{
+struct Customer:Codable {
     var id:Int?
     var first_name:String?
     var last_name:String?

@@ -9,28 +9,28 @@ import Foundation
 
 
 
-class imageDetail : Decodable{
-    var src:String?
-}
-
-class Variant : Decodable{
-    var price:String?
-}
-
-
-class detail : Decodable
-{
-    var title:String?
-    var body_html:String?
-    var variants:[Variant]
-    var images:[imageDetail]
-}
-
-
-class ProductDetails : Decodable
-{
-    var product : detail
-
-}
+//class imageDetail : Decodable{
+//    var src:String?
+//}
+//
+//class Variant : Decodable{
+//    var price:String?
+//}
+//
+//
+//class detail : Decodable
+//{
+//    var title:String?
+//    var body_html:String?
+//    var variants:[Variant]
+//    var images:[imageDetail]
+//}
+//
+//
+//class ProductDetails : Decodable
+//{
+//    var product : detail
+//
+//}
 
 

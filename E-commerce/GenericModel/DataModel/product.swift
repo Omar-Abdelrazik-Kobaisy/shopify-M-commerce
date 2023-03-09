@@ -23,10 +23,19 @@ class productItem : Decodable
 {
     var id : Int?
     var product_type : String?
+    var body_html:String?
     var image : ProductImage
+    var images:[ProductImage]
     var variants : [Prices]
     var title : String?
 }
 class product : Decodable {
     var products : [productItem]
+}
+
+
+class ProductDetails : Decodable
+{
+    var product : productItem
+
 }
