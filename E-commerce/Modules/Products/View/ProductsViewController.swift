@@ -8,10 +8,10 @@
 import UIKit
 import Kingfisher
 
-class ProductsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+class ProductsViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     var brandId : Int?
-    
+    var favId = ""
     var brandTitle : String?
     
     @IBOutlet weak var max_price: UILabel!
@@ -82,19 +82,6 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate , UICo
                return arr_product_filtered.count
         }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
-            if filter_slider.isHidden
-                    {
-                        cell.product_image.kf.setImage(with: URL(string: arr_product[indexPath.row].image.src ?? ""))
-                        cell.product_price.text = arr_product[indexPath.row].variants.first?.price
-                        return cell
-                    }
-                        cell.product_image.kf.setImage(with: URL(string: arr_product_filtered[indexPath.row].image.src ?? ""))
-                        cell.product_price.text = arr_product_filtered[indexPath.row].variants.first?.price
-                        return cell
-        }
-        
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
@@ -118,4 +105,55 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate , UICo
     
   
 
+}
+extension ProductsViewController:UICollectionViewDataSource{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
+        //---------check--------button---------state
+        favId = "\(arr_product[indexPath.row].id ?? 0)"
+        
+        if UserDefaults.standard.bool(forKey: self.favId){
+            cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
+        }else{
+            cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
+        cell.favProd = { [unowned self] in
+            
+            cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+            cell.product_fav.isSelected = !cell.product_fav.isSelected
+            
+            if cell.product_fav.isSelected {
+                
+                cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                CoreDataManager.saveToCoreData(productId: self.arr_product[indexPath.row].id ?? 0, productTitle: self.arr_product[indexPath.row].title ?? "", productImg: self.arr_product[indexPath.row].image.src ?? "")
+                   UserDefaults.standard.set(true, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
+
+            }else{
+                //---------------un----------selected(deletion)-----------------
+                cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
+                CoreDataManager.deleteFromCoreData(productId:  self.arr_product[indexPath.row].id ?? 0)
+                UserDefaults.standard.set(false, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
+
+                
+            }
+            
+        }
+        
+        
+        if filter_slider.isHidden
+                {
+                    cell.product_image.kf.setImage(with: URL(string: arr_product[indexPath.row].image.src ?? ""))
+                    cell.product_price.text = arr_product[indexPath.row].variants.first?.price
+                    return cell
+                }
+                    cell.product_image.kf.setImage(with: URL(string: arr_product_filtered[indexPath.row].image.src ?? ""))
+                    cell.product_price.text = arr_product_filtered[indexPath.row].variants.first?.price
+                 
+                   return cell
+    }
+    
 }

@@ -426,8 +426,12 @@
                                                         <constraint firstAttribute="width" constant="23" id="26t-pN-7Mq"/>
                                                         <constraint firstAttribute="height" constant="24" id="qze-kt-EUr"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="heart.circle" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="FavButtonAction:" destination="FQ8-mj-ai1" eventType="touchUpInside" id="rVl-gi-BTd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1429,7 +1433,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ibE-rj-Y0o">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="ibE-rj-Y0o">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ibE-rj-Y0o" id="hR7-QS-YvE">
@@ -1579,7 +1583,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>

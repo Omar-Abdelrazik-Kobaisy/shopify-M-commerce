@@ -8,6 +8,8 @@
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
+    var favProd:(()->())?
+
     
     @IBOutlet weak var product_image: UIImageView!
     
@@ -19,5 +21,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var product_fav: UIButton!
+    
+    
+    @IBAction func FavButtonAction(_ sender: Any) {
+        favProd?()
+
+    }
     
 }

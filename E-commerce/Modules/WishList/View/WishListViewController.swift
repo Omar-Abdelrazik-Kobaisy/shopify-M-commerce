@@ -53,14 +53,13 @@ class WishListViewController: UITableViewController {
         }
 
     }
+    
+    //------------function---------Alert------------------
     func showAlert(indexPath: IndexPath){
-        // declare Alert
-        let alert = UIAlertController(title: "Delete", message: "are you sure about deletion", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete", message: "Are you sure about deletion ?", preferredStyle: .alert)
         
-        
-        
-        //AddAction
-        alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { [self] action in
+            //Delet-----From-------coredata------And--------UserDefaults
+            alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { [self] action in
             print("ok clicked")
             guard let key = wishListArray[indexPath.row].product_id else
             { return  }
@@ -74,13 +73,9 @@ class WishListViewController: UITableViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel , handler: { action in
-            print("Cancel clicked")
         }))
         
-
-        //showAlert
         self.present(alert, animated: true) {
-            print("alert done")
         }
     }
 
