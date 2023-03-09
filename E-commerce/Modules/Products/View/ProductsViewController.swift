@@ -111,18 +111,21 @@ extension ProductsViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
-        //---------check--------button---------state
-        favId = "\(arr_product[indexPath.row].id ?? 0)"
         
+        favId = "\(arr_product[indexPath.row].id ?? 0)"
+        print("abovefavkey "+favId)
         if UserDefaults.standard.bool(forKey: self.favId){
             cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        
+            print("fsavedavkey "+favId)
+            print("add fav")
+
         }else{
             cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
+            print("notsavedvedfavkey "+favId)
+            print("not fav")
         }
 
         cell.favProd = { [unowned self] in
-            
             cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
             cell.product_fav.isSelected = !cell.product_fav.isSelected
             
@@ -133,7 +136,6 @@ extension ProductsViewController:UICollectionViewDataSource{
                    UserDefaults.standard.set(true, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
 
             }else{
-                //---------------un----------selected(deletion)-----------------
                 cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
                 CoreDataManager.deleteFromCoreData(productId:  self.arr_product[indexPath.row].id ?? 0)
                 UserDefaults.standard.set(false, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
@@ -153,7 +155,7 @@ extension ProductsViewController:UICollectionViewDataSource{
                     cell.product_image.kf.setImage(with: URL(string: arr_product_filtered[indexPath.row].image.src ?? ""))
                     cell.product_price.text = arr_product_filtered[indexPath.row].variants.first?.price
                  
-                   return cell
+        return cell
     }
     
 }

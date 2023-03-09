@@ -9,14 +9,14 @@ import UIKit
 import Kingfisher
 import Floaty
 
-class CategoryViewController: UIViewController ,UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class CategoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var category_segment: UISegmentedControl!
     
     @IBOutlet weak var productCollectionV: UICollectionView!
     
     var category : Category?
-        
+        var favId = ""
         var products : product?
         let floaty = Floaty()
         var arr_filtered : [productItem]!
@@ -131,31 +131,6 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
 
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! CategoryCollectionViewCell
-        if isFilterd
-               {
-                   cell.product_image.kf.setImage(with: URL(string: arr_filtered[indexPath.row].image.src ?? ""))
-                   cell.product_name.text = arr_filtered[indexPath.row].variants[0].price
-                   
-                   return cell
-               }
-        else if isFiltering {
-
-            cell.product_image.kf.setImage(with: URL(string: CatogoryFilter[indexPath.row].image.src ?? ""))
-            cell.product_name.text = CatogoryFilter[indexPath.row].variants[0].price
-
-            return cell
-        }
-               cell.product_image.kf.setImage(with: URL(string: products?.products[indexPath.row].image.src ?? ""))
-               cell.product_name.text = products?.products[indexPath.row].variants[0].price
-               
-               
-               return cell
-        
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
@@ -191,6 +166,71 @@ class CategoryViewController: UIViewController ,UICollectionViewDataSource , UIC
     }
     
     }
+
+extension CategoryViewController:UICollectionViewDataSource{
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! CategoryCollectionViewCell
+        
+        //---------check--------button---------state
+        favId = "\(products?.products[indexPath.row].id ?? 0)"
+        
+        if UserDefaults.standard.bool(forKey: self.favId){
+            cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
+        }else{
+            cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+
+        cell.favProd = { [unowned self] in
+            
+            cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+            cell.favourite_btn.isSelected = !cell.favourite_btn.isSelected
+            
+            if cell.favourite_btn.isSelected {
+                
+                cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                CoreDataManager.saveToCoreData(productId: products?.products[indexPath.row].id ?? 0, productTitle:products?.products[indexPath.row].title ?? "", productImg: products?.products[indexPath.row].image.src ?? "")
+                   UserDefaults.standard.set(true, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
+
+            }else{
+                //---------------un----------selected(deletion)-----------------
+                cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
+                CoreDataManager.deleteFromCoreData(productId: products?.products[indexPath.row].id ?? 0)
+                UserDefaults.standard.set(false, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
+
+                
+            }
+            
+        }
+        
+        if isFilterd
+               {
+                   cell.product_image.kf.setImage(with: URL(string: arr_filtered[indexPath.row].image.src ?? ""))
+                   cell.product_name.text = arr_filtered[indexPath.row].variants[0].price
+                   
+                   return cell
+               }
+        else if isFiltering {
+
+            cell.product_image.kf.setImage(with: URL(string: CatogoryFilter[indexPath.row].image.src ?? ""))
+            cell.product_name.text = CatogoryFilter[indexPath.row].variants[0].price
+
+            return cell
+        }
+               cell.product_image.kf.setImage(with: URL(string: products?.products[indexPath.row].image.src ?? ""))
+               cell.product_name.text = products?.products[indexPath.row].variants[0].price
+               
+               
+               return cell
+        
+    }
+    
+}
+
 
 //------------------for-------------search-----------------
 extension CategoryViewController: UISearchResultsUpdating, UISearchBarDelegate{

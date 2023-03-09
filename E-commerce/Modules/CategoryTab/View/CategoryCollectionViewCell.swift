@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
    
+    var favProd:(()->())?
+
     
     
     @IBOutlet weak var product_image: UIImageView!
@@ -17,4 +19,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var favourite_btn: UIButton!
+    
+    
+    @IBAction func FavButtonAction(_ sender: Any) {
+        favProd?()
+    }
 }
