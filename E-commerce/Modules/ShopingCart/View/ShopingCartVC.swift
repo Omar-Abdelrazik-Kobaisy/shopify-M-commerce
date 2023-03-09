@@ -13,11 +13,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     @IBOutlet weak var tableViewOutlet: UITableView!
     @IBOutlet weak var SubTotallbl: UILabel!
     var models : [OrderListModel]?
-    
     var orderViewModel : OrderViewModel?
-    
-    var orderProduct : [OrderItem] = []
-    var order = Order.self
     var addedPricetoInitialPOI : Int = 0
     var initialTotalpriceOfItems : Int = 0
     
@@ -30,8 +26,6 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
                 self!.models = self!.orderViewModel?.ObservableGet
                 self?.tableViewOutlet.reloadData()
             }
-            
-            
         }
         orderViewModel?.getAllItems { cartItems, error in
             guard let items = cartItems else { return}
@@ -50,11 +44,16 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         let url = URL(string: models![indexPath.row].itemImage!)
         cell.itemImage.kf.setImage(with: url)
         cell.itemName.text = models![indexPath.row].itemName
+    
         if cell.ItemCount.text == "1" {
-            cell.itemPrice.text = "120"
-        }else{
-            cell.itemPrice.text = String(120 * cell.itemCountInt)
-        }
+         cell.itemPrice.text = models?[indexPath.row].itemPrice
+     }else{
+         cell.itemPrice.text = String((Int(models?[indexPath.row].itemPrice ?? "") ?? 0) + (cell.itemPrice.text as! NSString).integerValue)
+     }
+     cell.temp = (cell.itemPrice.text as! NSString).integerValue
+     print(cell.temp)
+     print(cell.itemPrice.text)
+        
         initialTotalpriceOfItems += Int(cell.itemPrice.text!) ?? 0
         totalItemsPriceLabel.text = String(initialTotalpriceOfItems)
         return cell
@@ -65,8 +64,8 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
             models?.remove(at: indexPath.row)
             tableViewOutlet.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
-        
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
@@ -77,7 +76,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     }
 
     @IBAction func proceed(_ sender: Any) {
-       totalItemsPriceLabel.text = "000"
+       //totalItemsPriceLabel.text = "000"
         if models?.count == 0 {
             self.showAlertError(title: "No items", message: "there is no itmes to checkout")
         }

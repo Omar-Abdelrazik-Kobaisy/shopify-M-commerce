@@ -1187,6 +1187,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="SubTotallbl" destination="7Db-SB-FkH" id="tWd-uQ-MSO"/>
                         <outlet property="tableViewOutlet" destination="btv-Q5-7RC" id="RDj-V3-aKW"/>
                         <outlet property="totalItemsPriceLabel" destination="wdy-vC-e2h" id="Nwc-xl-yzK"/>
                     </connections>
@@ -1751,7 +1752,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SHx-dw-ND9">
-                                <rect key="frame" x="0.0" y="59" width="393" height="275"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="275"/>
                                 <color key="backgroundColor" red="0.2117646933" green="0.2117646933" blue="0.1979144877" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="275" id="2N1-zd-HsQ"/>
@@ -1796,7 +1797,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ho4-tL-WT5">
-                                <rect key="frame" x="0.0" y="411" width="393" height="54.666666666666686"/>
+                                <rect key="frame" x="0.0" y="455" width="393" height="54.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ProductName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-po-XDe">
                                         <rect key="frame" x="0.0" y="0.0" width="252" height="26.333333333333332"/>
@@ -1848,16 +1849,16 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-7K-dbM">
-                                <rect key="frame" x="0.0" y="505.00000000000006" width="393" height="214.66666666666669"/>
+                                <rect key="frame" x="0.0" y="549" width="393" height="170.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgD-1X-jye">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="64.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgD-1X-jye">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-HK-pVh">
-                                        <rect key="frame" x="0.0" y="72.333333333333385" width="393" height="142.33333333333337"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-HK-pVh">
+                                        <rect key="frame" x="0.0" y="28.333333333333371" width="393" height="142.33333333333334"/>
                                         <string key="text">What is a product description? A product description is the marketing copy that explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and key benefits of the product so they're compelled to buy</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -1870,7 +1871,7 @@
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cQb-Ha-w1v">
-                                <rect key="frame" x="90" y="342" width="213" height="26"/>
+                                <rect key="frame" x="90" y="386" width="213" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="213" id="BIk-0y-sKD"/>
@@ -1914,7 +1915,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kz-wr-fcp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3826.7175572519081" y="-777.46478873239437"/>
+            <point key="canvasLocation" x="4753.4351145038163" y="-777.46478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0t-Gt-Irs">
@@ -2141,6 +2142,24 @@ Mina Eid</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8c7-dU-XTP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="464.8854961832061" y="538.73239436619724"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qAR-Lj-QSN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdJ-nv-UMt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1x1-sl-9Tf">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2UP-HH-YIc" kind="relationship" relationship="rootViewController" id="Kjt-R7-Z3V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6o-ke-pcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3826.7175572519081" y="-777.46478873239437"/>
         </scene>
     </scenes>
     <resources>

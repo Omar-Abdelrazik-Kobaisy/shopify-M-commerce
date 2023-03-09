@@ -21,7 +21,6 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     var prodId:Int?
     var currentpagee = 0
     var productt : productItem?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ProductViewModel = ProductDetailViewModel()
@@ -34,6 +33,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
                 self?.productPrice.text = self?.productInfo?.product.variants[0].price
                 self?.ProductDescription.text = self?.productInfo?.product.body_html
                 self?.imageSlider.numberOfPages = self?.productInfo?.product.images.count ?? 0
+                
                 self?.ProductImagesCollection.reloadData()
             }
         }
