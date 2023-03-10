@@ -70,58 +70,54 @@ class ShopingCartTableViewCell: UITableViewCell {
             return
         }
         ItemCount.text = String(itemCountInt)
-        totalNumber -= itemPriceIntValu ?? 0
-        itemPrice.text = String(totalNumber)
-        
-        onCellSelectDelegate?.onSelect(price: String(-(itemPriceIntValu ?? 0)))
-        
+
+        if itemCountInt == 1 {
+            itemCountInt = 1
+        }else{
+            priceOfTotalItemCount -= itemPriceIntValu
+            itemPrice.text = String(priceOfTotalItemCount)
+            itemCountInt-=1
+            ItemCount.text = String(itemCountInt)
+        }
+      //  self.updateItem(item: Mina!, newPrice: String(priceOfTotalItemCount), NewQuantity: itemCountInt)
     }
     
-    //print(itemPrice.text)
+    
     
     @IBAction func increaseItemCount(_ sender: Any) {
-//               itemCountInt+=1
-//               if Int(ItemCount.text ?? "") == 1{
-//                   itemPriceIntValu = temp ?? 0
-//
-//                   itemQuantityIntValu = temprary ?? 0
-//
-//                   priceOfTotalItemCount = temp ?? 0
-//               }
-//               priceOfTotalItemCount += itemPriceIntValu
-//               itemPrice.text = String(priceOfTotalItemCount)
-//
-//                ItemCount.text =   String(itemQuantityIntValu)
-//
-//              // ItemCount.text = String(itemCountInt)
-//
-//            print("meeeeeeeen")
-//            print(temprary)
-//            print(temp)
-//            print(priceOfTotalItemCount)
-//        self.updateItem(item: Mina!, newPrice: String(priceOfTotalItemCount), NewQuantity: itemQuantityIntValu)
-//
-//     //   shopingCartViewObj.totalpriceOfItems += priceOfTotalItemCount
-//      //  shopingCartViewObj.updateTotalPrice(addedPrice: priceOfTotalItemCount)
-//
-//        //shopingCartViewObj.tableViewOutlet.reloadData()
-//
-//
-//        shopingCartViewObj.addedPricetoInitialPOI = priceOfTotalItemCount
-//        shopingCartViewObj.updateTotalPrice(addedPrice: shopingCartViewObj.addedPricetoInitialPOI)
+               itemCountInt+=1
+               if Int(ItemCount.text ?? "") == 1{
+                   itemPriceIntValu = temp ?? 0
+                   priceOfTotalItemCount = temp ?? 0
+               }
+               priceOfTotalItemCount += itemPriceIntValu
+               itemPrice.text = String(priceOfTotalItemCount)
+               ItemCount.text = String(itemCountInt)
+        print("world")
+        print(priceOfTotalItemCount)
         
-        itemCountInt += 1
-        ItemCount.text = String(itemCountInt)
+//        print("neerwre")
+//        print(temp)
+        //self.updateItem(item: Mina!, NewQuantity: itemCountInt)
         
-        totalNumber = itemCountInt * (itemPriceIntValu ?? 0)
-        itemPrice.text = String(totalNumber)
+//        self.updateItem(item: Mina!, NewQuantity: itemCountInt)
+//        self.updateItem(item: Mina!, NewQuantity: itemCountInt)
+        /* newPrice: String(priceOfTotalItemCount),*/
         
-        onCellSelectDelegate?.onSelect(price: String(itemPriceIntValu ?? 0))
+     //   shopingCartViewObj.totalpriceOfItems += priceOfTotalItemCount
+      //  shopingCartViewObj.updateTotalPrice(addedPrice: priceOfTotalItemCount)
+        
+        //shopingCartViewObj.tableViewOutlet.reloadData()
+        
+        
+        
+      //  shopingCartViewObj.addedPricetoInitialPOI = priceOfTotalItemCount
+        shopingCartViewObj.updateTotalPrice(addedPrice: priceOfTotalItemCount)
         
     }
     
-    func updateItem(item: OrderListModel, newPrice: String , NewQuantity: Int){
-        item.itemPrice = newPrice
+    func updateItem(item: OrderListModel,  NewQuantity: Int){
+        //item.itemPrice = newPrice
         item.itemQuantity = Int64(NewQuantity)
         print("itemUpdated")
         do{

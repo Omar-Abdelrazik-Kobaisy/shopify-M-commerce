@@ -43,6 +43,7 @@
 		39661D6529B693A200B2C8A5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6429B693A100B2C8A5 /* SettingsViewController.swift */; };
 		39661D6729B693F600B2C8A5 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6629B693F500B2C8A5 /* PaymentViewController.swift */; };
 		39661D6929B6943B00B2C8A5 /* ContactUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6829B6943B00B2C8A5 /* ContactUs.swift */; };
+		3998B79E29BB8026001508BA /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3998B79D29BB8026001508BA /* SelectAddressViewController.swift */; };
 		399D85C229B795D6002B7308 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C129B795D6002B7308 /* AddressModel.swift */; };
 		399D85C429B795D6002B7308 /* AddressNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C329B795D6002B7308 /* AddressNetworkService.swift */; };
 		399D85C629B7AC28002B7308 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C529B7AC28002B7308 /* AddressViewModel.swift */; };
@@ -133,6 +134,7 @@
 		39661D6429B693A100B2C8A5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		39661D6629B693F500B2C8A5 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		39661D6829B6943B00B2C8A5 /* ContactUs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUs.swift; sourceTree = "<group>"; };
+		3998B79D29BB8026001508BA /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
 		399D85C129B795D6002B7308 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		399D85C329B795D6002B7308 /* AddressNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetworkService.swift; sourceTree = "<group>"; };
 		399D85C529B7AC28002B7308 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 			children = (
 				DD88140229B11E2A006C791A /* AddressTableViewCell.swift */,
 				DD88140329B11E2B006C791A /* AddressViewController.swift */,
+				3998B79D29BB8026001508BA /* SelectAddressViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				DDAFFB5629B6691F00C07CCA /* WishListViewController.swift in Sources */,
 				DD0FA17329B42257002692E8 /* CustomerLoginModel.swift in Sources */,
 				0783EFB829AFB954009592E7 /* CategoryCollectionViewCell.swift in Sources */,
+				3998B79E29BB8026001508BA /* SelectAddressViewController.swift in Sources */,
 				39661D6729B693F600B2C8A5 /* PaymentViewController.swift in Sources */,
 				DD0FA16E29B3F95B002692E8 /* LoginNetworkService.swift in Sources */,
 				DD3262E429BA5CE9001330FA /* CoreDataManager.swift in Sources */,

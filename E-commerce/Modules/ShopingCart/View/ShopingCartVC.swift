@@ -21,16 +21,17 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     @IBOutlet weak var SubTotallbl: UILabel!
     var models : [OrderListModel]?
     var orderViewModel : OrderViewModel?
+
     var addedPricetoInitialPOI : Int = 0
     var initialTotalpriceOfItems : Int = 0
+    var totalprice = 0.0
     
     var finaltotal : Int = 0
     
     override func viewDidLoad() {
         orderViewModel = OrderViewModel()
         
-        /*let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController*/
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         orderViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
                 self!.models = self!.orderViewModel?.ObservableGet
@@ -94,8 +95,15 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         return cell
     }
     
-    func updateItem(item: OrderListModel, newPrice: String , NewQuantity: Int){
-        item.itemPrice = newPrice
+    
+//    func updateSubtotal() {
+//        totalprice = 0.0
+//        for ico in models! {
+//            totalprice +
+//        }
+//    }
+    
+    func updateItem(item: OrderListModel , NewQuantity: Int){
         item.itemQuantity = Int64(NewQuantity)
         print("itemUpdated")
         do{
@@ -105,7 +113,15 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
             
         }
     }
+    /* // self.updateItem(item: models![indexPath.row], newPrice: String(cell.temp ?? 0) , NewQuantity: (cell.ItemCount.text as! NSString).integerValue)
+     
+     //models![indexPath.row].itemQuantity+=1
+     print(cell.ItemCount!)
+      //cell.ItemCount.text = String(models![indexPath.row].itemQuantity) + String(models![indexPath.row].itemQuantity)*/
     
+    
+    /* , newPrice: String
+     item.itemPrice = newPrice*/
     /* func updateItem(item: ToDoListitem ,newName:String){
      item.name = newName
      do{
@@ -129,14 +145,18 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     }
     
     func updateTotalPrice(addedPrice : Int){
-        var newTotalPrice = initialTotalpriceOfItems + addedPrice
-        self.totalItemsPriceLabel?.text = String(newTotalPrice)
+       // var newTotalPrice = addedPrice
+        self.totalItemsPriceLabel?.text = String(addedPrice)
     }
 
     @IBAction func proceed(_ sender: Any) {
        //totalItemsPriceLabel.text = "000"
         if models?.count == 0 {
             self.showAlertError(title: "No items", message: "there is no itmes to checkout")
+        }
+        else {
+            let SelectVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectAddressViewController") as! SelectAddressViewController
+            self.navigationController?.pushViewController(SelectVC, animated: true)
         }
     }
     

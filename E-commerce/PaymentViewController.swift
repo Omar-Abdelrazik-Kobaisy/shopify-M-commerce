@@ -14,20 +14,24 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var CouponTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.hideKeyboardWhenTappedAround()
+       
         
     }
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismisskeyboard))
-        
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dismisskeyboard() {
-        view.endEditing(true)
-    }
+    
     
     func checkCopon(){
         let placeOrderVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
+        if ApplePayOption.isSelected {
+            placeOrderVC.PaymentMethod = "Apple Pay"
+            self.navigationController?.pushViewController(placeOrderVC, animated: false)
+        }
+        else if CashOnDeliveryOption.isSelected{
+            placeOrderVC.PaymentMethod = "Cash on delivery"
+            self.navigationController?.pushViewController(placeOrderVC, animated: false)
+        } else  {
+            self.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
+        }
+        
         if CouponTF.text == "shopify5%" {
             placeOrderVC.coupon = "5%"
         }
@@ -43,13 +47,8 @@ class PaymentViewController: UIViewController {
         else if CouponTF.text != "shopify5%" ||  CouponTF.text != "shopify10%" ||  CouponTF.text != "shopify15%" {
             self.showAlert(title: "Not Valid Coupon", message: "Please Enter A valid Coupon")
         }
-        if ApplePayOption.isSelected {
-            placeOrderVC.PaymentMethod = "Apple Pay"
-        } else {
-            placeOrderVC.PaymentMethod = "Cash on delivery"
-        }
         CouponTF.text = ""
-        self.navigationController?.pushViewController(placeOrderVC, animated: false)
+        
         
     }
     func showAlert(title: String , message: String){
