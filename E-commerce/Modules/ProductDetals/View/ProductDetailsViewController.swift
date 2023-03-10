@@ -15,11 +15,13 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var ProductDescription: UILabel!
     
+    @IBOutlet weak var favButtonOutlet: UIButton!
     let orderViewModel = OrderViewModel()
     var ProductViewModel:ProductDetailViewModel?
     var productInfo:ProductDetails?
     var prodId:Int?
     var currentpagee = 0
+    var favId = ""
     var productt : productItem?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +35,24 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
                 self?.productPrice.text = self?.productInfo?.product.variants[0].price
                 self?.ProductDescription.text = self?.productInfo?.product.body_html
                 self?.imageSlider.numberOfPages = self?.productInfo?.product.images.count ?? 0
-                
+                self?.favId = "\(self?.productInfo?.product.id ?? 0)"
                 self?.ProductImagesCollection.reloadData()
+                
+                //---------check-------state---------of-------button------------
+                self?.favButtonOutlet.isSelected = UserDefaults.standard.bool(forKey: self?.favId ?? "")
+                print(UserDefaults.standard.bool(forKey: self?.favId ?? ""))
+                if UserDefaults.standard.bool(forKey: self?.favId ?? ""){
+                    self?.favButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
+                }else{
+                    self?.favButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+                
             }
         }
+
+
+        
         imageSlider.currentPage = currentpagee
         ProductViewModel?.getProductDetails(productId:prodId ?? 0)
     }
@@ -50,6 +66,36 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
         orderViewModel.creatItem(product: productt!)
     }
+    
+    @IBAction func FavouriteButton(_ sender: Any) {
+        //------------selected------------button
+        favButtonOutlet.isSelected = !favButtonOutlet.isSelected
+
+        if favButtonOutlet.isSelected {
+            
+            favButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            CoreDataManager.saveToCoreData(productId: productInfo?.product.id ?? 0, productTitle:productInfo?.product.title ?? "", productImg: productInfo?.product.image.src ?? "")
+            
+               UserDefaults.standard.set(true, forKey: "\(productInfo?.product.id  ?? 0)")
+              print("selected")
+             print(productInfo?.product.id ?? 0)
+
+
+        }
+        else{
+            //---------------un----------selected(deletion)-----------------
+            favButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+            print("unselected")
+            print(productInfo?.product.id ?? 0)
+            CoreDataManager.deleteFromCoreData(productId: productInfo?.product.id ?? 0)
+            UserDefaults.standard.set(false, forKey: "\(productInfo?.product.id  ?? 0)")
+
+            
+        }
+
+        
+    }
+    
 }
     
     extension ProductDetailsViewController:UICollectionViewDataSource{

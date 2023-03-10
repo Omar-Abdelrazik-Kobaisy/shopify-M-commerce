@@ -1588,7 +1588,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>
@@ -1847,6 +1847,9 @@
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="FavouriteButton:" destination="2UP-HH-YIc" eventType="touchUpInside" id="eWY-Qv-L54"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-7K-dbM">
                                 <rect key="frame" x="0.0" y="549" width="393" height="170.66666666666663"/>
@@ -1909,6 +1912,7 @@
                         <outlet property="ProductDescription" destination="NX3-HK-pVh" id="qfR-Gn-eKN"/>
                         <outlet property="ProductImagesCollection" destination="SHx-dw-ND9" id="8Z7-xs-pMl"/>
                         <outlet property="ProductName" destination="5cX-po-XDe" id="6J0-CG-zP5"/>
+                        <outlet property="favButtonOutlet" destination="mIv-98-HhR" id="u27-Ld-EFb"/>
                         <outlet property="imageSlider" destination="cQb-Ha-w1v" id="viL-Y6-neS"/>
                         <outlet property="productPrice" destination="IkT-1n-A29" id="5W6-JJ-xuY"/>
                     </connections>

@@ -57,6 +57,10 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate, UICol
                
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collection_V.reloadData()
+    }
+    
     @IBAction func filter_btn(_ sender: Any) {
         filter_slider.isHidden = false
         max_price.isHidden = false
@@ -74,7 +78,6 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate, UICol
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//            return productsBrand?.products.count ?? 0
         if filter_slider.isHidden
                {
                    return arr_product.count
@@ -111,7 +114,7 @@ extension ProductsViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
-        cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+//        cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
         favId = "\(arr_product[indexPath.row].id ?? 0)"
         print("abovefavkey "+favId)
         if UserDefaults.standard.bool(forKey: self.favId){
@@ -124,7 +127,7 @@ extension ProductsViewController:UICollectionViewDataSource{
             print("notsavedvedfavkey "+favId)
             print("not fav")
         }
-
+        cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
         cell.favProd = { [unowned self] in
             cell.product_fav.isSelected = !cell.product_fav.isSelected
             

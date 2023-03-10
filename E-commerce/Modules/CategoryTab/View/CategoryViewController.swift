@@ -65,6 +65,10 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        productCollectionV.reloadData()
+    }
+    
     fileprivate func showProductByCategory(_ sender: UISegmentedControl) {
            let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?collection_id=\(arr_category_id[sender.selectedSegmentIndex])"
         viewModel.getProductsCategory(url: url)
@@ -167,6 +171,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     }
 
+
 extension CategoryViewController:UICollectionViewDataSource{
     
     
@@ -177,7 +182,7 @@ extension CategoryViewController:UICollectionViewDataSource{
         
         //---------check--------button---------state
         favId = "\(products?.products[indexPath.row].id ?? 0)"
-        cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+//        cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
         print(UserDefaults.standard.bool(forKey: self.favId))
         if UserDefaults.standard.bool(forKey: self.favId){
             cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -185,6 +190,7 @@ extension CategoryViewController:UICollectionViewDataSource{
         }else{
             cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
 
         cell.favProd = { [unowned self] in
             
