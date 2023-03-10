@@ -16,9 +16,18 @@ class ShopingCartTableViewCell: UITableViewCell {
     
     var itemCountInt : Int = 1
     var itemPriceIntValu :Int = 0
+    
+    var itemQuantityIntValu  :Int = 0
+    
     var priceOfTotalItemCount : Int = 0
     let shopingCartViewObj = ShopingCartVC()
     var temp :Int?
+    var temprary : Int?
+    var models : [OrderListModel]?
+    var orderViewModel : OrderViewModel?
+    
+    var Mina: OrderListModel?
+    
     @IBAction func decreaseItemCount(_ sender: Any) {
         
         ItemCount.text = String(itemCountInt)
@@ -39,16 +48,28 @@ class ShopingCartTableViewCell: UITableViewCell {
                itemCountInt+=1
                if Int(ItemCount.text ?? "") == 1{
                    itemPriceIntValu = temp ?? 0
+                   
+                   itemQuantityIntValu = temprary ?? 0
+                   
                    priceOfTotalItemCount = temp ?? 0
                }
                priceOfTotalItemCount += itemPriceIntValu
                itemPrice.text = String(priceOfTotalItemCount)
-               ItemCount.text = String(itemCountInt)
         
+                ItemCount.text =   String(itemQuantityIntValu)
+        
+              // ItemCount.text = String(itemCountInt)
+        
+            print("meeeeeeeen")
+            print(temprary)
+            print(temp)
+            print(priceOfTotalItemCount)
+        self.updateItem(item: Mina!, newPrice: String(priceOfTotalItemCount), NewQuantity: itemQuantityIntValu)
         
      //   shopingCartViewObj.totalpriceOfItems += priceOfTotalItemCount
       //  shopingCartViewObj.updateTotalPrice(addedPrice: priceOfTotalItemCount)
-       // shopingCartViewObj.tableViewOutlet.reloadData()
+        
+        //shopingCartViewObj.tableViewOutlet.reloadData()
         
         
         shopingCartViewObj.addedPricetoInitialPOI = priceOfTotalItemCount
@@ -56,7 +77,18 @@ class ShopingCartTableViewCell: UITableViewCell {
         
     }
     
-    
+    func updateItem(item: OrderListModel, newPrice: String , NewQuantity: Int){
+        item.itemPrice = newPrice
+        item.itemQuantity = Int64(NewQuantity)
+        print("itemUpdated")
+        do{
+            try context.save()
+        }
+        catch {
+            
+        }
+    }
+       
     
     
     

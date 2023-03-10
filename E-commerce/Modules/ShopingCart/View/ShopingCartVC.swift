@@ -21,6 +21,9 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     
     override func viewDidLoad() {
         orderViewModel = OrderViewModel()
+        
+        /*let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController*/
+        
         orderViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
                 self!.models = self!.orderViewModel?.ObservableGet
@@ -28,7 +31,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
             }
         }
         orderViewModel?.getAllItems { cartItems, error in
-            guard let items = cartItems else { return}
+            guard let items = cartItems else { return }
             self.models = items
             
         }
@@ -44,20 +47,61 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         let url = URL(string: models![indexPath.row].itemImage!)
         cell.itemImage.kf.setImage(with: url)
         cell.itemName.text = models![indexPath.row].itemName
-    
-        if cell.ItemCount.text == "1" {
+
+        cell.Mina = models?[indexPath.row]
+        //String(models![indexPath.row].itemQuantity)
+        
+        if cell.ItemCount.text ==  "1"  {
+         //cell.ItemCount.text = String(models![indexPath.row].itemQuantity)
+            
          cell.itemPrice.text = models?[indexPath.row].itemPrice
+            
      }else{
          cell.itemPrice.text = String((Int(models?[indexPath.row].itemPrice ?? "") ?? 0) + (cell.itemPrice.text as! NSString).integerValue)
+         
+         //models![indexPath.row].itemQuantity+=1
+         
+          //cell.ItemCount.text = String(models![indexPath.row].itemQuantity) + String(models![indexPath.row].itemQuantity)
+         
+         
+         print(cell.itemPrice)
+         
      }
      cell.temp = (cell.itemPrice.text as! NSString).integerValue
+       // self.updateItem(item: models![indexPath.row], newPrice: String(cell.temp ?? 0) , NewQuantity: (cell.ItemCount.text as! NSString).integerValue)
+     cell.temprary = (cell.ItemCount.text as! NSString).integerValue
      print(cell.temp)
+     print("seeeeeeee")
+     print(cell.temprary)
      print(cell.itemPrice.text)
         
         initialTotalpriceOfItems += Int(cell.itemPrice.text!) ?? 0
         totalItemsPriceLabel.text = String(initialTotalpriceOfItems)
         return cell
     }
+    
+    func updateItem(item: OrderListModel, newPrice: String , NewQuantity: Int){
+        item.itemPrice = newPrice
+        item.itemQuantity = Int64(NewQuantity)
+        print("itemUpdated")
+        do{
+            try context.save()
+        }
+        catch {
+            
+        }
+    }
+    
+    /* func updateItem(item: ToDoListitem ,newName:String){
+     item.name = newName
+     do{
+         try context.save()
+         getAllItems()
+     }
+     catch {
+         
+     }
+ }*/
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             orderViewModel?.deleteItem(item: models![indexPath.row])
