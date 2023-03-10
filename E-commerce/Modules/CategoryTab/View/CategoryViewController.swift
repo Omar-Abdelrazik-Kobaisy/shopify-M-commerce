@@ -177,7 +177,8 @@ extension CategoryViewController:UICollectionViewDataSource{
         
         //---------check--------button---------state
         favId = "\(products?.products[indexPath.row].id ?? 0)"
-        
+        cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+        print(UserDefaults.standard.bool(forKey: self.favId))
         if UserDefaults.standard.bool(forKey: self.favId){
             cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         
@@ -187,7 +188,6 @@ extension CategoryViewController:UICollectionViewDataSource{
 
         cell.favProd = { [unowned self] in
             
-            cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
             cell.favourite_btn.isSelected = !cell.favourite_btn.isSelected
             
             if cell.favourite_btn.isSelected {
@@ -195,10 +195,16 @@ extension CategoryViewController:UICollectionViewDataSource{
                 cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 CoreDataManager.saveToCoreData(productId: products?.products[indexPath.row].id ?? 0, productTitle:products?.products[indexPath.row].title ?? "", productImg: products?.products[indexPath.row].image.src ?? "")
                    UserDefaults.standard.set(true, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
+                  print("selected")
+                 print(products?.products[indexPath.row].id ?? 0)
 
-            }else{
+
+            }
+            else{
                 //---------------un----------selected(deletion)-----------------
                 cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
+                print("unselected")
+                print(products?.products[indexPath.row].id ?? 0)
                 CoreDataManager.deleteFromCoreData(productId: products?.products[indexPath.row].id ?? 0)
                 UserDefaults.standard.set(false, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
 

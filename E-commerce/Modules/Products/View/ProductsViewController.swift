@@ -111,7 +111,7 @@ extension ProductsViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
-        
+        cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
         favId = "\(arr_product[indexPath.row].id ?? 0)"
         print("abovefavkey "+favId)
         if UserDefaults.standard.bool(forKey: self.favId){
@@ -126,7 +126,6 @@ extension ProductsViewController:UICollectionViewDataSource{
         }
 
         cell.favProd = { [unowned self] in
-            cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
             cell.product_fav.isSelected = !cell.product_fav.isSelected
             
             if cell.product_fav.isSelected {
