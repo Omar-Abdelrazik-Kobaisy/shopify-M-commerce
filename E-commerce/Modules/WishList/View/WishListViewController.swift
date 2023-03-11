@@ -80,6 +80,11 @@ class WishListViewController: UITableViewController {
         
         self.present(alert, animated: true) {
         }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 120
+        }
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

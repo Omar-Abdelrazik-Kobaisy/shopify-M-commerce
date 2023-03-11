@@ -1699,14 +1699,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-EX-bYa">
-                                            <rect key="frame" x="143" y="28" width="241" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LI-Ri-LYd">
-                                            <rect key="frame" x="143" y="82" width="241" height="35"/>
+                                            <rect key="frame" x="152" y="63" width="241" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1716,7 +1709,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imageProduct" destination="lTs-11-fS9" id="upc-KZ-p4t"/>
-                                    <outlet property="productPrice" destination="3LI-Ri-LYd" id="ffw-qE-SuQ"/>
                                     <outlet property="productTitle" destination="mDx-EX-bYa" id="YwK-SG-CaT"/>
                                 </connections>
                             </tableViewCell>
