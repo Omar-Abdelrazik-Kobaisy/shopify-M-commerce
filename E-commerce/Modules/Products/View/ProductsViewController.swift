@@ -153,7 +153,12 @@ extension ProductsViewController:UICollectionViewDataSource{
         if filter_slider.isHidden
                 {
                     cell.product_image.kf.setImage(with: URL(string: arr_product[indexPath.row].image.src ?? ""))
-                    cell.product_price.text = arr_product[indexPath.row].variants.first?.price
+            if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                cell.product_price.text = (arr_product[indexPath.row].variants.first?.price)! + " EGP"
+            } else {
+                cell.product_price.text = (arr_product[indexPath.row].variants.first?.price)! + " USD"
+              }
+                    
                     return cell
                 }
                     cell.product_image.kf.setImage(with: URL(string: arr_product_filtered[indexPath.row].image.src ?? ""))
