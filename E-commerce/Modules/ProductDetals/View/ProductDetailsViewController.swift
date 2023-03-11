@@ -32,7 +32,13 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
             DispatchQueue.main.async {
                 self?.productt = self?.productInfo?.product
                 self?.ProductName.text = self?.productInfo?.product.title
-                self?.productPrice.text = self?.productInfo?.product.variants[0].price
+                
+               // self?.productPrice.text = self?.productInfo?.product.variants[0].price
+                  if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                      self?.productPrice.text = (self?.productInfo?.product.variants[0].price)! + " EGP"
+             } else {
+                 self?.productPrice.text = (self?.productInfo?.product.variants[0].price)! + " USD"
+               }
                 self?.ProductDescription.text = self?.productInfo?.product.body_html
                 self?.imageSlider.numberOfPages = self?.productInfo?.product.images.count ?? 0
                 self?.favId = "\(self?.productInfo?.product.id ?? 0)"

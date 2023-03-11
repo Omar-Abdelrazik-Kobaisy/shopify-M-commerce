@@ -45,7 +45,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             }
         }
         viewModel.getAllBrands()
-        couponArr = [coupon(img: UIImage(named: "c1")!, id: "70%") , coupon(img: UIImage(named: "c2")!, id: "80%") ,coupon(img: UIImage(named: "c1")!, id: "50%") ,coupon(img: UIImage(named: "c2")!, id: "40%")  ]
+        couponArr = [coupon(img: UIImage(named: "c1")!, id: "shopify5%") , coupon(img: UIImage(named: "c2")!, id: "shopify10%") ,coupon(img: UIImage(named: "c1")!, id: "shopify15%") ]
     }
     
     
