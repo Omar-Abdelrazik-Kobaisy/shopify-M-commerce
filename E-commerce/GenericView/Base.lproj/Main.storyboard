@@ -804,7 +804,6 @@
                                     <color key="baseForegroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="LogOutBtnClicked:" destination="v8i-iE-fVx" eventType="touchUpInside" id="8Ox-xm-gf6"/>
                                     <action selector="logOutAction:" destination="v8i-iE-fVx" eventType="touchUpInside" id="IMi-Ia-3Sr"/>
                                 </connections>
                             </button>
@@ -1151,11 +1150,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tE2-6k-BWG">
-                                                    <rect key="frame" x="140" y="97" width="77" height="21"/>
+                                                    <rect key="frame" x="140" y="97" width="77" height="19.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="77" id="0BO-h6-KqG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.1593315377" blue="0.21368953269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1249,7 +1248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utz-19-whn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1640" y="1210"/>
+            <point key="canvasLocation" x="-1640.4580152671756" y="1209.8591549295775"/>
         </scene>
         <!--Select Address View Controller-->
         <scene sceneID="2oW-uT-RhH">
@@ -1833,7 +1832,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>

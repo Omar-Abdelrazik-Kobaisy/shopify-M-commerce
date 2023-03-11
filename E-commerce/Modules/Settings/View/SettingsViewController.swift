@@ -15,9 +15,6 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         
     }
     
-    @IBAction func LogOutBtnClicked(_ sender: Any) {
-        
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }

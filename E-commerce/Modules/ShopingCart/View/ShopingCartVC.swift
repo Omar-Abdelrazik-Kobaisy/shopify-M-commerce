@@ -41,7 +41,13 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         let url = URL(string: models![indexPath.row].itemImage!)
         cell.itemImage.kf.setImage(with: url)
         cell.itemName.text = models![indexPath.row].itemName
-        cell.itemPrice.text = models?[indexPath.row].itemPrice
+        //cell.itemPrice.text = models?[indexPath.row].itemPrice
+        
+        if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+            cell.itemPrice.text = (models?[indexPath.row].itemPrice!)! + " EGP"
+        } else {
+            cell.itemPrice.text = (models?[indexPath.row].itemPrice!)! + " USD"
+          }
         
         cell.addQuantity = {
             self.orderViewModel?.SelectedItems(productId: self.models![indexPath.row].itemID) { chosen , error in
@@ -74,7 +80,16 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
             orderViewModel!.calc { totalPrice in
                 guard let totalPrice = totalPrice else { return }
                 UserDefaults.standard.set(totalPrice, forKey: "final")
-                self.totalItemsPriceLabel.text = String(totalPrice) + " USD"
+                
+                 if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                 self.totalItemsPriceLabel.text = String(totalPrice) + " EGP"
+                 } else {
+                 self.totalItemsPriceLabel.text = String(totalPrice) + " USD"
+                   }
+                 
+                UserDefaults.standard.set(totalPrice, forKey: "final")
+
+                //self.totalItemsPriceLabel.text = String(totalPrice) + " USD"
             }
         }
 
