@@ -49,6 +49,20 @@ class ShopingCartTableViewCell: UITableViewCell {
     var Mina: OrderListModel?
     
     @IBAction func decreaseItemCount(_ sender: Any) {
+              if itemCountInt != 1
+                {
+                    itemCountInt -= 1
+                }
+                else
+                {
+                    return
+                }
+                ItemCount.text = String(itemCountInt)
+                totalNumber -= itemPriceIntValu ?? 0
+                itemPrice.text = String(totalNumber)
+                
+                onCellSelectDelegate?.onSelect(price: String(-(itemPriceIntValu ?? 0)))
+        
         
 //        ItemCount.text = String(itemCountInt)
 //
@@ -61,40 +75,49 @@ class ShopingCartTableViewCell: UITableViewCell {
 //            ItemCount.text = String(itemCountInt)
 //        }
         
-        if itemCountInt != 1
-        {
-            itemCountInt -= 1
-        }
-        else
-        {
-            return
-        }
-        ItemCount.text = String(itemCountInt)
-
-        if itemCountInt == 1 {
-            itemCountInt = 1
-        }else{
-            priceOfTotalItemCount -= itemPriceIntValu
-            itemPrice.text = String(priceOfTotalItemCount)
-            itemCountInt-=1
-            ItemCount.text = String(itemCountInt)
-        }
+//        if itemCountInt != 1
+//        {
+//            itemCountInt -= 1
+//        }
+//        else
+//        {
+//            return
+//        }
+//        ItemCount.text = String(itemCountInt)
+//
+//        if itemCountInt == 1 {
+//            itemCountInt = 1
+//        }else{
+//            priceOfTotalItemCount -= itemPriceIntValu!
+//            itemPrice.text = String(priceOfTotalItemCount)
+//            itemCountInt-=1
+//            ItemCount.text = String(itemCountInt)
+//        }
       //  self.updateItem(item: Mina!, newPrice: String(priceOfTotalItemCount), NewQuantity: itemCountInt)
     }
     
     
     
     @IBAction func increaseItemCount(_ sender: Any) {
-               itemCountInt+=1
-               if Int(ItemCount.text ?? "") == 1{
-                   itemPriceIntValu = temp ?? 0
-                   priceOfTotalItemCount = temp ?? 0
-               }
-               priceOfTotalItemCount += itemPriceIntValu
-               itemPrice.text = String(priceOfTotalItemCount)
-               ItemCount.text = String(itemCountInt)
-        print("world")
-        print(priceOfTotalItemCount)
+        
+               itemCountInt += 1
+                ItemCount.text = String(itemCountInt)
+                
+                totalNumber = itemCountInt * (itemPriceIntValu ?? 0)
+                itemPrice.text = String(totalNumber)
+                
+                onCellSelectDelegate?.onSelect(price: String(itemPriceIntValu ?? 0))
+        
+//               itemCountInt+=1
+//               if Int(ItemCount.text ?? "") == 1{
+//                   itemPriceIntValu = temp ?? 0
+//                   priceOfTotalItemCount = temp ?? 0
+//               }
+//        priceOfTotalItemCount += itemPriceIntValu!
+//               itemPrice.text = String(priceOfTotalItemCount)
+//               ItemCount.text = String(itemCountInt)
+//        print("world")
+//        print(priceOfTotalItemCount)
         
 //        print("neerwre")
 //        print(temp)

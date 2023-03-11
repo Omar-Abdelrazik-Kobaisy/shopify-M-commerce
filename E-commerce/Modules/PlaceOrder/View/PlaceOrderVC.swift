@@ -8,7 +8,7 @@
 import UIKit
 
 class PlaceOrderVC: UIViewController {
-
+    
     
     @IBOutlet weak var Deliverylbl: UILabel!
     @IBOutlet weak var Paymentlbl: UILabel!
@@ -38,7 +38,7 @@ class PlaceOrderVC: UIViewController {
             //totalPriceLabel.text = String(result) + "USD"
             Totallbl.text = String(result) + "USD"
             Paymentlbl.text = paymentMethod
-  
+            
         } else if coupon  == "shopify10%" {
             guard let coupon = coupon else { return }
             Discountlbl.text = coupon
@@ -77,9 +77,10 @@ class PlaceOrderVC: UIViewController {
     }
     
     
-  
+    
     
     @IBAction func PlaceOrderButton(_ sender: Any) {
     }
     
     
+}
