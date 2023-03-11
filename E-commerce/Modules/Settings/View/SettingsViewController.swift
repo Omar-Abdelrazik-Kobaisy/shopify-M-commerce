@@ -56,7 +56,17 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
             let addrVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
             self.navigationController?.pushViewController(addrVC, animated: true)
         case 1 :
-            print("one")
+             let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
+             
+             
+             alert.addAction(UIAlertAction(title: "EGP", style: .default ,handler: {  [weak self] _ in
+                 UserDefaults.standard.set("EGP", forKey: "Currency")
+             }))
+            alert.addAction(UIAlertAction(title: "USD", style: .cancel ,handler: {  [weak self] _ in
+                UserDefaults.standard.set("USD", forKey: "Currency")
+            }))
+             
+             present(alert, animated: true)
         case 2 :
             let aboutVc = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
             self.present(aboutVc, animated: true)

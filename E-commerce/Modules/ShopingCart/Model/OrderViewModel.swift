@@ -118,7 +118,7 @@ extension OrderViewModel {
                         totalPrice += Double(item.itemQuantity) * price
                     }
                 }
-                UserDefaults.standard.set(totalPrice, forKey: "TotalPrice")
+                UserDefaults.standard.set(totalPrice, forKey: "final")
                 completion(totalPrice)
             }else{
                 completion(nil)
@@ -128,15 +128,3 @@ extension OrderViewModel {
     
 }
 
-/* getAllItems { lists, error in
- if error == nil {
-     guard let order = lists, let customerID = self.customerID else { return }
-     for item in order {
-         if item.itemID == productId && item.userID == customerID {
-             completion(item, nil)
-         }
-     }
- }else{
-     completion(nil, error)
- }
-}*/

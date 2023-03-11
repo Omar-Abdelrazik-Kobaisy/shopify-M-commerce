@@ -62,9 +62,13 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         if wishlistArr.count == 1 {
             return 1
         }
+        else if wishlistArr.count == 0 {
+            return 0
+        }
         else{
             return 2
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

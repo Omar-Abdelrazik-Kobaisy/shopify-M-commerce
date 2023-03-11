@@ -8,19 +8,7 @@
 import UIKit
 import Kingfisher
 class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDelegate{
-    
-    //    var increased : OrderListModel?
-    //    var increasedprice : String?
-    
-    //    func onSelect(price: String) {
-    //        print(finaltotal)
-    //        finaltotal += (price as NSString).integerValue
-    //        print(finaltotal)
-    //        totalItemsPriceLabel.text = String(finaltotal)
-    //        UserDefaults.standard.set(finaltotal, forKey: "final")
-    //    }
-    //
-    
+        
     
     @IBOutlet weak var totalItemsPriceLabel: UILabel!
     @IBOutlet weak var tableViewOutlet: UITableView!
