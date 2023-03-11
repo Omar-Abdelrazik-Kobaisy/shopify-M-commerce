@@ -7,7 +7,14 @@
 
 import UIKit
 import Kingfisher
-class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDelegate{
+class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDelegate , OnCellSelectDelegate{
+    func onSelect(price: String) {
+        print(finaltotal)
+        finaltotal += (price as NSString).integerValue
+        print(finaltotal)
+        totalItemsPriceLabel.text = String(finaltotal)
+    }
+    
     
     @IBOutlet weak var totalItemsPriceLabel: UILabel!
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -17,7 +24,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
     var addedPricetoInitialPOI : Int = 0
     var initialTotalpriceOfItems : Int = 0
     
-    
+    var finaltotal : Int = 0
     
     override func viewDidLoad() {
         orderViewModel = OrderViewModel()
@@ -27,7 +34,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         orderViewModel?.bindingGet = { [weak self] in
             DispatchQueue.main.async {
                 self!.models = self!.orderViewModel?.ObservableGet
-                self?.tableViewOutlet.reloadData()
+//                self?.tableViewOutlet.reloadData()
             }
         }
         orderViewModel?.getAllItems { cartItems, error in
@@ -47,36 +54,43 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         let url = URL(string: models![indexPath.row].itemImage!)
         cell.itemImage.kf.setImage(with: url)
         cell.itemName.text = models![indexPath.row].itemName
-
-        cell.Mina = models?[indexPath.row]
-        //String(models![indexPath.row].itemQuantity)
+        cell.itemPrice.text = models?[indexPath.row].itemPrice
+        print(cell.itemPrice.text)
+        cell.ItemCount.text = String(cell.itemCountInt)
+//        cell.configureCell(order: models?[indexPath.row] ?? OrderListModel())
+        cell.onCellSelectDelegate = self
+        onSelect(price: cell.itemPrice.text ?? "")
+//
+//        cell.Mina = models?[indexPath.row]
+//        //String(models![indexPath.row].itemQuantity)
+//
+//        if cell.ItemCount.text ==  "1"  {
+//         //cell.ItemCount.text = String(models![indexPath.row].itemQuantity)
+//
+//         cell.itemPrice.text = models?[indexPath.row].itemPrice
+//
+//     }else{
+//         cell.itemPrice.text = String((Int(models?[indexPath.row].itemPrice ?? "") ?? 0) + (cell.itemPrice.text as! NSString).integerValue)
+//
+//         //models![indexPath.row].itemQuantity+=1
+//
+//          //cell.ItemCount.text = String(models![indexPath.row].itemQuantity) + String(models![indexPath.row].itemQuantity)
+//
+//
+//         print(cell.itemPrice)
+//
+//     }
+//     cell.temp = (cell.itemPrice.text as! NSString).integerValue
+//       // self.updateItem(item: models![indexPath.row], newPrice: String(cell.temp ?? 0) , NewQuantity: (cell.ItemCount.text as! NSString).integerValue)
+//     cell.temprary = (cell.ItemCount.text as! NSString).integerValue
+//     print(cell.temp)
+//     print("seeeeeeee")
+//     print(cell.temprary)
+//     print(cell.itemPrice.text)
+//
+//        initialTotalpriceOfItems += Int(cell.itemPrice.text!) ?? 0
+//        totalItemsPriceLabel.text = String(initialTotalpriceOfItems)
         
-        if cell.ItemCount.text ==  "1"  {
-         //cell.ItemCount.text = String(models![indexPath.row].itemQuantity)
-            
-         cell.itemPrice.text = models?[indexPath.row].itemPrice
-            
-     }else{
-         cell.itemPrice.text = String((Int(models?[indexPath.row].itemPrice ?? "") ?? 0) + (cell.itemPrice.text as! NSString).integerValue)
-         
-         //models![indexPath.row].itemQuantity+=1
-         
-          //cell.ItemCount.text = String(models![indexPath.row].itemQuantity) + String(models![indexPath.row].itemQuantity)
-         
-         
-         print(cell.itemPrice)
-         
-     }
-     cell.temp = (cell.itemPrice.text as! NSString).integerValue
-       // self.updateItem(item: models![indexPath.row], newPrice: String(cell.temp ?? 0) , NewQuantity: (cell.ItemCount.text as! NSString).integerValue)
-     cell.temprary = (cell.ItemCount.text as! NSString).integerValue
-     print(cell.temp)
-     print("seeeeeeee")
-     print(cell.temprary)
-     print(cell.itemPrice.text)
-        
-        initialTotalpriceOfItems += Int(cell.itemPrice.text!) ?? 0
-        totalItemsPriceLabel.text = String(initialTotalpriceOfItems)
         return cell
     }
     
