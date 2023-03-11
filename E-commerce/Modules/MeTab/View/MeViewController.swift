@@ -16,7 +16,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     @IBOutlet weak var Wish_TableV: UITableView!
     
     var orders : GetOrder?
-    
+    var wishlistArr:[FavoriteProduct] = []
     var viewModel = MeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,11 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
                 self?.Order_TableV.reloadData()
             }
         }
+        
+        wishlistArr = viewModel.getWishlist()
+        if (wishlistArr.count == 0 ){
+            Wish_TableV.isHidden = true
+        }
     }
     
     
@@ -42,7 +47,12 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         {
             return orders?.orders.count ?? 0
         }
-        return 19
+        if wishlistArr.count == 1 {
+            return 1
+        }
+        else{
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,8 +67,9 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "wish", for: indexPath) as! WishTableViewCell
         
-        cell.wish_image.image = UIImage(named: "M")
-        cell.label_wish.text = "product_name"
+        let url = URL(string: wishlistArr[indexPath.row].product_img ?? "")
+        cell.wish_image?.kf.setImage(with: url)
+        cell.label_wish.text = wishlistArr[indexPath.row].product_title
         
         return cell
     }

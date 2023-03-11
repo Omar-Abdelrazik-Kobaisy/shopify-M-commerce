@@ -24,4 +24,10 @@ class MeViewModel
             }
     }
     
+    func getWishlist()->[FavoriteProduct]{
+        
+        CoreDataManager.fetchFromCoreData()
+
+    }
+    
 }

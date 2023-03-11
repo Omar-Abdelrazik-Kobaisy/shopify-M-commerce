@@ -81,4 +81,22 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         let logOut = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         navigationController?.pushViewController(logOut, animated: true)
     }
+    
+    
+    @IBAction func DarkModeAction(_ sender: UISwitch) {
+        if #available(iOS 13, *){
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn{
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                return
+            }
+            else{
+                appDelegate?.overrideUserInterfaceStyle = .light
+            }
+            
+        }else{
+            print("DarkMode is unAvailable")
+        }
+    }
+    
 }

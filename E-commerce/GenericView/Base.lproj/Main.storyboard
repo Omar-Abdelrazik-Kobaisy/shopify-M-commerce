@@ -136,7 +136,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wishList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDd-av-4Pu">
-                                <rect key="frame" x="29" y="513" width="79" height="37"/>
+                                <rect key="frame" x="29" y="495" width="79" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="E7T-6B-szY"/>
                                     <constraint firstAttribute="height" constant="37" id="R3D-iN-cu9"/>
@@ -145,8 +145,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-gx-aOz">
+                                <rect key="frame" x="298" y="495" width="79" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="9gQ-Ne-Lrs"/>
+                                    <constraint firstAttribute="height" constant="37" id="K80-IQ-8bn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="01l-So-6Wd">
-                                <rect key="frame" x="29" y="558" width="348" height="211"/>
+                                <rect key="frame" x="29" y="540" width="348" height="211"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="348" id="o1L-Dv-eUQ"/>
@@ -196,23 +206,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="yvm-rX-oHV"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVi-gx-aOz">
-                                <rect key="frame" x="298" y="512" width="79" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="79" id="9gQ-Ne-Lrs"/>
-                                    <constraint firstAttribute="height" constant="37" id="K80-IQ-8bn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="H5m-QO-o7k" firstAttribute="top" secondItem="dj0-vo-Wcd" secondAttribute="bottom" constant="52" id="4bA-2S-N4b"/>
-                            <constraint firstItem="01l-So-6Wd" firstAttribute="top" secondItem="nDd-av-4Pu" secondAttribute="bottom" constant="8" symbolic="YES" id="97S-TM-6cZ"/>
-                            <constraint firstItem="nDd-av-4Pu" firstAttribute="top" secondItem="ws0-Jo-gQ7" secondAttribute="bottom" constant="30" id="9hr-Jh-AuG"/>
+                            <constraint firstItem="01l-So-6Wd" firstAttribute="top" secondItem="nDd-av-4Pu" secondAttribute="bottom" constant="8" id="97S-TM-6cZ"/>
+                            <constraint firstItem="nDd-av-4Pu" firstAttribute="top" secondItem="ws0-Jo-gQ7" secondAttribute="bottom" constant="12" id="9hr-Jh-AuG"/>
                             <constraint firstItem="JK9-x9-8ff" firstAttribute="top" secondItem="It4-kx-3Jt" secondAttribute="bottom" constant="52" id="Bac-ee-Or1"/>
                             <constraint firstItem="ws0-Jo-gQ7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="GkB-Dn-k6T"/>
                             <constraint firstItem="JK9-x9-8ff" firstAttribute="leading" secondItem="H5m-QO-o7k" secondAttribute="trailing" constant="190" id="GyA-Mb-aAz"/>
@@ -222,7 +222,7 @@
                             <constraint firstItem="dj0-vo-Wcd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="PwD-18-x15"/>
                             <constraint firstItem="ws0-Jo-gQ7" firstAttribute="top" secondItem="H5m-QO-o7k" secondAttribute="bottom" constant="8" symbolic="YES" id="UVh-if-Yce"/>
                             <constraint firstItem="It4-kx-3Jt" firstAttribute="leading" secondItem="dj0-vo-Wcd" secondAttribute="trailing" constant="62" id="XWD-72-BUl"/>
-                            <constraint firstItem="FVi-gx-aOz" firstAttribute="top" secondItem="ws0-Jo-gQ7" secondAttribute="bottom" constant="29" id="XwG-2L-tQF"/>
+                            <constraint firstItem="FVi-gx-aOz" firstAttribute="top" secondItem="ws0-Jo-gQ7" secondAttribute="bottom" constant="12" id="XwG-2L-tQF"/>
                             <constraint firstItem="nDd-av-4Pu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="Ywz-5B-YFn"/>
                             <constraint firstItem="01l-So-6Wd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="agj-tG-tO9"/>
                             <constraint firstItem="dj0-vo-Wcd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="aym-6f-XbV"/>
@@ -800,12 +800,27 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="LogOut">
                                     <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="LogOutBtnClicked:" destination="v8i-iE-fVx" eventType="touchUpInside" id="8Ox-xm-gf6"/>
                                     <action selector="logOutAction:" destination="v8i-iE-fVx" eventType="touchUpInside" id="IMi-Ia-3Sr"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F4U-Hf-DlD">
+                                <rect key="frame" x="309" y="759" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="DarkModeAction:" destination="v8i-iE-fVx" eventType="valueChanged" id="LEX-tn-8iM"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wr6-ZP-Gs7">
+                                <rect key="frame" x="20" y="759" width="93" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gxw-gr-etU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -826,7 +841,7 @@
         <!--Address View Controller-->
         <scene sceneID="PWg-5L-Y6K">
             <objects>
-                <viewController storyboardIdentifier="AddressViewController" id="Aog-Mo-w8E" customClass="AddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddressViewController" hidesBottomBarWhenPushed="YES" id="Aog-Mo-w8E" customClass="AddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q8z-DM-SCf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -969,7 +984,7 @@
         <!--Add New Address View Controller-->
         <scene sceneID="Ldf-zl-atq">
             <objects>
-                <viewController storyboardIdentifier="AddNewAddressViewController" id="hh4-Im-loW" customClass="AddNewAddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewAddressViewController" hidesBottomBarWhenPushed="YES" id="hh4-Im-loW" customClass="AddNewAddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AnU-Mu-pQN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1061,7 +1076,7 @@
         <!--Shoping CartVC-->
         <scene sceneID="2Qe-cC-sbN">
             <objects>
-                <viewController storyboardIdentifier="ShopingCartVC" id="67v-Ap-oVL" customClass="ShopingCartVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopingCartVC" hidesBottomBarWhenPushed="YES" id="67v-Ap-oVL" customClass="ShopingCartVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eRK-HP-EY9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1238,7 +1253,7 @@
         <!--Select Address View Controller-->
         <scene sceneID="2oW-uT-RhH">
             <objects>
-                <viewController storyboardIdentifier="SelectAddressViewController" id="Rxu-Vd-jda" customClass="SelectAddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectAddressViewController" hidesBottomBarWhenPushed="YES" id="Rxu-Vd-jda" customClass="SelectAddressViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wNY-FE-Gu0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1313,7 +1328,7 @@
         <!--Place OrderVC-->
         <scene sceneID="D2j-Br-7rb">
             <objects>
-                <viewController storyboardIdentifier="PlaceOrderVC" id="cZe-K6-hpd" customClass="PlaceOrderVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaceOrderVC" hidesBottomBarWhenPushed="YES" id="cZe-K6-hpd" customClass="PlaceOrderVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DLR-Hz-A45">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1532,7 +1547,7 @@
         <!--Order DetailsVC-->
         <scene sceneID="a7g-ZH-kir">
             <objects>
-                <viewController storyboardIdentifier="OrderDetailsVC" id="KM4-y0-x0A" customClass="OrderDetailsVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderDetailsVC" hidesBottomBarWhenPushed="YES" id="KM4-y0-x0A" customClass="OrderDetailsVC" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XRa-Uy-YCS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1801,7 +1816,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>
@@ -2242,7 +2257,7 @@ Mina Eid</string>
         <!--Payment View Controller-->
         <scene sceneID="NcM-Ah-kMO">
             <objects>
-                <viewController storyboardIdentifier="PaymentViewController" id="5Fx-XQ-yZf" customClass="PaymentViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentViewController" hidesBottomBarWhenPushed="YES" id="5Fx-XQ-yZf" customClass="PaymentViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="11P-7e-ape">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
