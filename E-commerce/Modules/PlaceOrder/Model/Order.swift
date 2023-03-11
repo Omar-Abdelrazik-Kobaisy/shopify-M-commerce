@@ -13,6 +13,7 @@ struct OrderItem : Codable {
     var name : String?
     var price : String?
     var quantity : Int?
+    var title:String?
 }
 
 struct Order : Codable{
@@ -21,15 +22,28 @@ struct Order : Codable{
     var line_items : [OrderItem]
     var created_at : String?
     var current_total_price : String?
-    var current_total_discounts : String?
+//    var current_total_discounts : String?
 }
 
 struct PostOrder : Codable
 {
     var order : Order
+    func convertToDictionary() -> [String : Any]
+        {
+            var dictionary : [String : Any] = [:]
+            do{
+                let data = try JSONEncoder().encode(self)
+                dictionary = try JSONSerialization.jsonObject(with: data , options: .allowFragments) as? [String : Any] ?? [:]
+            }catch let error
+            {
+                print(error.localizedDescription)
+            }
+            return dictionary
+        }
 }
 
 struct GetOrder : Codable
 {
     var orders : [Order]
+    
 }

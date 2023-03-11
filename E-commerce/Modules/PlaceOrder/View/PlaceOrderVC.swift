@@ -22,11 +22,57 @@ class PlaceOrderVC: UIViewController {
     var PaymentMethod: String?
     var result = Double()
     
+    var models : [OrderListModel]?
+    var orderViewModel : OrderViewModel?
+        
+        
+        var orders_arr : [OrderItem] = []
+        var postOrder : PostOrder?
+    var statusCode : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CalcTotal()
         
+        makeOrder()
+       
+        
     }
+    
+    func makeOrder()
+    {
+        orderViewModel = OrderViewModel()
+        
+        orderViewModel?.getAllItems { cartItems, error in
+            guard let items = cartItems else { return }
+            self.models = items
+            
+        }
+        guard let arr = models else {return}
+        
+        
+        for i in 0..<arr.count {
+            
+            orders_arr.append(OrderItem(id: Int(arr[i].itemID) , name: arr[i].itemName , price: arr[i].itemPrice , quantity: Int(arr[i].itemQuantity), title: arr[i].itemName))
+            
+            print(Int(arr[i].itemQuantity))
+        }
+        let date = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "dd-MM-yyyy"
+        
+        let orderDate = formatter.string(from: date)
+
+        
+        let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr , created_at: orderDate , current_total_price: Totallbl.text)
+        
+        postOrder = PostOrder(order: order)
+        
+        print(postOrder!.convertToDictionary())
+    }
+    
+    
     func CalcTotal(){
         if coupon == "5%"
         {
@@ -86,7 +132,28 @@ class PlaceOrderVC: UIViewController {
     }
     
     @IBAction func PlaceOrderButton(_ sender: Any) {
+        guard let order = postOrder else {return}
+        ApiService.postOrderToApi(order: order) { [weak self] code in
+            self?.statusCode = code
+            DispatchQueue.main.async {
+                if self?.statusCode == 201
+                {
+                    print("post Success")
+                    self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully")
+                }else
+                {
+                    print("post fail")
+                    self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin")
+                }
+            }
+           
+        }
     }
-    
+    func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

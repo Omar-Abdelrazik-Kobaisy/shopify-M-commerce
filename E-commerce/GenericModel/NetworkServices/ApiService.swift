@@ -43,10 +43,10 @@ class ApiService : NetworkService
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
         urlRequest.httpShouldHandleCookies = false
-        var dictionary : [String:Any] = [:]
+//        var dictionary : [String:Any] = [:]
                     //this comment made by me --> dont forget order.convertToDictionary() <--
         do {
-            let bodyDictionary = try JSONSerialization.data(withJSONObject: dictionary,options: .prettyPrinted)
+            let bodyDictionary = try JSONSerialization.data(withJSONObject: order.convertToDictionary(),options: .prettyPrinted)
 
             urlRequest.httpBody = bodyDictionary
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
