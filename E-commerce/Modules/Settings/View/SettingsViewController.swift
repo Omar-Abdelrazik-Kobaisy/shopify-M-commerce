@@ -8,10 +8,24 @@
 import UIKit
 
 class SettingsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    
+    @IBOutlet weak var darkOutlet: UISwitch!
+    let appDelegate = UIApplication.shared.windows.first
+
+    
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if UserDefaults.standard.bool(forKey: "Dark"){
+            darkOutlet.isOn = true
+            appDelegate?.overrideUserInterfaceStyle = .dark
+
+        }
+        else{
+            darkOutlet.isOn = false
+            appDelegate?.overrideUserInterfaceStyle = .light
+
+        }
         
     }
     
@@ -92,12 +106,13 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     
     @IBAction func DarkModeAction(_ sender: UISwitch) {
         if #available(iOS 13, *){
-            let appDelegate = UIApplication.shared.windows.first
             if sender.isOn{
+                UserDefaults.standard.set(true, forKey: "Dark")
                 appDelegate?.overrideUserInterfaceStyle = .dark
                 return
             }
             else{
+                UserDefaults.standard.set(false, forKey: "Dark")
                 appDelegate?.overrideUserInterfaceStyle = .light
             }
             

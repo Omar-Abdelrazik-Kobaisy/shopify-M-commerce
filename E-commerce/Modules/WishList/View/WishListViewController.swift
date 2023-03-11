@@ -40,11 +40,11 @@ class WishListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistCell", for: indexPath) as! WishListCell
         
-        cell.textLabel?.text = wishListArray[indexPath.row].product_title
+        cell.productTitle.text = wishListArray[indexPath.row].product_title
         let url = URL(string: wishListArray[indexPath.row].product_img ?? "")
-        cell.imageView?.kf.setImage(with: url)
+        cell.imageProduct?.kf.setImage(with: url)
 
         return cell
     }

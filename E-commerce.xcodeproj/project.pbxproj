@@ -79,6 +79,7 @@
 		DDAFFB5329B6360E00C07CCA /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */; };
 		DDAFFB5629B6691F00C07CCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */; };
 		DDDDB5FC29BD0A6600432212 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDB5FB29BD0A6600432212 /* WishListViewModel.swift */; };
+		DDDDB5FE29BD411500432212 /* WishListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDDB5FD29BD411500432212 /* WishListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		DDAFFB5229B6360E00C07CCA /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		DDDDB5FB29BD0A6600432212 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		DDDDB5FD29BD411500432212 /* WishListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -803,6 +805,7 @@
 			isa = PBXGroup;
 			children = (
 				DDAFFB5529B6691F00C07CCA /* WishListViewController.swift */,
+				DDDDB5FD29BD411500432212 /* WishListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1010,6 +1013,7 @@
 				071FAB7929B00315003D1D3A /* Brands.swift in Sources */,
 				399DC5B229B8E775005B587F /* OrderListModel+CoreDataClass.swift in Sources */,
 				39661D6929B6943B00B2C8A5 /* ContactUs.swift in Sources */,
+				DDDDB5FE29BD411500432212 /* WishListCell.swift in Sources */,
 				DDAFFB5329B6360E00C07CCA /* ProductDetailsViewModel.swift in Sources */,
 				39661D6129B692FF00B2C8A5 /* AboutViewController.swift in Sources */,
 				39661D6529B693A200B2C8A5 /* SettingsViewController.swift in Sources */,
