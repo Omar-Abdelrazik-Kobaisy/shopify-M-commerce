@@ -15,6 +15,7 @@ class CustomerLogin: Decodable {
     let id: Int?
     let email: String?
     let note:String?
+    var first_name:String?
 }
 
 

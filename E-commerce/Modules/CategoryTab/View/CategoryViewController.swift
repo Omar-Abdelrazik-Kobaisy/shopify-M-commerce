@@ -16,32 +16,32 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var productCollectionV: UICollectionView!
     
     var category : Category?
-        var favId = ""
-        var products : product?
-        let floaty = Floaty()
-        var arr_filtered : [productItem]!
-        var arr_products : [productItem] = []
-        var isFilterd : Bool = false
-       var CatogoryFilter : [productItem] = []
-
-        var arr_category_id : [Int] = []
+    var favId = ""
+    var products : product?
+    let floaty = Floaty()
+    var arr_filtered : [productItem]!
+    var arr_products : [productItem] = []
+    var isFilterd : Bool = false
+    var CatogoryFilter : [productItem] = []
+    
+    var arr_category_id : [Int] = []
     
     var viewModel = CategoryViewModel()
     
     
     
     let searchController = UISearchController(searchResultsController: nil)
-
+    
     var isSearchBarEmpty: Bool{
-            return searchController.searchBar.text!.isEmpty
-        }
+        return searchController.searchBar.text!.isEmpty
+    }
     var isFiltering : Bool{
-            return searchController.isActive && !isSearchBarEmpty
-        }
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
         makeSearchBar()
         
         filterByFloatyButton()
@@ -70,7 +70,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     fileprivate func showProductByCategory(_ sender: UISegmentedControl) {
-           let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?collection_id=\(arr_category_id[sender.selectedSegmentIndex])"
+        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?collection_id=\(arr_category_id[sender.selectedSegmentIndex])"
         viewModel.getProductsCategory(url: url)
         
         viewModel.bindingProductsCategory = {[weak self] data in
@@ -79,67 +79,67 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self?.productCollectionV.reloadData()
             }
         }
-       }
+    }
     
     @IBAction func didSelectSegment(_ sender: UISegmentedControl) {
         showProductByCategory(sender)
-               isFilterd = false
+        isFilterd = false
     }
     
     func filterByFloatyButton()
     {
         floaty.buttonColor = .systemBlue
-               floaty.openAnimationType = .fade
-               floaty.paddingX = 20
-               floaty.paddingY = 100
-
-               floaty.addItem("T-Shirt", icon: UIImage(systemName: "tshirt.fill")){_ in
-                   let arr = self.products?.products.filter{
-                       $0.product_type == "T-SHIRTS"
-                   }
-                   self.isFilterd = true
-                   self.arr_filtered = arr
-                   self.productCollectionV.reloadData()
-               }
-               floaty.addItem("Shoes", icon: UIImage(named: "shoes")){_ in
-                   let arr = self.products?.products.filter{
-                       $0.product_type == "SHOES"
-                   }
-                   self.isFilterd = true
-                   self.arr_filtered = arr
-                   self.productCollectionV.reloadData()
-               }
-               floaty.addItem("Accessory", icon: UIImage(named: "accessory")){_ in
-                   let arr = self.products?.products.filter{
-                       $0.product_type == "ACCESSORIES"
-                   }
-                   self.isFilterd = true
-                   self.arr_filtered = arr
-                   self.productCollectionV.reloadData()
-               }
-               
-               view.addSubview(floaty)
+        floaty.openAnimationType = .fade
+        floaty.paddingX = 20
+        floaty.paddingY = 100
+        
+        floaty.addItem("T-Shirt", icon: UIImage(systemName: "tshirt.fill")){_ in
+            let arr = self.products?.products.filter{
+                $0.product_type == "T-SHIRTS"
+            }
+            self.isFilterd = true
+            self.arr_filtered = arr
+            self.productCollectionV.reloadData()
+        }
+        floaty.addItem("Shoes", icon: UIImage(named: "shoes")){_ in
+            let arr = self.products?.products.filter{
+                $0.product_type == "SHOES"
+            }
+            self.isFilterd = true
+            self.arr_filtered = arr
+            self.productCollectionV.reloadData()
+        }
+        floaty.addItem("Accessory", icon: UIImage(named: "accessory")){_ in
+            let arr = self.products?.products.filter{
+                $0.product_type == "ACCESSORIES"
+            }
+            self.isFilterd = true
+            self.arr_filtered = arr
+            self.productCollectionV.reloadData()
+        }
+        
+        view.addSubview(floaty)
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isFilterd
-               {
-                   return arr_filtered.count
-               }
+        {
+            return arr_filtered.count
+        }
         else if isFiltering {
             return CatogoryFilter.count
         }
         return products?.products.count ?? 0
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
         return CGSize(width:self.view.frame.width*0.43, height: self.view.frame.height*0.24)
-
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let productDetail = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as!ProductDetailsViewController
@@ -151,25 +151,41 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             productDetail.prodId = products?.products[indexPath.row].id
         }
-       
+        
         
         navigationController?.pushViewController(productDetail, animated: true)
     }
     
     @IBAction func cartButton(_ sender: Any) {
-        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            alertForUser()
+            
+        }
+        else{
+            let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+            
+            navigationController?.pushViewController(cart, animated: true)
+            
+        }
         
-        navigationController?.pushViewController(cart, animated: true)
     }
     
-
+    
     @IBAction func favoriteButton(_ sender: Any) {
-        let favorite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as! WishListViewController
         
-        navigationController?.pushViewController(favorite, animated: true)
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            alertForUser()
+            
+        }
+        else{
+            let favouite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as!WishListViewController
+            
+            navigationController?.pushViewController(favouite, animated: true)
+        }
+        
     }
     
-    }
+}
 
 
 extension CategoryViewController:UICollectionViewDataSource{
@@ -240,6 +256,28 @@ extension CategoryViewController:UICollectionViewDataSource{
                return cell
         
     }
+    func alertForUser(){
+      let alert = UIAlertController(title: "Alert", message: "You need to login or signUp ", preferredStyle: .alert)
+      
+          //Delet-----From-------coredata------And--------UserDefaults
+      alert.addAction(UIAlertAction(title: "Login", style: .default , handler: { [self] action in
+                  let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
+                  navigationController?.pushViewController(login, animated: true)
+
+      }))
+      
+      alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.cancel , handler: { [self] action in
+          
+              let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
+              navigationController?.pushViewController(signup, animated: true)
+      }))
+        
+    alert.addAction(UIAlertAction(title: "Discard", style: UIAlertAction.Style.cancel ,handler:{_ in }))
+
+      present(alert, animated: true)
+
+      
+  }
     
 }
 

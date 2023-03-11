@@ -245,6 +245,7 @@
                     <connections>
                         <outlet property="Order_TableV" destination="ws0-Jo-gQ7" id="kKy-Bk-jJf"/>
                         <outlet property="Wish_TableV" destination="01l-So-6Wd" id="r1q-L9-cl5"/>
+                        <outlet property="userName" destination="It4-kx-3Jt" id="YIJ-Qt-l6Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1660,7 +1661,7 @@
         <!--Wish List View Controller-->
         <scene sceneID="d7x-gs-PqL">
             <objects>
-                <tableViewController storyboardIdentifier="WishListViewController" id="C3Z-Tl-m43" customClass="WishListViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WishListViewController" hidesBottomBarWhenPushed="YES" id="C3Z-Tl-m43" customClass="WishListViewController" customModule="E_commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Tbx-qN-FCE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2027,7 +2028,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ho4-tL-WT5">
                                 <rect key="frame" x="0.0" y="455" width="393" height="54.666666666666686"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ProductName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-po-XDe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ProductName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-po-XDe">
                                         <rect key="frame" x="0.0" y="0.0" width="252" height="26.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="252" id="GrI-cs-bxE"/>
@@ -2048,7 +2049,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="393" id="NYR-S3-ykC"/>
                                     <constraint firstAttribute="height" constant="54.670000000000002" id="y77-0o-u9b"/>
@@ -2062,6 +2062,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add to chart">
                                     <backgroundConfiguration key="background" cornerRadius="20"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="AddToCartBtnClicked:" destination="2UP-HH-YIc" eventType="touchUpInside" id="0Wi-2a-cuS"/>
@@ -2096,14 +2097,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="NX3-HK-pVh" secondAttribute="bottom" id="60F-b8-9sl"/>
                                 </constraints>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cQb-Ha-w1v">
                                 <rect key="frame" x="90" y="386" width="213" height="26"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.2783918977" green="0.30241933469999999" blue="0.27450612190000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="213" id="BIk-0y-sKD"/>
                                     <constraint firstAttribute="width" constant="213" id="PCZ-BA-U2d"/>
@@ -2111,6 +2111,8 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="gaf-Wd-ffX"/>
                                     <constraint firstAttribute="height" constant="26" id="lRM-7q-nh2"/>
                                 </constraints>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3xB-SP-o4s"/>

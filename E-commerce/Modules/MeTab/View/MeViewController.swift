@@ -12,6 +12,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     @IBOutlet weak var Order_TableV: UITableView!
     
+    @IBOutlet weak var userName: UILabel!
     
     @IBOutlet weak var Wish_TableV: UITableView!
     
@@ -21,7 +22,12 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.integer(forKey:"loginid"))
-               
+        if UserDefaults.standard.integer(forKey:"loginid") == 0{
+            userName.text = "User"
+        }
+        else{
+            userName.text = UserDefaults.standard.string(forKey:"loginfirstName")
+        }
                let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(UserDefaults.standard.integer(forKey:"loginid"))/orders.json"
                
         
@@ -38,6 +44,10 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         if (wishlistArr.count == 0 ){
             Wish_TableV.isHidden = true
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Wish_TableV.reloadData()
     }
     
     
@@ -89,9 +99,16 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
 
     @IBAction func cartButton(_ sender: Any) {
         
-        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC") as! ShopingCartVC
-        
-        navigationController?.pushViewController(cart, animated: true)
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            alertForUser()
+            
+        }
+        else{
+            let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+            
+            navigationController?.pushViewController(cart, animated: true)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -107,6 +124,27 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
 
     }
 
-    
+    func alertForUser(){
+      let alert = UIAlertController(title: "Alert", message: "You need to login or signUp ", preferredStyle: .alert)
+      
+          //Delet-----From-------coredata------And--------UserDefaults
+        alert.addAction(UIAlertAction(title: "Login", style: .default , handler: { [self] action in
+                  let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
+                  navigationController?.pushViewController(login, animated: true)
+
+      }))
+      
+      alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.default , handler: { [self] action in
+          
+              let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
+              navigationController?.pushViewController(signup, animated: true)
+      }))
+        alert.addAction(UIAlertAction(title: "Discard", style: UIAlertAction.Style.cancel ,handler:{_ in }))
+      
+      present(alert, animated: true)
+
+      
+  }
 
 }
+

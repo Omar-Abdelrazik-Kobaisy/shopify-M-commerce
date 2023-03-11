@@ -125,16 +125,28 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     }
     
     @IBAction func cart(_ sender: Any) {
-        let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
-        
-        navigationController?.pushViewController(cart, animated: true)
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+              alertForUser()
+            
+        }
+        else{
+                let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
+                
+                navigationController?.pushViewController(cart, animated: true)
+            
+        }
     }
     
     @IBAction func favourite(_ sender: Any) {
-        let favouite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as!WishListViewController
-        
-        navigationController?.pushViewController(favouite, animated: true)
-    }
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            alertForUser()
+            
+        }
+        else{
+                let favouite = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController")as!WishListViewController
+                
+                navigationController?.pushViewController(favouite, animated: true)
+        }}
     
 }
 //------------------for-------------search-----------------
@@ -142,22 +154,48 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate{
 
     func makeSearchBar(){
 
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.tintColor = .black
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Brand"
-        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+            searchController.searchResultsUpdater = self
+            searchController.searchBar.tintColor = .black
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.placeholder = "Search for Brand"
+            let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
 
-        textFieldInsideSearchBar?.textColor = .black
-        navigationItem.searchController = searchController
-        definesPresentationContext = false
+            textFieldInsideSearchBar?.textColor = .black
+            navigationItem.searchController = searchController
+            definesPresentationContext = false
                 
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        brandFilter = (brands?.smart_collections)!.filter({ filter in
-            return filter.title!.lowercased().contains(searchController.searchBar.text!.lowercased())
+            brandFilter = (brands?.smart_collections)!.filter({ filter in
+                return filter.title!.lowercased().contains(searchController.searchBar.text!.lowercased())
         })
         Brands_CollectionV.reloadData()
     }
+    
+      func alertForUser(){
+        let alert = UIAlertController(title: "Alert", message: "You need to login or signUp ", preferredStyle: .alert)
+        
+            //Delet-----From-------coredata------And--------UserDefaults
+        alert.addAction(UIAlertAction(title: "Login", style: .default , handler: { [self] action in
+                    let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
+                    navigationController?.pushViewController(login, animated: true)
+
+        }))
+        
+        alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.cancel , handler: { [self] action in
+            
+                let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
+                navigationController?.pushViewController(signup, animated: true)
+        }))
+          
+     alert.addAction(UIAlertAction(title: "Discard", style: UIAlertAction.Style.cancel ,handler:{_ in }))
+
+        present(alert, animated: true)
+
+        
+    }
+
 }
+
+
