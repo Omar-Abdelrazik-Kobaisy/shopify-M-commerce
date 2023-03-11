@@ -12,7 +12,7 @@ protocol NetworkService
 {
     static func fetchFromApi<T : Decodable>( API_URL:String ,completion : @escaping (T?)-> Void)
     
-    static func postOrderToApi(order : PostOrder)
+    static func postOrderToApi(order : PostOrder,complication:@escaping (Int) -> Void)
     
 }
 
@@ -37,7 +37,7 @@ class ApiService : NetworkService
     }
     
     
-    static func postOrderToApi(order: PostOrder) {
+    static func postOrderToApi(order: PostOrder,complication:@escaping (Int) -> Void) {
         let url = URL(string: "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/orders.json")
         
         var urlRequest = URLRequest(url: url!)
@@ -58,8 +58,12 @@ class ApiService : NetworkService
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if (data != nil && data?.count != 0){
-                let response = String(data:data!,encoding: .utf8)
-                print(response!)
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
                 }
                }.resume()
     }
