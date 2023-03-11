@@ -15,7 +15,7 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
+        print(UserDefaults.standard.string(forKey: "address"))
     }
     
     
@@ -23,11 +23,11 @@ class PaymentViewController: UIViewController {
         let placeOrderVC = self.storyboard?.instantiateViewController(withIdentifier: "PlaceOrderVC") as! PlaceOrderVC
         if ApplePayOption.isSelected {
             placeOrderVC.PaymentMethod = "Apple Pay"
-            self.navigationController?.pushViewController(placeOrderVC, animated: false)
+           
         }
         else if CashOnDeliveryOption.isSelected{
             placeOrderVC.PaymentMethod = "Cash on delivery"
-            self.navigationController?.pushViewController(placeOrderVC, animated: false)
+           
         } else  {
             self.showAlert(title: "No Method is selected", message: "Please Select Payment Method")
         }
@@ -48,7 +48,7 @@ class PaymentViewController: UIViewController {
             self.showAlert(title: "Not Valid Coupon", message: "Please Enter A valid Coupon")
         }
         CouponTF.text = ""
-        
+        self.navigationController?.pushViewController(placeOrderVC, animated: false)
         
     }
     func showAlert(title: String , message: String){

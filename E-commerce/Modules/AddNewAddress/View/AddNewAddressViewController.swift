@@ -40,6 +40,7 @@ class AddNewAddressViewController: UIViewController {
             ViewModel?.setAddress(setaddress: address)
             
         }
+        self.navigationController?.popViewController(animated: true)
         
     }
     func checkData() {

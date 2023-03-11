@@ -64,6 +64,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     }
     
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
+        
         orderViewModel.creatItem(product: productt!)
     }
     

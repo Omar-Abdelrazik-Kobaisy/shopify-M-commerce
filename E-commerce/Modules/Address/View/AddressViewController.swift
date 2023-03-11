@@ -25,7 +25,12 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
             }
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     @IBAction func AddnewAddressBtn(_ sender: Any) {
         let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
         self.navigationController?.pushViewController(addressVC, animated: true)
