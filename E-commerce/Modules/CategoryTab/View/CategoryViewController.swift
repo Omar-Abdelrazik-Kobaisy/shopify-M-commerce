@@ -266,7 +266,7 @@ extension CategoryViewController:UICollectionViewDataSource{
 
       }))
       
-      alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.cancel , handler: { [self] action in
+      alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.default , handler: { [self] action in
           
               let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
               navigationController?.pushViewController(signup, animated: true)

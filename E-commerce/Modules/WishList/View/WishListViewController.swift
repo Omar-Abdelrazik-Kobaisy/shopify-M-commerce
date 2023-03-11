@@ -11,15 +11,19 @@ class WishListViewController: UITableViewController {
 
     @IBOutlet var wishListTable: UITableView!
     var wishListArray :[FavoriteProduct] = []
-    
+    var viewmodel :WishListViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         wishListTable.reloadData()
-
+        viewmodel = WishListViewModel()
+        
+     
+        wishListArray = (viewmodel?.getWishlist())!
+        
     }
+    
 
     override func viewDidAppear(_ animated: Bool) {
-        wishListArray = CoreDataManager.fetchFromCoreData()
         wishListTable.reloadData()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,6 +80,12 @@ class WishListViewController: UITableViewController {
         
         self.present(alert, animated: true) {
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetail = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as!ProductDetailsViewController
+            productDetail.prodId = wishListArray[indexPath.row].product_id
+        navigationController?.pushViewController(productDetail, animated: true)
     }
 
 }

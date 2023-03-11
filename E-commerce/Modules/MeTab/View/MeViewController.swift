@@ -24,6 +24,8 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         print(UserDefaults.standard.integer(forKey:"loginid"))
         if UserDefaults.standard.integer(forKey:"loginid") == 0{
             userName.text = "User"
+            Wish_TableV.isHidden = true
+
         }
         else{
             userName.text = UserDefaults.standard.string(forKey:"loginfirstName")
@@ -112,15 +114,23 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let orderDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsVC") as! OrderDetailsVC
-                
-                orderDetailsVC.created_at = orders?.orders[indexPath.row].created_at
-                orderDetailsVC.user_name = (orders?.orders[indexPath.row].customer.first_name ?? "") + " " + (orders?.orders[indexPath.row].customer.last_name ?? "")
-                
-                orderDetailsVC.arr_of_orders = orders?.orders[indexPath.row].line_items
-                
-                
-                self.navigationController?.pushViewController(orderDetailsVC, animated: true)
+        if tableView == Order_TableV{
+            let orderDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailsVC") as! OrderDetailsVC
+            
+            orderDetailsVC.created_at = orders?.orders[indexPath.row].created_at
+            orderDetailsVC.user_name = (orders?.orders[indexPath.row].customer.first_name ?? "") + " " + (orders?.orders[indexPath.row].customer.last_name ?? "")
+            
+            orderDetailsVC.arr_of_orders = orders?.orders[indexPath.row].line_items
+            
+            
+            self.navigationController?.pushViewController(orderDetailsVC, animated: true)}
+        else{
+            let productDetail = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as!ProductDetailsViewController
+                productDetail.prodId =  wishlistArr[indexPath.row].product_id
+            navigationController?.pushViewController(productDetail, animated: true)
+            
+        }
+        
 
     }
 
