@@ -24,6 +24,7 @@ class PlaceOrderVC: UIViewController {
     
     var models : [OrderListModel]?
     var orderViewModel : OrderViewModel?
+    var placeOrderViewModel : PlaceOrderViewMOdel?
         
         
         var orders_arr : [OrderItem] = []
@@ -33,6 +34,8 @@ class PlaceOrderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CalcTotal()
+        
+        placeOrderViewModel = PlaceOrderViewMOdel()
         
         makeOrder()
        
@@ -70,6 +73,7 @@ class PlaceOrderVC: UIViewController {
         postOrder = PostOrder(order: order)
         
         print(postOrder!.convertToDictionary())
+        
     }
     
     
@@ -132,21 +136,23 @@ class PlaceOrderVC: UIViewController {
     }
     
     @IBAction func PlaceOrderButton(_ sender: Any) {
+
         guard let order = postOrder else {return}
-        ApiService.postOrderToApi(order: order) { [weak self] code in
-            self?.statusCode = code
-            DispatchQueue.main.async {
-                if self?.statusCode == 201
-                {
-                    print("post Success")
-                    self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully")
-                }else
-                {
-                    print("post fail")
-                    self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin")
-                }
-            }
-           
+        placeOrderViewModel?.addOrder(order: order)
+        placeOrderViewModel?.bindingOrder = {[weak self] code in
+                        self?.statusCode = code
+                        DispatchQueue.main.async {
+                            if self?.statusCode == 201
+                            {
+                                print("post Success")
+                                self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully")
+                            }else
+                            {
+                                print("post fail")
+                                self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin")
+                            }
+                        }
+            
         }
     }
     func showAlert(title: String, message: String){
