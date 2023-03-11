@@ -85,7 +85,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         func TotalPrice(){
             orderViewModel!.calc { totalPrice in
                 guard let totalPrice = totalPrice else { return }
-                UserDefaults.standard.set(totalPrice, forKey: "TotalPrice")
+                UserDefaults.standard.set(totalPrice, forKey: "final")
                 self.totalItemsPriceLabel.text = String(totalPrice) + " USD"
             }
         }

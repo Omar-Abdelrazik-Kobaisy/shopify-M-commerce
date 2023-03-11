@@ -70,7 +70,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
         else{
             orderViewModel.creatItem(product: productt!)
             UserDefaults.standard.setValue(true, forKey: "cart\(productInfo?.product.id  ?? 0)")
-            orderViewModel.creatItem(product: productt!)        }
+                   }
     }
     
     @IBAction func FavouriteButton(_ sender: Any) {
