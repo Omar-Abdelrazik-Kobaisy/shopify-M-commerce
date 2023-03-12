@@ -9,11 +9,12 @@ import UIKit
 
 class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
+    @IBOutlet weak var OrderImg: UIImageView!
+    @IBOutlet weak var wishImg: UILabel!
+    @IBOutlet weak var Orderslbl: UILabel!
+    @IBOutlet weak var Wishlbl: UILabel!
     @IBOutlet weak var Order_TableV: UITableView!
-    
     @IBOutlet weak var userName: UILabel!
-    
     @IBOutlet weak var Wish_TableV: UITableView!
     
     var orders : GetOrder?
@@ -21,15 +22,20 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     var viewModel = MeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(orders?.orders.count)
+        
         print(UserDefaults.standard.integer(forKey:"loginid"))
         if UserDefaults.standard.integer(forKey:"loginid") == 0{
             userName.text = "User"
+            
             Wish_TableV.isHidden = true
 
         }
         else{
             userName.text = UserDefaults.standard.string(forKey:"loginfirstName")
         }
+        print(userName.text)
+        print(UserDefaults.standard.string(forKey:"loginfirstName"))
                let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(UserDefaults.standard.integer(forKey:"loginid"))/orders.json"
                
         
@@ -45,6 +51,30 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         wishlistArr = viewModel.getWishlist()
         if (wishlistArr.count == 0 ){
             Wish_TableV.isHidden = true
+        }
+        check()
+        checkWishList()
+        print(wishlistArr.count)
+    }
+    func check(){
+        if orders?.orders.count == 0 {
+            Order_TableV.isHidden = true
+            Orderslbl.isHidden = true
+            OrderImg.isHidden = false
+            
+        } else {
+            Order_TableV.isHidden = false
+            Orderslbl.isHidden = false
+            OrderImg.isHidden = true
+        }
+    }
+    func checkWishList(){
+        if wishlistArr.count == 0 {
+            Wish_TableV.isHidden = true
+            wishImg.isHidden = false
+        } else {
+            Wish_TableV.isHidden = false
+            wishImg.isHidden = true
         }
     }
     

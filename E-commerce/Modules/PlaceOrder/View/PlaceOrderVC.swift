@@ -66,10 +66,10 @@ class PlaceOrderVC: UIViewController {
         formatter.dateFormat = "dd-MM-yyyy"
         
         let orderDate = formatter.string(from: date)
-
+        print(orderDate)
         
-        let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr , created_at: orderDate , current_total_price: Totallbl.text)
-        
+        let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr  , current_total_price: Totallbl.text)
+        //, created_at: orderDate
         postOrder = PostOrder(order: order)
         
         print(postOrder!.convertToDictionary())
