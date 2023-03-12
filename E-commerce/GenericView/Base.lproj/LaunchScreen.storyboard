@@ -15,18 +15,34 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopify" translatesAutoresizingMaskIntoConstraints="NO" id="vYX-R5-Z36">
+                                <rect key="frame" x="46" y="188" width="305" height="545"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="545" id="3px-yd-2oD"/>
+                                    <constraint firstAttribute="width" constant="305" id="Vvl-yS-D1v"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vYX-R5-Z36" secondAttribute="trailing" constant="42" id="SIp-zh-fKx"/>
+                            <constraint firstItem="vYX-R5-Z36" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="TzV-aV-aIk"/>
+                            <constraint firstItem="vYX-R5-Z36" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="ftz-tr-KqP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vYX-R5-Z36" secondAttribute="bottom" constant="85" id="xjS-ER-kMb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="person.fill" catalog="system" id="af9-IN-4R3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="230"/>
+            <point key="canvasLocation" x="1359.5419847328244" y="229.57746478873241"/>
         </scene>
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="shopify" width="600" height="300"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

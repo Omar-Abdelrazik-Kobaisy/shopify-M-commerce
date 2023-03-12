@@ -42,9 +42,7 @@ class loginViewModel{
                 if customerEmail == obserable.customers[i].email && customerPasssword != obserable.customers[i].note{
                  x = 3
                 }
-                if customerEmail != obserable.customers[i].email && customerPasssword != obserable.customers[i].note{
-                 x = 4
-                }
+
                 
         }
           

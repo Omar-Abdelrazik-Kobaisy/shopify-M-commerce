@@ -50,9 +50,6 @@ class LoginViewController: UIViewController {
                 if self?.loginCustomer?.AuthCustomer(customerEmail: self?.username.text ?? "", customerPasssword: self?.password.text ?? "") == 3{
                     self?.errorLabel.text = "Uncorrect Password"
                 }
-                if self?.loginCustomer?.AuthCustomer(customerEmail: self?.username.text ?? "", customerPasssword: self?.password.text ?? "") == 4{
-                    self?.errorLabel.text = "Invalid email"
-                }
                
                 
             }

@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
              else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+                let loginViewController = storyboard.instantiateViewController(withIdentifier: "SplashController")
                 let navigationController = UINavigationController(rootViewController: loginViewController)
                 window?.rootViewController = navigationController
                 window?.makeKeyAndVisible()
