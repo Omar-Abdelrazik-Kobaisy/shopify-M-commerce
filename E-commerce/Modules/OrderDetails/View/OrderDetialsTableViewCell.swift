@@ -10,8 +10,9 @@ import UIKit
 class OrderDetialsTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var ItemDescriptionTextView: UITextView!
     
+    @IBOutlet weak var ItemDescriptionTextView: UILabel!
+    //    ItemDescriptionTextView
     @IBOutlet weak var PriceStaticLabel: UILabel!
     
     @IBOutlet weak var QuantityStaticLabel: UILabel!

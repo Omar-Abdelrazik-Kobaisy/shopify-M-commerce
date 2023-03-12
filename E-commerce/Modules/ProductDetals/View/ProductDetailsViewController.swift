@@ -13,8 +13,9 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     @IBOutlet weak var ProductImagesCollection: UICollectionView!
     @IBOutlet weak var ProductName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
-    @IBOutlet weak var ProductDescription: UILabel!
     
+    @IBOutlet weak var ProductDescription: UITextView!
+    //    ProductDescription
     @IBOutlet weak var favButtonOutlet: UIButton!
     let orderViewModel = OrderViewModel()
     var ProductViewModel:ProductDetailViewModel?
