@@ -44,10 +44,16 @@ class LoginViewController: UIViewController {
                     self?.navigationController?.pushViewController(Home, animated: true)
                     
                 }
-                else{
-                    
+                if self?.loginCustomer?.AuthCustomer(customerEmail: self?.username.text ?? "", customerPasssword: self?.password.text ?? "") == 2{
+                    self?.errorLabel.text = "Invalid email"
+                }
+                if self?.loginCustomer?.AuthCustomer(customerEmail: self?.username.text ?? "", customerPasssword: self?.password.text ?? "") == 3{
                     self?.errorLabel.text = "Uncorrect Password"
                 }
+                if self?.loginCustomer?.AuthCustomer(customerEmail: self?.username.text ?? "", customerPasssword: self?.password.text ?? "") == 4{
+                    self?.errorLabel.text = "Invalid email"
+                }
+               
                 
             }
         }

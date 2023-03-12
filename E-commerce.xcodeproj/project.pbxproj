@@ -244,9 +244,6 @@
 				395149EA29B1697E00DCCA13 /* GenericModel */,
 				395149E729B1635A00DCCA13 /* Modules */,
 				0738B1BA29AF8AB900F9375F /* ViewController.swift */,
-				39661D6029B692FF00B2C8A5 /* AboutViewController.swift */,
-				39661D6629B693F500B2C8A5 /* PaymentViewController.swift */,
-				39661D6829B6943B00B2C8A5 /* ContactUs.swift */,
 				0738B1C729AF8ABB00F9375F /* Info.plist */,
 				0738B1BF29AF8AB900F9375F /* E_commerce.xcdatamodeld */,
 			);
@@ -387,6 +384,9 @@
 		395149E729B1635A00DCCA13 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DD5FCFBD29BE164A00BD12AE /* ContactUs */,
+				DD5FCFBC29BE163800BD12AE /* AboutUs */,
+				DD5FCFBB29BE162300BD12AE /* Payment */,
 				DDAFFB5429B668F700C07CCA /* WishList */,
 				ABF2FFEF29B18CEE0007845D /* FirstAppScreen */,
 				ABF2FFEC29B18C150007845D /* ProductDetals */,
@@ -810,6 +810,30 @@
 				DDDDB5FD29BD411500432212 /* WishListCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DD5FCFBB29BE162300BD12AE /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				39661D6629B693F500B2C8A5 /* PaymentViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		DD5FCFBC29BE163800BD12AE /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				39661D6029B692FF00B2C8A5 /* AboutViewController.swift */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		DD5FCFBD29BE164A00BD12AE /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				39661D6829B6943B00B2C8A5 /* ContactUs.swift */,
+			);
+			path = ContactUs;
 			sourceTree = "<group>";
 		};
 		DDAFFB4F29B62AF400C07CCA /* ViewModel */ = {
