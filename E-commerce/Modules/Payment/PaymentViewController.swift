@@ -118,9 +118,12 @@ extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
         
     }
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePaymentpayment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
+    private func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePaymentpayment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
-    
-    
+
 }
+/*  func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePayment payment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
+ completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+}*/
+

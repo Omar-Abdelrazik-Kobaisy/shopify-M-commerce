@@ -72,6 +72,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
         if UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"){
+            AppSnackBar.make(in: self.view, message: "The prodcute already exist", duration: .lengthLong).show()
             print("saveddd")
         }
         else{

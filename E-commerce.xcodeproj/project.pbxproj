@@ -46,6 +46,8 @@
 		39661D6529B693A200B2C8A5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6429B693A100B2C8A5 /* SettingsViewController.swift */; };
 		39661D6729B693F600B2C8A5 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6629B693F500B2C8A5 /* PaymentViewController.swift */; };
 		39661D6929B6943B00B2C8A5 /* ContactUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39661D6829B6943B00B2C8A5 /* ContactUs.swift */; };
+		39962DCE29BE184900C1620A /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 39962DCD29BE184900C1620A /* SnackBar */; };
+		39962DD029BE189400C1620A /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39962DCF29BE189400C1620A /* AppSnackBar.swift */; };
 		3998B79E29BB8026001508BA /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3998B79D29BB8026001508BA /* SelectAddressViewController.swift */; };
 		399D85C229B795D6002B7308 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C129B795D6002B7308 /* AddressModel.swift */; };
 		399D85C429B795D6002B7308 /* AddressNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D85C329B795D6002B7308 /* AddressNetworkService.swift */; };
@@ -145,6 +147,7 @@
 		39661D6629B693F500B2C8A5 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		39661D6829B6943B00B2C8A5 /* ContactUs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUs.swift; sourceTree = "<group>"; };
 		3994142A29BD6B7900F7C9C0 /* E-commerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "E-commerce.entitlements"; sourceTree = "<group>"; };
+		39962DCF29BE189400C1620A /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
 		3998B79D29BB8026001508BA /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
 		399D85C129B795D6002B7308 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		399D85C329B795D6002B7308 /* AddressNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressNetworkService.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071FAB7C29B00581003D1D3A /* Kingfisher in Frameworks */,
+				39962DCE29BE184900C1620A /* SnackBar in Frameworks */,
 				076DCFAC29B61191006D90FF /* Floaty in Frameworks */,
 				071FAB7629AFF51C003D1D3A /* Alamofire in Frameworks */,
 				96933311B8D3EF4C5E852F2B /* Pods_E_commerce.framework in Frameworks */,
@@ -715,6 +719,7 @@
 			children = (
 				DDA4BBAC29B12733004C6406 /* ProductDetailsCellViewController.swift */,
 				DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */,
+				39962DCF29BE189400C1620A /* AppSnackBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -940,6 +945,7 @@
 				071FAB7529AFF51C003D1D3A /* Alamofire */,
 				071FAB7B29B00581003D1D3A /* Kingfisher */,
 				076DCFAB29B61191006D90FF /* Floaty */,
+				39962DCD29BE184900C1620A /* SnackBar */,
 			);
 			productName = "E-commerce";
 			productReference = 0738B1B329AF8AB900F9375F /* E-commerce.app */;
@@ -1020,6 +1026,7 @@
 				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */,
+				39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */,
 			);
 			productRefGroup = 0738B1B429AF8AB900F9375F /* Products */;
 			projectDirPath = "";
@@ -1178,6 +1185,7 @@
 				399DC5B629B8E966005B587F /* OrderViewModel.swift in Sources */,
 				071FAB8029B01EF5003D1D3A /* ProductCollectionViewCell.swift in Sources */,
 				DD0FA16529B3AAF1002692E8 /* CustomerModel.swift in Sources */,
+				39962DD029BE189400C1620A /* AppSnackBar.swift in Sources */,
 				0783EFAE29AF9748009592E7 /* HomeViewController.swift in Sources */,
 				DD3262E929BA5D82001330FA /* FavouriteProduct.swift in Sources */,
 				DD88140829B11E2B006C791A /* AddressViewController.swift in Sources */,
@@ -1608,6 +1616,14 @@
 				kind = branch;
 			};
 		};
+		39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1625,6 +1641,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */;
 			productName = Floaty;
+		};
+		39962DCD29BE184900C1620A /* SnackBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */;
+			productName = SnackBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 
