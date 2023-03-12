@@ -6,19 +6,19 @@
 //
 
 import Foundation
-class Brands : Decodable
+struct Brands : Decodable
 {
     var smart_collections : [BrandItem]
 }
 
-class BrandItem : Decodable
+struct BrandItem : Decodable
 {
     var id : Int?
     var title : String?
     var image : Image
 }
 
-class Image : Decodable
+struct Image : Decodable
 {
     var src : String?
 }

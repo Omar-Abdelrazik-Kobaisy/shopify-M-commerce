@@ -12,12 +12,14 @@ protocol NetworkService
 {
     static func fetchFromApi<T : Decodable>( API_URL:String ,completion : @escaping (T?)-> Void)
     
+  
+}
+protocol NetworkServicePost{
     static func postOrderToApi(order : PostOrder,complication:@escaping (Int) -> Void)
-    
 }
 
 
-class ApiService : NetworkService
+class ApiService : NetworkService , NetworkServicePost
 {
     static func fetchFromApi<T>(API_URL: String, completion: @escaping (T?) -> Void) where T : Decodable {
         AF.request(API_URL).responseJSON { response in

@@ -33,6 +33,8 @@
 		076DCFAC29B61191006D90FF /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 076DCFAB29B61191006D90FF /* Floaty */; };
 		076DCFAF29B61529006D90FF /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DCFAE29B61529006D90FF /* CategoryViewModel.swift */; };
 		078157D429BD469D00E24BC8 /* PlaceOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078157D329BD469D00E24BC8 /* PlaceOrderViewModel.swift */; };
+		07823DEA29BE7C160061BABD /* MockNetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07823DE929BE7C160061BABD /* MockNetworkManagerTest.swift */; };
+		07823DED29BE7C630061BABD /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07823DEC29BE7C630061BABD /* MockNetwork.swift */; };
 		0783EFAE29AF9748009592E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFAD29AF9748009592E7 /* HomeViewController.swift */; };
 		0783EFB229AFA21E009592E7 /* BrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */; };
 		0783EFB429AFA240009592E7 /* AdsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */; };
@@ -133,6 +135,8 @@
 		076DCFA829B6116A006D90FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		076DCFAE29B61529006D90FF /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		078157D329BD469D00E24BC8 /* PlaceOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderViewModel.swift; sourceTree = "<group>"; };
+		07823DE929BE7C160061BABD /* MockNetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerTest.swift; sourceTree = "<group>"; };
+		07823DEC29BE7C630061BABD /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
 		0783EFAD29AF9748009592E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0783EFB129AFA21E009592E7 /* BrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0783EFB329AFA240009592E7 /* AdsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		0738B1CF29AF8ABB00F9375F /* E-commerceTests */ = {
 			isa = PBXGroup;
 			children = (
+				07823DEB29BE7C230061BABD /* Mocks */,
+				07823DE929BE7C160061BABD /* MockNetworkManagerTest.swift */,
 				0738B1D029AF8ABB00F9375F /* E_commerceTests.swift */,
 			);
 			path = "E-commerceTests";
@@ -336,6 +342,14 @@
 				078157D329BD469D00E24BC8 /* PlaceOrderViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		07823DEB29BE7C230061BABD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				07823DEC29BE7C630061BABD /* MockNetwork.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		07D25CFF29B0C38F00A99E92 /* Delegate */ = {
@@ -917,7 +931,6 @@
 				7939D0E750B058FF6825A6D6 /* Pods-E-commerceTests.debug.xcconfig */,
 				7A538738CE2473E600CFE508 /* Pods-E-commerceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1021,10 +1034,10 @@
 			);
 			mainGroup = 0738B1AA29AF8AB900F9375F;
 			packageReferences = (
-				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */,
-				39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */,
+				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */,
+				39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */,
 			);
 			productRefGroup = 0738B1B429AF8AB900F9375F /* Products */;
 			projectDirPath = "";
@@ -1245,6 +1258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07823DED29BE7C630061BABD /* MockNetwork.swift in Sources */,
+				07823DEA29BE7C160061BABD /* MockNetworkManagerTest.swift in Sources */,
 				0738B1D129AF8ABB00F9375F /* E_commerceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1589,7 +1604,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1597,7 +1612,7 @@
 				kind = branch;
 			};
 		};
-		071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1605,7 +1620,7 @@
 				kind = branch;
 			};
 		};
-		076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */ = {
+		076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kciter/Floaty.git";
 			requirement = {
@@ -1613,7 +1628,7 @@
 				kind = branch;
 			};
 		};
-		39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */ = {
+		39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
 			requirement = {
@@ -1626,22 +1641,22 @@
 /* Begin XCSwiftPackageProductDependency section */
 		071FAB7529AFF51C003D1D3A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		071FAB7B29B00581003D1D3A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		076DCFAB29B61191006D90FF /* Floaty */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */;
+			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */;
 			productName = Floaty;
 		};
 		39962DCD29BE184900C1620A /* SnackBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */;
+			package = 39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */;
 			productName = SnackBar;
 		};
 /* End XCSwiftPackageProductDependency section */

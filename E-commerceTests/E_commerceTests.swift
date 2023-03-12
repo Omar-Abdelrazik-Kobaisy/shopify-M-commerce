@@ -11,12 +11,19 @@ import XCTest
 final class E_commerceTests: XCTestCase {
     
     let ViewModel = OrderViewModel()
+    
+    var brandViewModel : HomeViewModel?
+    var categoryViewModel : CategoryViewModel?
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        brandViewModel = HomeViewModel()
+        categoryViewModel = CategoryViewModel()
     }
     
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        brandViewModel = nil
+        categoryViewModel = nil
     }
     
     func testExample() throws {
@@ -66,5 +73,39 @@ final class E_commerceTests: XCTestCase {
     //        }
     //        waitForExpectations(timeout: 5, handler: nil)
     //    }
+    
+    func testgetAllBrands(){
+        
+        let exp = expectation(description: "wating for API...")
+        
+        brandViewModel?.getAllBrands()
+        brandViewModel?.bindingBrands = {
+            if let data : Brands = self.brandViewModel?.ObservableBrands {
+                XCTAssertNotNil(data)
+                exp.fulfill()
+            }else{
+                XCTFail()
+            }
+            
+        }
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testgetProductsCategory(){
+        let exp = expectation(description: "wating for API...")
+        
+        categoryViewModel?.getProductsCategory(url: "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/products.json?collection_id=438822437163")
+        categoryViewModel?.bindingProductsCategory = { data in
+            if let product : product = data {
+                XCTAssert(product.products.count == 3, "fail number of product in kid category equal 3")
+                exp.fulfill()
+            }else{
+                XCTFail()
+            }
+            
+        }
+        waitForExpectations(timeout: 5)
+    }
+    
     
 }
