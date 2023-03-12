@@ -39,7 +39,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         super.viewDidLoad()
         reachability.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
-        switch reachability.connection{
+        switch reachability.connection {
         case .wifi , .cellular:
             navigationItem.hidesSearchBarWhenScrolling = false
             makeSearchBar()
@@ -53,12 +53,13 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
             }
             viewModel.getAllBrands()
             couponArr = [coupon(img: UIImage(named: "c1")!, id: "shopify5%") , coupon(img: UIImage(named: "c4")!, id: "shopify10%") ,coupon(img: UIImage(named: "c3")!, id: "shopify15%") ]
+            
         case .unavailable , .none :
             let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
             self.present(alert, animated: true )
             self.tabBarController!.tabBar.isHidden = true
-            self.navigationController!.setToolbarHidden(false, animated: false)
+            navigationController?.setNavigationBarHidden(true ,animated: false)
         }
     }
     
@@ -69,7 +70,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         
         if collectionView == Ads_CollectionV
         {
-            return couponArr!.count
+            return couponArr?.count ?? 0
         }
         //----------search-----------array---------filtered---------------
         else if isFiltering {
@@ -137,6 +138,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         else
         {
             UIPasteboard.general.string = couponArr![indexPath.row].id
+            AppSnackBar.make(in: self.view, message: "Congratulations! you get a coupon ", duration: .lengthLong).show()
         }
     }
     

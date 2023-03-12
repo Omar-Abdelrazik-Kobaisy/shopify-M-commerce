@@ -8,14 +8,25 @@
 import UIKit
 
 class SettingsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
-    
+    let reachability = try! Reachability()
     @IBOutlet weak var darkOutlet: UISwitch!
     let appDelegate = UIApplication.shared.windows.first
 
     
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us"]
+    override func viewWillAppear( _ animated: Bool){
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do {
+            try reachability.stopNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+        
         if UserDefaults.standard.bool(forKey: "Dark"){
             darkOutlet.isOn = true
             appDelegate?.overrideUserInterfaceStyle = .dark
@@ -34,6 +45,8 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        switch reachability.connection {
+    case .wifi , .cellular:
         switch indexPath.row {
         case 0:
             cell.imageView?.image=UIImage(systemName: "homekit")
@@ -59,6 +72,13 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         default:
             break
         }
+    case .unavailable , .none :
+                let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
+                self.present(alert, animated: true )
+                self.tabBarController!.tabBar.isHidden = true
+                navigationController?.setNavigationBarHidden(true ,animated: false)
+            }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

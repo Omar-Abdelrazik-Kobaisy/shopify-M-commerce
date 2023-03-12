@@ -10,8 +10,8 @@ import SnackBar
 class AppSnackBar: SnackBar{
     override var style: SnackBarStyle {
         var style = SnackBarStyle()
-        style.background = .red
-        style.textColor = .green
+        style.background = .gray
+        style.textColor = .black
         return style
     }
 }

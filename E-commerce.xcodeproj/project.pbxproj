@@ -57,6 +57,7 @@
 		399DC5B629B8E966005B587F /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399DC5B529B8E966005B587F /* OrderViewModel.swift */; };
 		39A8019729B7F1DE00204A69 /* getAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8019629B7F1DD00204A69 /* getAddressModel.swift */; };
 		39A8019A29B7FB2200204A69 /* getViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8019929B7FB2200204A69 /* getViewModel.swift */; };
+		39CB4F4D29BE747900E91B76 /* splash1.json in Resources */ = {isa = PBXBuildFile; fileRef = 39CB4F4C29BE747800E91B76 /* splash1.json */; };
 		96933311B8D3EF4C5E852F2B /* Pods_E_commerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F4B0DE93B701CEA738CE5B /* Pods_E_commerce.framework */; };
 		ABC55C3729B19E8C00444FE8 /* AddNewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC55C3629B19E8C00444FE8 /* AddNewAddressViewController.swift */; };
 		DD0FA16529B3AAF1002692E8 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FA16429B3AAF1002692E8 /* CustomerModel.swift */; };
@@ -155,6 +156,7 @@
 		399DC5B529B8E966005B587F /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		39A8019629B7F1DD00204A69 /* getAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAddressModel.swift; sourceTree = "<group>"; };
 		39A8019929B7FB2200204A69 /* getViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getViewModel.swift; sourceTree = "<group>"; };
+		39CB4F4C29BE747800E91B76 /* splash1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash1.json; sourceTree = "<group>"; };
 		46F4B0DE93B701CEA738CE5B /* Pods_E_commerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_commerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7939D0E750B058FF6825A6D6 /* Pods-E-commerceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-commerceTests.debug.xcconfig"; path = "Target Support Files/Pods-E-commerceTests/Pods-E-commerceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A538738CE2473E600CFE508 /* Pods-E-commerceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-commerceTests.release.xcconfig"; path = "Target Support Files/Pods-E-commerceTests/Pods-E-commerceTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +175,6 @@
 		DD3262E329BA5CE9001330FA /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD3262E829BA5D82001330FA /* FavouriteProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteProduct.swift; sourceTree = "<group>"; };
 		DD5270EB29BE34930083C30B /* SplashNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigation.swift; sourceTree = "<group>"; };
-		DD5270F829BE3E910083C30B /* splash1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splash1.json; sourceTree = "<group>"; };
 		DD88140129B11E2A006C791A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DD88140229B11E2A006C791A /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		DD88140329B11E2B006C791A /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
@@ -852,7 +853,7 @@
 			children = (
 				DD5270EB29BE34930083C30B /* SplashNavigation.swift */,
 				0738B1BA29AF8AB900F9375F /* SplashController.swift */,
-				DD5270F829BE3E910083C30B /* splash1.json */,
+				39CB4F4C29BE747800E91B76 /* splash1.json */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -917,7 +918,6 @@
 				7939D0E750B058FF6825A6D6 /* Pods-E-commerceTests.debug.xcconfig */,
 				7A538738CE2473E600CFE508 /* Pods-E-commerceTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1021,10 +1021,10 @@
 			);
 			mainGroup = 0738B1AA29AF8AB900F9375F;
 			packageReferences = (
-				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */,
-				39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */,
+				071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */,
+				39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */,
 			);
 			productRefGroup = 0738B1B429AF8AB900F9375F /* Products */;
 			projectDirPath = "";
@@ -1042,6 +1042,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CB4F4D29BE747900E91B76 /* splash1.json in Resources */,
 				0738B1C629AF8ABB00F9375F /* LaunchScreen.storyboard in Resources */,
 				0738B1C329AF8ABB00F9375F /* Assets.xcassets in Resources */,
 				0738B1BE29AF8AB900F9375F /* Main.storyboard in Resources */,
@@ -1589,7 +1590,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1597,7 +1598,7 @@
 				kind = branch;
 			};
 		};
-		071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1605,7 +1606,7 @@
 				kind = branch;
 			};
 		};
-		076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */ = {
+		076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kciter/Floaty.git";
 			requirement = {
@@ -1613,7 +1614,7 @@
 				kind = branch;
 			};
 		};
-		39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */ = {
+		39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
 			requirement = {
@@ -1626,22 +1627,22 @@
 /* Begin XCSwiftPackageProductDependency section */
 		071FAB7529AFF51C003D1D3A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 071FAB7429AFF51C003D1D3A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		071FAB7B29B00581003D1D3A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = 071FAB7A29B00581003D1D3A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		076DCFAB29B61191006D90FF /* Floaty */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty.git" */;
+			package = 076DCFAA29B61191006D90FF /* XCRemoteSwiftPackageReference "Floaty" */;
 			productName = Floaty;
 		};
 		39962DCD29BE184900C1620A /* SnackBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar.swift" */;
+			package = 39962DCC29BE184900C1620A /* XCRemoteSwiftPackageReference "SnackBar" */;
 			productName = SnackBar;
 		};
 /* End XCSwiftPackageProductDependency section */
