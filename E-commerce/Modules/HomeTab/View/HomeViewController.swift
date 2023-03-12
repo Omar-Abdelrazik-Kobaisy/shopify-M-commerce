@@ -7,16 +7,11 @@
 
 import UIKit
 import Kingfisher
-
+import Reachability
 class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
-    
-  
-    
-    
-    
     @IBOutlet weak var Ads_CollectionV: UICollectionView!
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
-    
+    let reachability = try! Reachability()
     var brands:Brands?
     var viewModel = HomeViewModel()
     var couponArr :[coupon]?
@@ -31,29 +26,51 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     var isFiltering : Bool{
             return searchController.isActive && !isSearchBarEmpty
         }
-    
+
+    override func viewWillAppear( _ animated: Bool){
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do {
+            try reachability.stopNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesSearchBarWhenScrolling = false
-        makeSearchBar()
-        
-
-        viewModel.bindingBrands = { [weak self] in
-            self!.brands = self!.viewModel.ObservableBrands
-            DispatchQueue.main.async{ [self] in
-                self?.Brands_CollectionV.reloadData()
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+        switch reachability.connection {
+        case .wifi , .cellular:
+            navigationItem.hidesSearchBarWhenScrolling = false
+            makeSearchBar()
+            
+            
+            viewModel.bindingBrands = { [weak self] in
+                self!.brands = self!.viewModel.ObservableBrands
+                DispatchQueue.main.async{ [self] in
+                    self?.Brands_CollectionV.reloadData()
+                }
             }
+            viewModel.getAllBrands()
+            couponArr = [coupon(img: UIImage(named: "c1")!, id: "shopify5%") , coupon(img: UIImage(named: "c4")!, id: "shopify10%") ,coupon(img: UIImage(named: "c3")!, id: "shopify15%") ]
+            
+        case .unavailable , .none :
+            let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
+            self.present(alert, animated: true )
+            self.tabBarController!.tabBar.isHidden = true
+            navigationController?.setNavigationBarHidden(true ,animated: false)
         }
-        viewModel.getAllBrands()
-        couponArr = [coupon(img: UIImage(named: "c1")!, id: "shopify5%") , coupon(img: UIImage(named: "c4")!, id: "shopify10%") ,coupon(img: UIImage(named: "c3")!, id: "shopify15%") ]
     }
     
-    
+    @objc func reachabilityChanged(note: Notification){
+        let reachability = note.object as! Reachability
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == Ads_CollectionV
         {
-            return couponArr!.count
+            return couponArr?.count ?? 0
         }
         //----------search-----------array---------filtered---------------
         else if isFiltering {
@@ -121,6 +138,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         else
         {
             UIPasteboard.general.string = couponArr![indexPath.row].id
+            AppSnackBar.make(in: self.view, message: "Congratulations! you get a coupon ", duration: .lengthLong).show()
         }
     }
     
