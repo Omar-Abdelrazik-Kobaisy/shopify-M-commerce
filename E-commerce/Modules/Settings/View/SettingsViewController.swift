@@ -97,8 +97,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     @IBAction func logOutAction(_ sender: Any) {
         
         UserDefaults.standard.set(0, forKey: "loginid")
-        let userDefultId =  UserDefaults.standard.integer(forKey:"loginid")
-        print("JSON STRING IS", userDefultId ?? 0)
+        UserDefaults.standard.set("", forKey: "loginfirstName")
         let logOut = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         navigationController?.pushViewController(logOut, animated: true)
     }

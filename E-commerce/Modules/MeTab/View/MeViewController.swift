@@ -23,14 +23,14 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         print(orders?.orders.count)
-        
-        print(UserDefaults.standard.integer(forKey:"loginid"))
+                
         if UserDefaults.standard.integer(forKey:"loginid") == 0{
-            userName.text = "User"
             
+            userName.text = "User"
             Wish_TableV.isHidden = true
 
         }
+        
         else{
             userName.text = UserDefaults.standard.string(forKey:"loginfirstName")
         }

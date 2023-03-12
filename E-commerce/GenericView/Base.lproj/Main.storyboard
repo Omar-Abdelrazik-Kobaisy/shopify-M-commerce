@@ -217,7 +217,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="H5m-QO-o7k" firstAttribute="top" secondItem="dj0-vo-Wcd" secondAttribute="bottom" constant="52" id="4bA-2S-N4b"/>
                             <constraint firstItem="01l-So-6Wd" firstAttribute="top" secondItem="nDd-av-4Pu" secondAttribute="bottom" constant="8" id="97S-TM-6cZ"/>
@@ -363,7 +363,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LHi-R9-ibM"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Eda-fg-Zbb" firstAttribute="leading" secondItem="LHi-R9-ibM" secondAttribute="leading" constant="16" id="d5b-lr-jFm"/>
                             <constraint firstItem="MV6-DM-bEV" firstAttribute="leading" secondItem="LHi-R9-ibM" secondAttribute="leading" constant="16" id="lvP-Qg-vak"/>
@@ -522,7 +522,7 @@
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tMV-6p-GIP"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UIy-ug-16h" firstAttribute="top" secondItem="FI4-5W-9e4" secondAttribute="bottom" constant="16" id="2Ze-F2-fWv"/>
                             <constraint firstItem="lvV-CZ-gx2" firstAttribute="leading" secondItem="tMV-6p-GIP" secondAttribute="leading" constant="16" id="3nl-dm-Nt9"/>
@@ -674,7 +674,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aOg-WZ-gDX"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KIR-d7-hBc" firstAttribute="leading" secondItem="aOg-WZ-gDX" secondAttribute="leading" constant="16" id="78L-C5-bT6"/>
                             <constraint firstItem="KIR-d7-hBc" firstAttribute="top" secondItem="mtQ-yH-vXq" secondAttribute="bottom" constant="18" id="DbW-oz-03j"/>
@@ -716,9 +716,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LuM-tb-oyz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.79215686269999996" green="0.89019607840000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.91372549020000005" green="0.41960784309999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
@@ -857,7 +856,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gxw-gr-etU"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Gxw-gr-etU" firstAttribute="bottom" secondItem="F4U-Hf-DlD" secondAttribute="bottom" constant="145" id="4eB-mb-04Z"/>
                             <constraint firstItem="Gxw-gr-etU" firstAttribute="trailing" secondItem="F4U-Hf-DlD" secondAttribute="trailing" constant="33" id="IhZ-kB-bXH"/>
@@ -1008,7 +1007,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KSO-Tk-T7R"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Re-4d-pla" firstAttribute="centerX" secondItem="sGK-bG-3Ez" secondAttribute="centerX" id="6C6-IR-jzU"/>
                             <constraint firstItem="KSO-Tk-T7R" firstAttribute="bottom" secondItem="4Re-4d-pla" secondAttribute="bottom" constant="166.66666666666663" id="KJA-mz-5R5"/>
@@ -1094,7 +1093,7 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qf8-bF-NpW"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4uH-a0-ydh" firstAttribute="leading" secondItem="R8O-BJ-g0n" secondAttribute="leading" id="4oK-p2-h3a"/>
                             <constraint firstItem="NGy-LC-XJS" firstAttribute="top" secondItem="R8O-BJ-g0n" secondAttribute="bottom" constant="54" id="AnG-O8-m4d"/>
@@ -1280,7 +1279,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j0B-Ja-iWN"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="btv-Q5-7RC" firstAttribute="centerX" secondItem="eRK-HP-EY9" secondAttribute="centerX" id="03o-K5-0fl"/>
                             <constraint firstItem="7Db-SB-FkH" firstAttribute="top" secondItem="fWe-nX-saq" secondAttribute="bottom" constant="65" id="3j0-dP-Hbw"/>
@@ -1302,7 +1301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utz-19-whn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1640.4580152671756" y="1209.8591549295775"/>
+            <point key="canvasLocation" x="-1245" y="1210"/>
         </scene>
         <!--Select Address View Controller-->
         <scene sceneID="2oW-uT-RhH">
@@ -1371,7 +1370,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xHP-y3-DHN"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FZo-uz-gkm" firstAttribute="top" secondItem="fXJ-dD-L4C" secondAttribute="bottom" constant="8" symbolic="YES" id="7cN-7h-DeC"/>
                             <constraint firstItem="FZo-uz-gkm" firstAttribute="leading" secondItem="wNY-FE-Gu0" secondAttribute="leadingMargin" id="Ciy-Rb-S2j"/>
@@ -1393,7 +1392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1H-hm-DRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067.9389312977098" y="1209.8591549295775"/>
+            <point key="canvasLocation" x="1392" y="1210"/>
         </scene>
         <!--Place OrderVC-->
         <scene sceneID="D2j-Br-7rb">
@@ -1556,7 +1555,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P3k-f8-DB1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qGB-UF-2yU" firstAttribute="leading" secondItem="VJz-wd-aXp" secondAttribute="trailing" constant="37" id="058-gH-qUa"/>
                             <constraint firstItem="VJz-wd-aXp" firstAttribute="leading" secondItem="Ex1-ld-kzb" secondAttribute="leading" id="1jT-6i-z5E"/>
@@ -1613,7 +1612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvB-tI-dXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3245.0381679389311" y="1209.8591549295775"/>
+            <point key="canvasLocation" x="3080" y="1210"/>
         </scene>
         <!--Order DetailsVC-->
         <scene sceneID="a7g-ZH-kir">
@@ -1738,7 +1737,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3wE-WU-o4S"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LaV-gw-OWm" firstAttribute="top" secondItem="lPx-PZ-eXT" secondAttribute="bottom" constant="39" id="1bs-Wk-Wyo"/>
                             <constraint firstItem="LaV-gw-OWm" firstAttribute="leading" secondItem="lPx-PZ-eXT" secondAttribute="leading" id="5DW-h8-Lkd"/>
@@ -1762,7 +1761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFu-Ac-Ugs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4006.8702290076335" y="1209.8591549295775"/>
+            <point key="canvasLocation" x="3908" y="1210"/>
         </scene>
         <!--Wish List View Controller-->
         <scene sceneID="d7x-gs-PqL">
@@ -1772,7 +1771,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" rowHeight="160" id="ibE-rj-Y0o" customClass="WishListCell" customModule="E_commerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="160"/>
@@ -1900,7 +1899,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U3M-ty-oOm"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U3M-ty-oOm" firstAttribute="trailing" secondItem="Qmi-uj-gCO" secondAttribute="trailing" constant="110" id="0sv-bi-9wk"/>
                             <constraint firstItem="KOj-RA-K6N" firstAttribute="leading" secondItem="U3M-ty-oOm" secondAttribute="leading" constant="61" id="20s-g4-d9F"/>
@@ -1997,7 +1996,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mHp-9o-eTX"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mHp-9o-eTX" firstAttribute="trailing" secondItem="PcE-uk-kB2" secondAttribute="trailing" constant="150" id="01s-Om-Jdr"/>
                             <constraint firstItem="MZf-Yo-tFk" firstAttribute="leading" secondItem="mHp-9o-eTX" secondAttribute="leading" constant="111" id="CKQ-Jm-pkP"/>
@@ -2113,7 +2112,7 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bep-cL-hQg"/>
-                        <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="80v-dx-ox3" firstAttribute="top" secondItem="iWR-bC-Jc6" secondAttribute="bottom" constant="24" id="7z7-GV-89v"/>
                             <constraint firstItem="Poo-9u-okw" firstAttribute="leading" secondItem="80v-dx-ox3" secondAttribute="leading" id="9e2-eF-uuJ"/>
@@ -2285,7 +2284,7 @@
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3xB-SP-o4s"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WgD-1X-jye" firstAttribute="leading" secondItem="IkT-1n-A29" secondAttribute="leading" id="64U-K0-rZE"/>
                             <constraint firstItem="gPR-eT-rZr" firstAttribute="leading" secondItem="3xB-SP-o4s" secondAttribute="leading" constant="10" id="8oG-lG-ffj"/>
@@ -2365,7 +2364,7 @@ minaeid6@gmail.com
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XuH-0c-phe"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nKG-RW-blv" firstAttribute="leading" secondItem="714-VI-lK3" secondAttribute="leading" id="aWu-k3-Vww"/>
                             <constraint firstItem="nKG-RW-blv" firstAttribute="top" secondItem="XuH-0c-phe" secondAttribute="top" constant="72" id="q1T-gt-aR3"/>
@@ -2374,7 +2373,7 @@ minaeid6@gmail.com
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qA-df-aUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5567" y="1013"/>
+            <point key="canvasLocation" x="-5567" y="1235"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="30G-JL-fYv">
@@ -2413,7 +2412,7 @@ Mina Eid</string>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bpQ-qo-wcc"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="viK-7O-Maj" firstAttribute="leading" secondItem="wNb-Q9-ZOs" secondAttribute="leading" id="3nS-Sn-FmW"/>
                             <constraint firstItem="viK-7O-Maj" firstAttribute="top" secondItem="bpQ-qo-wcc" secondAttribute="top" constant="70" id="ABJ-fs-huO"/>
@@ -2425,7 +2424,7 @@ Mina Eid</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AR-hG-saT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4727.480916030534" y="1012.6760563380283"/>
+            <point key="canvasLocation" x="-4611" y="1235"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="NcM-Ah-kMO">
@@ -2510,7 +2509,7 @@ Mina Eid</string>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Ym-NL-mfQ"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="0xh-Na-mjn"/>
                     <connections>
@@ -2521,7 +2520,7 @@ Mina Eid</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QO8-Qs-UKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2799" y="1080"/>
+            <point key="canvasLocation" x="-2222" y="1235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SRy-t2-IAv">
@@ -2539,7 +2538,7 @@ Mina Eid</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dv1-L0-OEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3619" y="1080"/>
+            <point key="canvasLocation" x="-3457" y="1210"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NCz-YE-TJE">
@@ -2611,7 +2610,7 @@ Mina Eid</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C63-Mp-eIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.22137404580153" y="1209.8591549295775"/>
+            <point key="canvasLocation" x="465" y="1210"/>
         </scene>
     </scenes>
     <resources>
@@ -2631,9 +2630,6 @@ Mina Eid</string>
         <image name="tablecells.fill" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
