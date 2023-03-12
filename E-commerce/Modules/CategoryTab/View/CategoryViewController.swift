@@ -70,7 +70,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     fileprivate func showProductByCategory(_ sender: UISegmentedControl) {
-        let url = "https://80300e359dad594ca2466b7c53e94435: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@mad-ism202.myshopify.com/admin/api/2023-01/products.json?collection_id=\(arr_category_id[sender.selectedSegmentIndex])"
+        let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/products.json?collection_id=\(arr_category_id[sender.selectedSegmentIndex])"
         viewModel.getProductsCategory(url: url)
         
         viewModel.bindingProductsCategory = {[weak self] data in
@@ -238,19 +238,31 @@ extension CategoryViewController:UICollectionViewDataSource{
         if isFilterd
                {
                    cell.product_image.kf.setImage(with: URL(string: arr_filtered[indexPath.row].image.src ?? ""))
-                   cell.product_name.text = arr_filtered[indexPath.row].variants[0].price
+            if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                cell.product_name.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " EGP"
+            }else{
+                cell.product_name.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " USD"
+            }
                    
                    return cell
                }
         else if isFiltering {
 
             cell.product_image.kf.setImage(with: URL(string: CatogoryFilter[indexPath.row].image.src ?? ""))
-            cell.product_name.text = CatogoryFilter[indexPath.row].variants[0].price
+            if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                cell.product_name.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " EGP"
+            }else{
+                cell.product_name.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " USD"
+            }
 
             return cell
         }
                cell.product_image.kf.setImage(with: URL(string: products?.products[indexPath.row].image.src ?? ""))
-               cell.product_name.text = products?.products[indexPath.row].variants[0].price
+        if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+            cell.product_name.text = (products?.products[indexPath.row].variants[0].price ?? "") + " EGP"
+        }else{
+            cell.product_name.text = (products?.products[indexPath.row].variants[0].price ?? "") + " USD"
+        }
                
                
                return cell

@@ -75,8 +75,12 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         if tableView == Order_TableV
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "order", for: indexPath) as! OrderTableViewCell
-            
-            cell.order_price.text = orders?.orders[indexPath.row].current_total_price
+            if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                cell.order_price.text = (orders?.orders[indexPath.row].current_total_price ?? "") + " EGP"
+            }
+            else{
+                cell.order_price.text = (orders?.orders[indexPath.row].current_total_price ?? "") + " USD"
+            }
             cell.order_createdat.text = orders?.orders[indexPath.row].created_at
             
             return cell

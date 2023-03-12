@@ -28,7 +28,11 @@ class OrderDetailsVC: UIViewController , UITableViewDataSource , UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetialsTableViewCell", for: indexPath) as! OrderDetialsTableViewCell
         
                cell.ItemDescriptionTextView.text = arr_of_orders[indexPath.row].name
-               cell.PriceValueLabel.text = arr_of_orders[indexPath.row].price
+                if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+                    cell.PriceValueLabel.text = (arr_of_orders[indexPath.row].price ?? "") + " EGP"
+                }else{
+                    cell.PriceValueLabel.text = (arr_of_orders[indexPath.row].price ?? "") + " USD"
+                }
                cell.QuantityValueLabel.text = String(arr_of_orders[indexPath.row].quantity ?? 0)
         
         return cell
