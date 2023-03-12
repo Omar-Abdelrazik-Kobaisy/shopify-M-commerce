@@ -6,12 +6,30 @@
 //
 
 import UIKit
-
+import PassKit
 class PaymentViewController: UIViewController {
 
     @IBOutlet weak var ApplePayOption: UIButton!
     @IBOutlet weak var CashOnDeliveryOption: UIButton!
     @IBOutlet weak var CouponTF: UITextField!
+    
+    private var paymentRequest : PKPaymentRequest = {
+      let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.com.pushpendra.pay"
+        request.supportedNetworks = [.quicPay, .masterCard, .visa]
+        request.supportedCountries = ["EG", "US"]
+        request.merchantCapabilities = .capability3DS
+        request.countryCode = "EG"
+        if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+         request.currencyCode = "EGP"
+     } else {
+         request.currencyCode = "US"
+       }
+       // request.currencyCode = "EGP"
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
+        return request
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -62,6 +80,7 @@ class PaymentViewController: UIViewController {
     
     @IBAction func ApplePay(_ sender: Any) {
         OptionSelected(_isApplePaySelected: true)
+        Payment()
         
     }
     
@@ -85,4 +104,23 @@ class PaymentViewController: UIViewController {
             CashOnDeliveryOption.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         }
     }
+    func Payment(){
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
+        if controller != nil {
+            controller!.delegate = self
+            present(controller!,  animated: true ,completion: nil)
+        }
+    }
+    
+}
+extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true, completion: nil)
+        
+    }
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePaymentpayment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
+        completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
+    }
+    
+    
 }

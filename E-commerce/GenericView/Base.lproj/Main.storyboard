@@ -1580,6 +1580,7 @@
                         <outlet property="Couponlbl" destination="bDx-L8-xK3" id="jsn-BR-qHt"/>
                         <outlet property="Deliverylbl" destination="qGB-UF-2yU" id="2gC-Jw-NYK"/>
                         <outlet property="Discountlbl" destination="LMw-Yj-Wly" id="gbP-OB-f5o"/>
+                        <outlet property="Feeslbl" destination="VT5-5l-IUV" id="emd-oH-QDD"/>
                         <outlet property="Paymentlbl" destination="2UL-jm-aw3" id="zxy-5U-Vfs"/>
                         <outlet property="Shippinglbl" destination="VT5-5l-IUV" id="BUB-hQ-E0V"/>
                         <outlet property="SubTotallbl" destination="iy0-YA-x0Q" id="jee-WG-L3A"/>

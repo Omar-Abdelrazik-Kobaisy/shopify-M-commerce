@@ -17,6 +17,7 @@ class PlaceOrderVC: UIViewController {
     @IBOutlet weak var Discountlbl: UILabel!
     @IBOutlet weak var Shippinglbl: UILabel!
     @IBOutlet weak var Totallbl: UILabel!
+    @IBOutlet weak var Feeslbl: UILabel!
     
     var coupon : String?
     var PaymentMethod: String?
@@ -85,11 +86,13 @@ class PlaceOrderVC: UIViewController {
             Couponlbl.text = coupon + "discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
-            result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.95
+            result = ((Double(String(SubTotallbl.text!))! + 10.00 )) * 0.95
              if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
              Totallbl.text = String(result) + " EGP"
+                 Feeslbl.text = "10 EGP"
              } else {
              Totallbl.text = String(result) + " USD"
+                 Feeslbl.text = "10 USD"
                }
            // Totallbl.text = String(result) + "USD"
             print(Totallbl.text)
