@@ -113,8 +113,10 @@ class PlaceOrderVC: UIViewController {
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.9
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
+                Feeslbl.text = "10 EGP"
             } else {
             Totallbl.text = String(result) + " USD"
+                Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
             print("eid")
@@ -130,8 +132,10 @@ class PlaceOrderVC: UIViewController {
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.85
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
+                Feeslbl.text = "10 EGP"
             } else {
             Totallbl.text = String(result) + " USD"
+                Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
             Paymentlbl.text = paymentMethod
@@ -146,8 +150,10 @@ class PlaceOrderVC: UIViewController {
             result = Double(String(SubTotallbl.text!))! + 10.0
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
+                Feeslbl.text = "10 EGP"
             } else {
             Totallbl.text = String(result) + " USD"
+                Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
             Paymentlbl.text = paymentMethod
