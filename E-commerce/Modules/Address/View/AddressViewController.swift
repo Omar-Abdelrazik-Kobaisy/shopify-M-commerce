@@ -12,6 +12,9 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
     
     @IBOutlet weak var AddBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var cartImg: UIImageView!
+    
     var customerAddressTable : CustomerAddress?
     var GetModel : gettingViewModel?
     override func viewDidLoad() {
@@ -24,6 +27,7 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
                 self!.tableView.reloadData()
             }
         }
+        check()
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -55,6 +59,15 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
         AddBtn.layer.cornerRadius = 5
         AddBtn.layer.borderWidth = 1
         AddBtn.layer.borderColor = UIColor.tintColor.cgColor
+    }
+    func check(){
+        if customerAddressTable?.addresses?.count == 0 {
+            tableView.isHidden = true
+            cartImg.isHidden = false
+        }else {
+            tableView.isHidden = false
+            cartImg.isHidden = true
+        }
     }
 
 }

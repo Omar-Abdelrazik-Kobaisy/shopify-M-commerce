@@ -28,14 +28,18 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
                 self!.tableView.reloadData()
             }
         }
+        checkCartIsEmpty()
     }
     
     func checkCartIsEmpty() {
      if customerAddressTable?.addresses?.count == 0{
          tableView.isHidden = true
          Selectedlbl.isHidden = true
+         noaddresslbl.isHidden = false
          
      } else {
+     tableView.isHidden = false
+     Selectedlbl.isHidden = false
      noaddresslbl.isHidden = true
      }
  }
@@ -62,6 +66,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         self.navigationController?.pushViewController(payementVC, animated: true)
     
     }
+    
     
 
 }

@@ -876,6 +876,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cart (1)" translatesAutoresizingMaskIntoConstraints="NO" id="Cna-gY-CJr">
+                                <rect key="frame" x="8" y="333" width="393" height="257"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-bG-3Ez">
                                 <rect key="frame" x="0.0" y="137" width="393" height="436"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1004,6 +1008,7 @@
                     <navigationItem key="navigationItem" title="Your addresses" id="BjK-LU-LxK"/>
                     <connections>
                         <outlet property="AddBtn" destination="4Re-4d-pla" id="3Wl-wj-g93"/>
+                        <outlet property="cartImg" destination="Cna-gY-CJr" id="Pmx-Ix-Kzi"/>
                         <outlet property="tableView" destination="sGK-bG-3Ez" id="EM4-EH-G2c"/>
                     </connections>
                 </viewController>
@@ -1928,7 +1933,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>
