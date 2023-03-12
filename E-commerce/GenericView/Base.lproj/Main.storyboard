@@ -2520,9 +2520,12 @@ Mina Eid</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhv-On-WfO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhv-On-WfO">
                                 <rect key="frame" x="66" y="655" width="281" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="281" id="EcR-8V-qvi"/>
+                                    <constraint firstAttribute="height" constant="66" id="Pv0-Sz-WJF"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continue to Checkout">
                                     <color key="baseForegroundColor" red="0.91372549020000005" green="0.41960784309999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2555,6 +2558,7 @@ Mina Eid</string>
                             <constraint firstItem="PaW-aI-OLO" firstAttribute="centerY" secondItem="tjz-Ld-e2h" secondAttribute="centerY" id="Ff5-9b-tVM"/>
                             <constraint firstItem="Zw9-A1-h9K" firstAttribute="leading" secondItem="PaW-aI-OLO" secondAttribute="leading" id="HMJ-oH-335"/>
                             <constraint firstItem="Zw9-A1-h9K" firstAttribute="leading" secondItem="4Ym-NL-mfQ" secondAttribute="leading" constant="14" id="JuG-7Q-P2C"/>
+                            <constraint firstItem="Jhv-On-WfO" firstAttribute="leading" secondItem="4Ym-NL-mfQ" secondAttribute="leading" constant="66" id="dY7-np-1O0"/>
                             <constraint firstItem="gcF-tU-Ard" firstAttribute="leading" secondItem="Zw9-A1-h9K" secondAttribute="trailing" constant="80" id="fFb-0i-uVp"/>
                             <constraint firstItem="tjz-Ld-e2h" firstAttribute="leading" secondItem="PaW-aI-OLO" secondAttribute="trailing" constant="23" id="fOU-Ch-ytw"/>
                             <constraint firstItem="gcF-tU-Ard" firstAttribute="centerX" secondItem="1XU-eV-Gi0" secondAttribute="centerX" id="hax-6U-8W1"/>
@@ -2562,6 +2566,7 @@ Mina Eid</string>
                             <constraint firstItem="Zw9-A1-h9K" firstAttribute="trailing" secondItem="eYX-1W-kaV" secondAttribute="trailing" id="qLu-9K-Vhk"/>
                             <constraint firstItem="gcF-tU-Ard" firstAttribute="top" secondItem="4ex-Um-Nbz" secondAttribute="bottom" constant="36" id="qYs-Bp-Uvh"/>
                             <constraint firstItem="PaW-aI-OLO" firstAttribute="top" secondItem="eYX-1W-kaV" secondAttribute="bottom" constant="59" id="una-Sh-rxt"/>
+                            <constraint firstItem="4Ym-NL-mfQ" firstAttribute="bottom" secondItem="Jhv-On-WfO" secondAttribute="bottom" constant="97" id="uqV-fv-0bB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0xh-Na-mjn"/>
