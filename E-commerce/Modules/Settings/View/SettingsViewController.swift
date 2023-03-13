@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Reachability
 
 class SettingsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     let reachability = try! Reachability()
@@ -14,7 +15,11 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
 
     
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us"]
+    @objc func reachabilityChanged(note: Notification){
+        let reachability = note.object as! Reachability
+    }
     override func viewWillAppear( _ animated: Bool){
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         do {
             try reachability.stopNotifier()
@@ -24,6 +29,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.navigationItem.hidesBackButton = true
         reachability.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
         
@@ -45,8 +51,7 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        switch reachability.connection {
-    case .wifi , .cellular:
+        
         switch indexPath.row {
         case 0:
             cell.imageView?.image=UIImage(systemName: "homekit")
@@ -72,16 +77,12 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         default:
             break
         }
-    case .unavailable , .none :
-                let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
-                self.present(alert, animated: true )
-                self.tabBarController!.tabBar.isHidden = true
-                navigationController?.setNavigationBarHidden(true ,animated: false)
-            }
+    
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch reachability.connection {
+    case .wifi , .cellular:
         switch (indexPath.row){
         case 0 :
             let addrVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
@@ -104,9 +105,17 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         case 3 :
             let contactVC = self.storyboard?.instantiateViewController(withIdentifier: "ContactUs") as! ContactUs
             self.present(contactVC, animated: true)
+            
         default:
             break
         }
+        case .unavailable , .none :
+                    let alert = UIAlertController(title: "No internet !" , message: "make sure of internet connection" ,preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok" , style: .default , handler: nil))
+                    self.present(alert, animated: true )
+                    self.tabBarController!.tabBar.isHidden = true
+                    navigationController?.setNavigationBarHidden(true ,animated: false)
+                }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

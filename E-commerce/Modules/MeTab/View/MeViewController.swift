@@ -10,7 +10,8 @@ import UIKit
 class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var OrderImg: UIImageView!
-    @IBOutlet weak var wishImg: UILabel!
+    
+    @IBOutlet weak var wishimg: UIImageView!
     @IBOutlet weak var Orderslbl: UILabel!
     @IBOutlet weak var Wishlbl: UILabel!
     @IBOutlet weak var Order_TableV: UITableView!
@@ -59,10 +60,10 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     func checkWishList(){
         if wishlistArr.count == 0 {
             Wish_TableV.isHidden = true
-            wishImg.isHidden = false
+            wishimg.isHidden = false
         } else {
             Wish_TableV.isHidden = false
-            wishImg.isHidden = true
+            wishimg.isHidden = true
         }
     }
     

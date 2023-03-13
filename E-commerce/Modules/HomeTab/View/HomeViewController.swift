@@ -38,6 +38,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         reachability.stopNotifier()
+        self.tabBarController?.navigationItem.hidesBackButton = true
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
         switch reachability.connection {
         case .wifi , .cellular:

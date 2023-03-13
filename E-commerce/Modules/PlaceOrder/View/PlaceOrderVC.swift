@@ -71,6 +71,7 @@ class PlaceOrderVC: UIViewController {
         
         let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr  , current_total_price: Totallbl.text)
         //, created_at: orderDate
+        print(order.current_total_price)
         postOrder = PostOrder(order: order)
         
         print(postOrder!.convertToDictionary())
