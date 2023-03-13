@@ -27,6 +27,7 @@ class PlaceOrderVC: UIViewController {
     var orderViewModel : OrderViewModel?
     var placeOrderViewModel : PlaceOrderViewMOdel?
         
+    var discount : Double?
         
         var orders_arr : [OrderItem] = []
         var postOrder : PostOrder?
@@ -69,8 +70,9 @@ class PlaceOrderVC: UIViewController {
         let orderDate = formatter.string(from: date)
         print(orderDate)
         
-        let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr  , current_total_price: Totallbl.text)
+        let order = Order(id:UserDefaults.standard.integer(forKey:"loginid") ,customer: Customer(id: UserDefaults.standard.integer(forKey:"loginid")) , line_items: orders_arr  , current_total_price: Totallbl.text ,current_subtotal_price: Totallbl.text , total_discounts: String(discount ?? 0.0))
         //, created_at: orderDate
+        print(discount ?? 0)
         print(order.current_total_price)
         postOrder = PostOrder(order: order)
         
@@ -88,6 +90,7 @@ class PlaceOrderVC: UIViewController {
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00 )) * 0.95
+            discount = (Double(String(SubTotallbl.text!))! + 10.00) - (Double(String(SubTotallbl.text!))!) * 0.95
              if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
              Totallbl.text = String(result) + " EGP"
                  Feeslbl.text = "10 EGP"
@@ -112,6 +115,7 @@ class PlaceOrderVC: UIViewController {
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.9
+            discount = (Double(String(SubTotallbl.text!))! + 10.00) - (Double(String(SubTotallbl.text!))!) * 0.9
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
                 Feeslbl.text = "10 EGP"
@@ -131,6 +135,7 @@ class PlaceOrderVC: UIViewController {
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.85
+            discount = (Double(String(SubTotallbl.text!))! + 10.00) - (Double(String(SubTotallbl.text!))!) * 0.85
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
                 Feeslbl.text = "10 EGP"
@@ -149,6 +154,7 @@ class PlaceOrderVC: UIViewController {
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = Double(String(SubTotallbl.text!))! + 10.0
+            discount = 0.0
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
                 Feeslbl.text = "10 EGP"

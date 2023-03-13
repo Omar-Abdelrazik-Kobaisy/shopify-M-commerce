@@ -88,7 +88,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func filterByFloatyButton()
     {
-        floaty.buttonColor = .systemBlue
+        floaty.buttonColor = .orange
         floaty.openAnimationType = .fade
         floaty.paddingX = 20
         floaty.paddingY = 100
