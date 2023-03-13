@@ -25,7 +25,7 @@ class PaymentViewController: UIViewController {
      } else {
          request.currencyCode = "US"
        }
-       // request.currencyCode = "EGP"
+        request.currencyCode = "EGP"
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: UserDefaults.standard.integer(forKey: "final")))]
         return request
     }()
