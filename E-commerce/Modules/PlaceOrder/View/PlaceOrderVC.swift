@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import CoreMedia
+import CoreData
 class PlaceOrderVC: UIViewController {
     
     @IBOutlet weak var viewOrder: UIView!
@@ -31,12 +32,13 @@ class PlaceOrderVC: UIViewController {
     var discount : Double?
     var finalTotal : String?
         
-        var orders_arr : [OrderItem] = []
-        var postOrder : PostOrder?
+    var orders_arr : [OrderItem] = []
+    var postOrder : PostOrder?
     var statusCode : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        orderViewModel = OrderViewModel()
         CalcTotal()
         //rounded view
         viewOrder.layer.borderColor = UIColor.systemYellow.cgColor
@@ -96,34 +98,29 @@ class PlaceOrderVC: UIViewController {
         if coupon == "5%"
         {
             guard let coupon = coupon else { return }
-            Discountlbl.text = coupon
-            Couponlbl.text = coupon + "discount"
+            Couponlbl.text = coupon + " Discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
-            SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00 )) * 0.95
             discount = (Double(String(SubTotallbl.text!))! + 10.00) - ((Double(String(SubTotallbl.text!))! + 10.00 ) * 0.95)
             finalTotal = String(result)
              if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
              Totallbl.text = String(result) + " EGP"
-                 Feeslbl.text = "10 EGP"
+             Discountlbl.text = "\(discount!)" + " EGP"
+             Feeslbl.text = "10 EGP"
              } else {
+             SubTotallbl.text = String(totalPrice) + " USD"
+             Discountlbl.text = "\(discount!)" + " USD"
              Totallbl.text = String(result) + " USD"
-                 Feeslbl.text = "10 USD"
+             Feeslbl.text = "10 USD"
                }
-           // Totallbl.text = String(result) + "USD"
-            print(Totallbl.text)
             guard let paymentMethod = PaymentMethod else { return }
             Paymentlbl.text = paymentMethod
-            
-            print("mina")
-            print(result)
-            
         }
+        
         else if coupon  == "10%"
         {
             guard let coupon = coupon else { return }
-            Discountlbl.text = coupon
-            Couponlbl.text = coupon + "discount"
+            Couponlbl.text = coupon + " Discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.9
@@ -131,20 +128,20 @@ class PlaceOrderVC: UIViewController {
             finalTotal = String(result)
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
-                Feeslbl.text = "10 EGP"
+            Discountlbl.text = "\(discount!)" + " EGP"
+            Feeslbl.text = "10 EGP"
             } else {
             Totallbl.text = String(result) + " USD"
-                Feeslbl.text = "10 USD"
+            Discountlbl.text = "\(discount!)" + " USD"
+            Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
-            print("eid")
             Paymentlbl.text = paymentMethod
         }
         else if coupon  == "15%"
         {
             guard let coupon = coupon else { return }
-            Discountlbl.text = coupon
-            Couponlbl.text = coupon + "discount"
+            Couponlbl.text = coupon + " Discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = ((Double(String(SubTotallbl.text!))! + 10.00)) * 0.85
@@ -152,9 +149,11 @@ class PlaceOrderVC: UIViewController {
             finalTotal = String(result)
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
+                Discountlbl.text = "\(discount!)" + " EGP"
                 Feeslbl.text = "10 EGP"
             } else {
-            Totallbl.text = String(result) + " USD"
+            Totallbl.text = String(result) + " EGP"
+                Discountlbl.text = "\(discount!)" + " EGP"
                 Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
@@ -163,7 +162,6 @@ class PlaceOrderVC: UIViewController {
         }
         else {
             guard let coupon = coupon else { return }
-            Discountlbl.text = coupon
             Couponlbl.text = coupon + "discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
@@ -172,10 +170,12 @@ class PlaceOrderVC: UIViewController {
             finalTotal = String(result)
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
             Totallbl.text = String(result) + " EGP"
+            Discountlbl.text = "\(discount!)"
                 Feeslbl.text = "10 EGP"
             } else {
             Totallbl.text = String(result) + " USD"
-                Feeslbl.text = "10 USD"
+            Discountlbl.text = "\(discount!)"
+            Feeslbl.text = "10 USD"
               }
             guard let paymentMethod = PaymentMethod else { return }
             Paymentlbl.text = paymentMethod
@@ -213,5 +213,13 @@ class PlaceOrderVC: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
+//    func deleteItem(item: [OrderListModel]){
+//        context.delete(item)
+//        do {
+//            try context.save()
+//        }
+//        catch {
+//
+//        }
+//    }
 }

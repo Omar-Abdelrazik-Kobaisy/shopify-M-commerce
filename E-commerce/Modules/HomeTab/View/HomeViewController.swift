@@ -8,12 +8,14 @@
 import UIKit
 import Kingfisher
 import Reachability
-class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+import BadgeSwift
+class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var shoppingCartBtn: UIBarButtonItem!
-    
-    
     @IBOutlet weak var Ads_CollectionV: UICollectionView!
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
+    let badge = BadgeSwift()
+    //shoppingCartBtn.addSubview(badge, forLayerAt: T##AnimationKeypath)
+    //var hub: BadgeHub?
     let reachability = try! Reachability()
     var brands:Brands?
     var viewModel = HomeViewModel()

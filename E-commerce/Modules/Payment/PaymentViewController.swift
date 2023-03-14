@@ -61,7 +61,7 @@ class PaymentViewController: UIViewController {
             placeOrderVC.coupon = "15%"
         }
         else if CouponTF.text == "" {
-            placeOrderVC.coupon = "NO"
+            placeOrderVC.coupon = "No"
         }
         else if CouponTF.text != "shopify5%" ||  CouponTF.text != "shopify10%" ||  CouponTF.text != "shopify15%" {
             self.showAlert(title: "Not Valid Coupon", message: "Please Enter A valid Coupon")
@@ -119,12 +119,9 @@ extension PaymentViewController : PKPaymentAuthorizationViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
         
     }
-    private func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePaymentpayment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePayment payment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
     }
-
 }
-/*  func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController , didAuthorizePayment payment: PKPayment , handler completion: @escaping (PKPaymentAuthorizationResult) -> Void){
- completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
-}*/
+
 

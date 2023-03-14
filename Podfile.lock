@@ -1,20 +1,24 @@
 PODS:
+  - BadgeSwift (8.0.0)
   - lottie-ios (3.2.3)
   - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
+  - BadgeSwift (~> 8.0)
   - lottie-ios
   - ReachabilitySwift
 
 SPEC REPOS:
   trunk:
+    - BadgeSwift
     - lottie-ios
     - ReachabilitySwift
 
 SPEC CHECKSUMS:
+  BadgeSwift: a81547ffde1f462bb5fc02e3fa3fdcbc1b888354
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 23f20c0845a550fe1d67b5eb7d519a48655f6751
+PODFILE CHECKSUM: 94b798ed69dda560c46676bacee68fd44db957a1
 
 COCOAPODS: 1.11.3

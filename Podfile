@@ -8,6 +8,7 @@ target 'E-commerce' do
   # Pods for E-commerce
 pod 'lottie-ios'
 pod 'ReachabilitySwift'
+pod 'BadgeSwift', '~> 8.0'
   target 'E-commerceTests' do
     inherit! :search_paths
     # Pods for testing

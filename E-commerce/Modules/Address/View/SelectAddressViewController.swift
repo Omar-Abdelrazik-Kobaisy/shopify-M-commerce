@@ -51,7 +51,10 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel!.text = customerAddressTable?.addresses![indexPath.row].address1
-        cell.detailTextLabel?.text = customerAddressTable?.addresses![indexPath.row].phone
+        cell.detailTextLabel?.text = customerAddressTable?.addresses![indexPath.row].city
+        cell.imageView?.image=UIImage(systemName: "homekit")
+        cell.imageView?.tintColor = .label
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

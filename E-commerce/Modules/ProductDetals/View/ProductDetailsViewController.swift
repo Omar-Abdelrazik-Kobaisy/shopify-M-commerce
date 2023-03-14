@@ -77,6 +77,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
         }
         else{
             orderViewModel.creatItem(product: productt!)
+            AppSnackBar.make(in: self.view, message: "The prodcute added to shopping cart", duration: .lengthLong).show()
             UserDefaults.standard.setValue(true, forKey: "cart\(productInfo?.product.id  ?? 0)")
                    }
     }
