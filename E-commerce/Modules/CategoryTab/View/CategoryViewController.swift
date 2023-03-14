@@ -11,6 +11,9 @@ import Floaty
 
 class CategoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
+    
+    @IBOutlet weak var ShoppingCartBtn: UIBarButtonItem!
+    
     @IBOutlet weak var category_segment: UISegmentedControl!
     
     @IBOutlet weak var productCollectionV: UICollectionView!

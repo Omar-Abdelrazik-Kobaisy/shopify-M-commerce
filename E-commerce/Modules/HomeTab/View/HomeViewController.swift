@@ -9,6 +9,9 @@ import UIKit
 import Kingfisher
 import Reachability
 class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+    @IBOutlet weak var shoppingCartBtn: UIBarButtonItem!
+    
+    
     @IBOutlet weak var Ads_CollectionV: UICollectionView!
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
     let reachability = try! Reachability()

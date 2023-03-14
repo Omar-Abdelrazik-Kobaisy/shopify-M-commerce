@@ -234,6 +234,7 @@
                         <outlet property="OrderImg" destination="R6P-bV-Ubg" id="Uu9-lY-LZK"/>
                         <outlet property="Order_TableV" destination="ws0-Jo-gQ7" id="kKy-Bk-jJf"/>
                         <outlet property="Orderslbl" destination="H5m-QO-o7k" id="yUS-Ac-7lM"/>
+                        <outlet property="ShoppingCartBtn" destination="9px-eB-ak5" id="19o-GH-VmT"/>
                         <outlet property="Wish_TableV" destination="01l-So-6Wd" id="r1q-L9-cl5"/>
                         <outlet property="Wishlbl" destination="nDd-av-4Pu" id="hFX-20-5Y8"/>
                         <outlet property="userName" destination="It4-kx-3Jt" id="YIJ-Qt-l6Q"/>
@@ -379,6 +380,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="ShoppingCartBtn" destination="G56-Vx-0Sq" id="r3A-4Y-4Dt"/>
                         <outlet property="category_segment" destination="MV6-DM-bEV" id="xPO-QS-DXN"/>
                         <outlet property="productCollectionV" destination="Eda-fg-Zbb" id="lCN-bQ-DWX"/>
                     </connections>
@@ -700,6 +702,7 @@
                     <connections>
                         <outlet property="Ads_CollectionV" destination="k7u-Rg-Tr1" id="kpJ-bk-9eC"/>
                         <outlet property="Brands_CollectionV" destination="KIR-d7-hBc" id="scg-Lc-tqD"/>
+                        <outlet property="shoppingCartBtn" destination="Oje-mX-GBv" id="3pd-Yd-37N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwy-Hf-Af0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1965,7 +1968,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GtM-OX-v32">
-                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="53.999999999999943"/>
+                                <rect key="frame" x="16" y="440.66666666666669" width="361" height="54"/>
                                 <color key="backgroundColor" red="0.99995976689999999" green="1" blue="0.99607783559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="VQg-ce-dwZ"/>

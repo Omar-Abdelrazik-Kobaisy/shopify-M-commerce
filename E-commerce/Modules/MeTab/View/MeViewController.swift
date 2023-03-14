@@ -18,6 +18,9 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var Wish_TableV: UITableView!
     
+    
+    
+    @IBOutlet weak var ShoppingCartBtn: UIBarButtonItem!
     var orders : GetOrder?
     var wishlistArr:[FavoriteProduct] = []
     var viewModel = MeViewModel()
