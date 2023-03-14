@@ -194,10 +194,15 @@ class PlaceOrderVC: UIViewController {
                             {
                                 print("post Success")
                                 self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully",flag: true)
+                                for item in self!.models! {
+                                    self?.deleteItem(item: item)
+                                }
+                                
                             }else
                             {
                                 print("post fail")
                                 self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin",flag: false)
+                                
                             }
                         }
             
@@ -213,13 +218,13 @@ class PlaceOrderVC: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-//    func deleteItem(item: [OrderListModel]){
-//        context.delete(item)
-//        do {
-//            try context.save()
-//        }
-//        catch {
-//
-//        }
-//    }
+    func deleteItem(item: OrderListModel){
+        context.delete(item)
+        do {
+            try context.save()
+        }
+        catch {
+
+        }
+    }
 }
