@@ -16,15 +16,14 @@ class OrderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var order_createdat: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    override func layoutSublayers(of layer: CALayer) {
+        
+        super.layoutSubviews()
+            
+        self.layer.cornerRadius = 20
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        contentView.layer.masksToBounds = true
+        
+        }
 
 }

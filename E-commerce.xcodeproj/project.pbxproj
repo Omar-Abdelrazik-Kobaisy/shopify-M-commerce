@@ -70,6 +70,7 @@
 		DD0FA17329B42257002692E8 /* CustomerLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FA17229B42257002692E8 /* CustomerLoginModel.swift */; };
 		DD3262E429BA5CE9001330FA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3262E329BA5CE9001330FA /* CoreDataManager.swift */; };
 		DD3262E929BA5D82001330FA /* FavouriteProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3262E829BA5D82001330FA /* FavouriteProduct.swift */; };
+		DD432F0129C0DB1D005037D0 /* UnauthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD432F0029C0DB1D005037D0 /* UnauthUser.swift */; };
 		DD5270EC29BE34930083C30B /* SplashNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5270EB29BE34930083C30B /* SplashNavigation.swift */; };
 		DD88140629B11E2B006C791A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88140129B11E2A006C791A /* SettingTableViewCell.swift */; };
 		DD88140729B11E2B006C791A /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88140229B11E2A006C791A /* AddressTableViewCell.swift */; };
@@ -178,6 +179,7 @@
 		DD0FA17229B42257002692E8 /* CustomerLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLoginModel.swift; sourceTree = "<group>"; };
 		DD3262E329BA5CE9001330FA /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD3262E829BA5D82001330FA /* FavouriteProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteProduct.swift; sourceTree = "<group>"; };
+		DD432F0029C0DB1D005037D0 /* UnauthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthUser.swift; sourceTree = "<group>"; };
 		DD5270EB29BE34930083C30B /* SplashNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashNavigation.swift; sourceTree = "<group>"; };
 		DD88140129B11E2A006C791A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DD88140229B11E2A006C791A /* AddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		395149E729B1635A00DCCA13 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DD432EFF29C0DAEB005037D0 /* UnauthUser */,
 				DD5270F729BE3E7E0083C30B /* Splash */,
 				DD5FCFBD29BE164A00BD12AE /* ContactUs */,
 				DD5FCFBC29BE163800BD12AE /* AboutUs */,
@@ -862,6 +865,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DD432EFF29C0DAEB005037D0 /* UnauthUser */ = {
+			isa = PBXGroup;
+			children = (
+				DD432F0029C0DB1D005037D0 /* UnauthUser.swift */,
+			);
+			path = UnauthUser;
+			sourceTree = "<group>";
+		};
 		DD5270F729BE3E7E0083C30B /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,6 +1245,7 @@
 				0783EFB629AFB8EF009592E7 /* CategoryViewController.swift in Sources */,
 				DD88140729B11E2B006C791A /* AddressTableViewCell.swift in Sources */,
 				DD88141A29B122AE006C791A /* PlaceOrderVC.swift in Sources */,
+				DD432F0129C0DB1D005037D0 /* UnauthUser.swift in Sources */,
 				074924D629B8C5A70080F322 /* Order.swift in Sources */,
 				ABC55C3729B19E8C00444FE8 /* AddNewAddressViewController.swift in Sources */,
 				DD0FA17129B41D3A002692E8 /* LoginViewModel.swift in Sources */,

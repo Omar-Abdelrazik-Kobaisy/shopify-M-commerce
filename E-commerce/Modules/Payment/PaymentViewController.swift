@@ -32,7 +32,8 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    textFieldBorder(textField: CouponTF)
+        
         print(UserDefaults.standard.string(forKey: "address"))
     }
     

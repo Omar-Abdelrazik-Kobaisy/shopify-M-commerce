@@ -9,6 +9,7 @@ import UIKit
 
 class PlaceOrderVC: UIViewController {
     
+    @IBOutlet weak var viewOrder: UIView!
     
     @IBOutlet weak var Deliverylbl: UILabel!
     @IBOutlet weak var Paymentlbl: UILabel!
@@ -37,6 +38,15 @@ class PlaceOrderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CalcTotal()
+        //rounded view
+        viewOrder.layer.borderColor = UIColor.systemYellow.cgColor
+        viewOrder.layer.borderWidth = 1
+        viewOrder.layer.cornerRadius = 40
+        viewOrder.layer.masksToBounds = true
+        viewOrder.layer.shadowOffset = CGSizeMake(6, 6)
+        viewOrder.layer.shadowColor = UIColor.white.cgColor
+        viewOrder.layer.shadowOpacity = 0.1
+        viewOrder.layer.shadowRadius = 4
         
         placeOrderViewModel = PlaceOrderViewMOdel()
         

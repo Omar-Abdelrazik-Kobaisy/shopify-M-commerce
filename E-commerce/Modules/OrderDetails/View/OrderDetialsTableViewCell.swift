@@ -22,20 +22,17 @@ class OrderDetialsTableViewCell: UITableViewCell {
     @IBOutlet weak var QuantityValueLabel: UILabel!
     
     
-    
-    
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func layoutSublayers(of layer: CALayer) {
         
-        // Configure the view for the selected state
-    }
-
+        super.layoutSubviews()
+    
+        self.contentView.layer.cornerRadius = 20
+        self.layer.cornerRadius = 20
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        contentView.layer.masksToBounds = true
+    
+        
+        }
+    
+    
 }

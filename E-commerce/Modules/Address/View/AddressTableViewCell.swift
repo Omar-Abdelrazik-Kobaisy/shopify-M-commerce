@@ -24,5 +24,14 @@ class AddressTableViewCell: UITableViewCell {
 
         
     }
+    override func layoutSublayers(of layer: CALayer) {
+        
+        super.layoutSubviews()
+            
+        self.layer.cornerRadius = 20
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        contentView.layer.masksToBounds = true
+        
+        }
 
 }
