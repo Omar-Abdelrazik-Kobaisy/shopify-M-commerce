@@ -10,5 +10,5 @@ struct FavoriteProduct {
     var product_title : String?
     var product_img : String?
     var product_id : Int?
-
+    var product_price : String?
 }

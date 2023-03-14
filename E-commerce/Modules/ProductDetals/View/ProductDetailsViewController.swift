@@ -71,9 +71,9 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     }
     
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
+        print(UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"))
         if UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"){
             AppSnackBar.make(in: self.view, message: "The prodcute already exist", duration: .lengthLong).show()
-            print("saveddd")
         }
         else{
             orderViewModel.creatItem(product: productt!)
@@ -89,7 +89,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
         if favButtonOutlet.isSelected {
             
             favButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            CoreDataManager.saveToCoreData(productId: productInfo?.product.id ?? 0, productTitle:productInfo?.product.title ?? "", productImg: productInfo?.product.image.src ?? "")
+            CoreDataManager.saveToCoreData(productId: productInfo?.product.id ?? 0, productTitle:productInfo?.product.title ?? "", productImg: productInfo?.product.image.src ?? "",productprice: productInfo?.product.variants[0].price ?? "")
             
                UserDefaults.standard.set(true, forKey: "\(productInfo?.product.id  ?? 0)")
               print("selected")

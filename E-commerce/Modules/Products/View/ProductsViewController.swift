@@ -136,7 +136,7 @@ extension ProductsViewController:UICollectionViewDataSource{
             if cell.product_fav.isSelected {
                 
                 cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                CoreDataManager.saveToCoreData(productId: self.arr_product[indexPath.row].id ?? 0, productTitle: self.arr_product[indexPath.row].title ?? "", productImg: self.arr_product[indexPath.row].image.src ?? "")
+                CoreDataManager.saveToCoreData(productId: self.arr_product[indexPath.row].id ?? 0, productTitle: self.arr_product[indexPath.row].title ?? "", productImg: self.arr_product[indexPath.row].image.src ?? "",productprice: self.arr_product[indexPath.row].variants.first?.price ?? "")
                    UserDefaults.standard.set(true, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
 
             }else{

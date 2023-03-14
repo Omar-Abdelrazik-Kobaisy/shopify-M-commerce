@@ -11,6 +11,7 @@
     <entity name="Wishlist" representedClassName="Wishlist" syncable="YES" codeGenerationType="class">
         <attribute name="product_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="product_img" optional="YES" attributeType="String"/>
+        <attribute name="product_price" optional="YES" attributeType="String"/>
         <attribute name="product_title" optional="YES" attributeType="String"/>
     </entity>
 </model>

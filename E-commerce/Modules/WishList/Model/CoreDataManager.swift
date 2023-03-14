@@ -15,7 +15,7 @@ class CoreDataManager
     static var appDelegate : AppDelegate?
     
     
-    static func saveToCoreData(productId : Int , productTitle: String , productImg : String)
+    static func saveToCoreData(productId : Int , productTitle: String , productImg : String , productprice:String )
     {
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         
@@ -36,7 +36,7 @@ class CoreDataManager
             favorite_product.setValue(productId, forKey: "product_id")
             favorite_product.setValue(productTitle, forKey: "product_title")
             favorite_product.setValue(productImg, forKey: "product_img")
-            
+            favorite_product.setValue(productprice, forKey: "product_price")
             print("Saved Successfully")
             
             
@@ -99,11 +99,13 @@ class CoreDataManager
             
             for item in product
             {
-                var producttitle = item.value(forKey: "product_title")
-                var productimg = item.value(forKey: "product_img")
-                var productid = item.value(forKey: "product_id")
+                let producttitle = item.value(forKey: "product_title")
+                let productimg = item.value(forKey: "product_img")
+                let productid = item.value(forKey: "product_id")
+                let productprice = item.value(forKey: "product_price")
 
-                var products = FavoriteProduct(product_title: producttitle as! String,product_img: productimg as! String,product_id: productid as! Int)
+
+                var products = FavoriteProduct(product_title: producttitle as! String,product_img: productimg as! String,product_id: productid as! Int,product_price: productprice as! String)
                 
                 arrayOfFavProd.append(products)
             }

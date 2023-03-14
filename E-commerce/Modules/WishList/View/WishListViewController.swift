@@ -42,6 +42,11 @@ class WishListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WishlistCell", for: indexPath) as! WishListCell
         
+        if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+            cell.ProductPrice.text = (wishListArray[indexPath.row].product_price ?? "") + " EGP"
+   } else {
+       cell.ProductPrice.text = (wishListArray[indexPath.row].product_price ?? "") + " USD"
+     }
         cell.productTitle.text = wishListArray[indexPath.row].product_title
         let url = URL(string: wishListArray[indexPath.row].product_img ?? "")
         cell.imageProduct?.kf.setImage(with: url)

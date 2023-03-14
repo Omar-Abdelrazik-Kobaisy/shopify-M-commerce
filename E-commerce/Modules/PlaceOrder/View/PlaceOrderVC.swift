@@ -194,9 +194,16 @@ class PlaceOrderVC: UIViewController {
                             {
                                 print("post Success")
                                 self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully",flag: true)
+                            
+                                for i in 0..<self!.models!.count {
+                                    UserDefaults.standard.setValue(false, forKey: "cart\(self!.models?[i].itemID ?? 0)")
+                                    
+                                }
+                                
                                 for item in self!.models! {
                                     self?.deleteItem(item: item)
                                 }
+                                
                                 
                             }else
                             {

@@ -1825,7 +1825,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-EX-bYa">
-                                            <rect key="frame" x="152" y="62.666666666666657" width="241" height="35"/>
+                                            <rect key="frame" x="143" y="47" width="241" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="241" id="LHm-Wv-YPf"/>
                                                 <constraint firstAttribute="height" constant="35" id="QfE-48-7VD"/>
@@ -1834,17 +1834,28 @@
                                             <color key="textColor" red="0.2783918977" green="0.30241933469999999" blue="0.27450612190000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nve-iJ-bS4">
+                                            <rect key="frame" x="154" y="90" width="230" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.92156863209999995" green="0.92156857250000002" blue="0.92156857250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="mDx-EX-bYa" firstAttribute="top" secondItem="hR7-QS-YvE" secondAttribute="top" constant="62.666666666666657" id="Ivn-bv-oyW"/>
-                                        <constraint firstItem="mDx-EX-bYa" firstAttribute="leading" secondItem="lTs-11-fS9" secondAttribute="trailing" constant="17" id="fWa-cw-sg8"/>
+                                        <constraint firstItem="Nve-iJ-bS4" firstAttribute="width" secondItem="mDx-EX-bYa" secondAttribute="width" multiplier="0.954357" id="DTr-ec-Vag"/>
+                                        <constraint firstItem="mDx-EX-bYa" firstAttribute="top" secondItem="hR7-QS-YvE" secondAttribute="top" constant="47" id="Ivn-bv-oyW"/>
+                                        <constraint firstItem="Nve-iJ-bS4" firstAttribute="height" secondItem="mDx-EX-bYa" secondAttribute="height" multiplier="1.25714" id="O4R-dq-clM"/>
+                                        <constraint firstItem="mDx-EX-bYa" firstAttribute="leading" secondItem="lTs-11-fS9" secondAttribute="trailing" constant="8" id="fWa-cw-sg8"/>
                                         <constraint firstItem="lTs-11-fS9" firstAttribute="top" secondItem="hR7-QS-YvE" secondAttribute="top" constant="14.666666666666671" id="ge1-dX-bvP"/>
                                         <constraint firstItem="lTs-11-fS9" firstAttribute="leading" secondItem="hR7-QS-YvE" secondAttribute="leading" constant="11" id="gzD-Qx-vsv"/>
+                                        <constraint firstItem="Nve-iJ-bS4" firstAttribute="top" secondItem="mDx-EX-bYa" secondAttribute="bottom" constant="8" symbolic="YES" id="lWy-zU-tIe"/>
                                         <constraint firstAttribute="bottom" secondItem="lTs-11-fS9" secondAttribute="bottom" constant="14.333333333333314" id="pdp-kg-jiG"/>
+                                        <constraint firstItem="Nve-iJ-bS4" firstAttribute="trailing" secondItem="hR7-QS-YvE" secondAttribute="trailingMargin" constant="11" id="ymT-vt-8d9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ProductPrice" destination="Nve-iJ-bS4" id="Xyb-98-9w6"/>
                                     <outlet property="imageProduct" destination="lTs-11-fS9" id="upc-KZ-p4t"/>
                                     <outlet property="productTitle" destination="mDx-EX-bYa" id="YwK-SG-CaT"/>
                                 </connections>
