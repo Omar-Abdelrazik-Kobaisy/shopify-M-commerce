@@ -30,6 +30,7 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         }
         
         checkCartIsEmpty()
+        TotalPrice()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
