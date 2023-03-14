@@ -18,6 +18,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var product_name: UILabel!
     
     
+    @IBOutlet weak var product_price: UILabel!
+    
     @IBOutlet weak var favourite_btn: UIButton!
     
     

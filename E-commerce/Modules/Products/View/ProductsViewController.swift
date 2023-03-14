@@ -70,7 +70,7 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate, UICol
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
-        max_price.text = String(sender.value)+"$"
+        max_price.text = String(roundf(sender.value))+"$"
                 let filter_arr = arr_product.filter{ Float($0.variants.first?.price ?? "0.0") ?? 0 <= sender.value}
                 
                 arr_product_filtered = filter_arr
@@ -90,7 +90,7 @@ class ProductsViewController: UIViewController , UICollectionViewDelegate, UICol
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
-            return CGSize(width:self.view.frame.width*0.25, height: self.view.frame.height*0.25)
+            return CGSize(width:self.view.frame.width*0.25, height: self.view.frame.height*0.31)
         }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -158,7 +158,7 @@ extension ProductsViewController:UICollectionViewDataSource{
             } else {
                 cell.product_price.text = (arr_product[indexPath.row].variants.first?.price)! + " USD"
               }
-                    
+            cell.product_name.text = arr_product[indexPath.row].title
                     return cell
                 }
                     cell.product_image.kf.setImage(with: URL(string: arr_product_filtered[indexPath.row].image.src ?? ""))
@@ -167,7 +167,7 @@ extension ProductsViewController:UICollectionViewDataSource{
         }else{
             cell.product_price.text = (arr_product_filtered[indexPath.row].variants.first?.price ?? "") + " USD"
         }
-                 
+        cell.product_name.text = arr_product_filtered[indexPath.row].title
         return cell
     }
     

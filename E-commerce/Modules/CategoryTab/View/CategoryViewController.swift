@@ -138,7 +138,7 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         
-        return CGSize(width:self.view.frame.width*0.43, height: self.view.frame.height*0.24)
+        return CGSize(width:self.view.frame.width*0.43, height: self.view.frame.height*0.35)
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -239,32 +239,33 @@ extension CategoryViewController:UICollectionViewDataSource{
                {
                    cell.product_image.kf.setImage(with: URL(string: arr_filtered[indexPath.row].image.src ?? ""))
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-                cell.product_name.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " EGP"
+                cell.product_price.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " EGP"
             }else{
-                cell.product_name.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " USD"
+                cell.product_price.text = (arr_filtered[indexPath.row].variants[0].price ?? "") + " USD"
             }
-                   
+            cell.product_name.text = arr_filtered[indexPath.row].title
                    return cell
                }
         else if isFiltering {
 
             cell.product_image.kf.setImage(with: URL(string: CatogoryFilter[indexPath.row].image.src ?? ""))
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-                cell.product_name.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " EGP"
+                cell.product_price.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " EGP"
             }else{
-                cell.product_name.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " USD"
+                cell.product_price.text = (CatogoryFilter[indexPath.row].variants[0].price ?? "") + " USD"
             }
 
+            cell.product_name.text = CatogoryFilter[indexPath.row].title
             return cell
         }
                cell.product_image.kf.setImage(with: URL(string: products?.products[indexPath.row].image.src ?? ""))
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-            cell.product_name.text = (products?.products[indexPath.row].variants[0].price ?? "") + " EGP"
+            cell.product_price.text = (products?.products[indexPath.row].variants[0].price ?? "") + " EGP"
         }else{
-            cell.product_name.text = (products?.products[indexPath.row].variants[0].price ?? "") + " USD"
+            cell.product_price.text = (products?.products[indexPath.row].variants[0].price ?? "") + " USD"
         }
                
-               
+        cell.product_name.text = products?.products[indexPath.row].title
                return cell
         
     }
