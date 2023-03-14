@@ -183,19 +183,23 @@ class PlaceOrderVC: UIViewController {
                             if self?.statusCode == 201
                             {
                                 print("post Success")
-                                self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully")
+                                self?.showAlert(title: "Order", message: "Congratulation 🎉, your order has been placed successfully",flag: true)
                             }else
                             {
                                 print("post fail")
-                                self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin")
+                                self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin",flag: false)
                             }
                         }
             
         }
     }
-    func showAlert(title: String, message: String){
+    func showAlert(title: String, message: String ,flag : Bool){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+         
+        let okAction = flag ? UIAlertAction(title: "OK", style: .destructive, handler: { action in
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }) : UIAlertAction(title: "OK", style: .destructive, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }

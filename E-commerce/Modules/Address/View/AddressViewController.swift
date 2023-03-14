@@ -17,6 +17,7 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
     
     var customerAddressTable : CustomerAddress?
     var GetModel : gettingViewModel?
+    var statusCode : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         GetModel = gettingViewModel()
@@ -67,6 +68,25 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
         }else {
             tableView.isHidden = false
             cartImg.isHidden = true
+        }
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            print(customerAddressTable?.addresses?[indexPath.row].id ?? 0)
+            ApiService.deleteAddress(Address_Id: customerAddressTable?.addresses?[indexPath.row].id ?? 0
+                                     , Customer_Id: UserDefaults.standard.integer(forKey:"loginid")) { [weak self] code in
+                self?.statusCode = code
+                if self?.statusCode == 200{
+                    print("delete successfully")
+                }else{
+                    print(self?.statusCode?.description ?? "")
+                }
+            }
+            
+            customerAddressTable?.addresses?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
 

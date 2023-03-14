@@ -17,10 +17,36 @@ protocol NetworkService
 protocol NetworkServicePost{
     static func postOrderToApi(order : PostOrder,complication:@escaping (Int) -> Void)
 }
+protocol NetworkServiceDel{
+    static func deleteAddress(Address_Id : Int ,Customer_Id : Int ,complication:@escaping (Int) -> Void)
+}
 
 
-class ApiService : NetworkService , NetworkServicePost
+class ApiService : NetworkService , NetworkServicePost , NetworkServiceDel
 {
+    static func deleteAddress(Address_Id: Int, Customer_Id: Int, complication: @escaping (Int) -> Void) {
+        let url = URL(string: "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(Customer_Id)/addresses/\(Address_Id).json")
+        
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "DELETE"
+//        urlRequest.httpShouldHandleCookies = false
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if (data != nil && data?.count != 0){
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
+                }
+               }.resume()
+    }
+    
+    
+    
+    
     static func fetchFromApi<T>(API_URL: String, completion: @escaping (T?) -> Void) where T : Decodable {
         AF.request(API_URL).responseJSON { response in
             do{
