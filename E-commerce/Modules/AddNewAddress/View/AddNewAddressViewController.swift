@@ -13,18 +13,21 @@ class AddNewAddressViewController: UIViewController {
     @IBOutlet weak var AddressTF: UITextField!
     @IBOutlet weak var PhoneTF: UITextField!
     @IBOutlet weak var CityTF: UITextField!
+    @IBOutlet weak var ImageAddress: UIImageView!
     
     var ViewModel : AddressViewModel?
     var newAddress : Address?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //------round image------------
+        ImageAddress.layer.cornerRadius = ImageAddress.frame.size.width/2.0
+        self.ImageAddress.clipsToBounds = true
+        
+        
         ViewModel = AddressViewModel()
         newAddress = Address()
-        textFieldBorder(textField: CountryTF)
-        textFieldBorder(textField: AddressTF)
-        textFieldBorder(textField: PhoneTF)
-        textFieldBorder(textField: CityTF)
+        uiTextField()
         
     }
     
@@ -88,4 +91,38 @@ class AddNewAddressViewController: UIViewController {
       AddAddressBtn.layer.borderWidth = 1
       AddAddressBtn.layer.borderColor = UIColor.tintColor.cgColor
      }
+    
+    
+    func uiTextField()
+        {
+            let bottomLine = CALayer()
+                   bottomLine.frame = CGRect(x: 0.0, y: CountryTF.frame.height - 1, width: CountryTF.frame.width - 30, height: 1.0)
+                   bottomLine.backgroundColor = UIColor.gray.cgColor
+            CountryTF.borderStyle = UITextField.BorderStyle.none
+            CountryTF.layer.addSublayer(bottomLine)
+                   
+                   let bottomLine2 = CALayer()
+                   bottomLine2.frame = CGRect(x: 0.0, y: CountryTF.frame.height - 1, width: CountryTF.frame.width - 30, height: 1.0)
+                   bottomLine2.backgroundColor = UIColor.gray.cgColor
+                   CityTF.borderStyle = UITextField.BorderStyle.none
+                   CityTF.layer.addSublayer(bottomLine2)
+                   
+                   
+                   let bottomLine3 = CALayer()
+                   bottomLine3.frame = CGRect(x: 0.0, y: CountryTF.frame.height - 1, width: CountryTF.frame.width - 30, height: 1.0)
+                   bottomLine3.backgroundColor = UIColor.gray.cgColor
+                   AddressTF.borderStyle = UITextField.BorderStyle.none
+                   AddressTF.layer.addSublayer(bottomLine3)
+                   
+                   
+                   let bottomLine1 = CALayer()
+                   bottomLine1.frame = CGRect(x: 0.0, y: CountryTF.frame.height - 1, width: CountryTF.frame.width - 30, height: 1.0)
+                   bottomLine1.backgroundColor = UIColor.gray.cgColor
+                   PhoneTF.borderStyle = UITextField.BorderStyle.none
+                   PhoneTF.layer.addSublayer(bottomLine1)
+            
+           
+            
+        }
+        
 }
