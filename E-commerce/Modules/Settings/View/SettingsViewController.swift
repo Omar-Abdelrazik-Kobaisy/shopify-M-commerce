@@ -128,6 +128,8 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
         UserDefaults.standard.set(0, forKey: "loginid")
         UserDefaults.standard.set("", forKey: "loginfirstName")
         let logOut = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        self.tabBarController?.navigationItem.hidesBackButton = true
+
         navigationController?.pushViewController(logOut, animated: true)
     }
     

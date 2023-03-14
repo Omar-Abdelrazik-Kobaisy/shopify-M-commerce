@@ -144,8 +144,9 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     @IBAction func cartButton(_ sender: Any) {
         
         if  UserDefaults.standard.integer(forKey:"loginid") == 0{
-            alertForUser()
+            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
             
+            navigationController?.pushViewController(unauth, animated: true)
         }
         else{
             let cart = self.storyboard?.instantiateViewController(withIdentifier: "ShopingCartVC")as! ShopingCartVC
@@ -176,27 +177,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
 
     }
 
-    func alertForUser(){
-      let alert = UIAlertController(title: "Alert", message: "You need to login or signUp ", preferredStyle: .alert)
-      
-          //Delet-----From-------coredata------And--------UserDefaults
-        alert.addAction(UIAlertAction(title: "Login", style: .default , handler: { [self] action in
-                  let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
-                  navigationController?.pushViewController(login, animated: true)
-
-      }))
-      
-      alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.default , handler: { [self] action in
-          
-              let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
-              navigationController?.pushViewController(signup, animated: true)
-      }))
-        alert.addAction(UIAlertAction(title: "Discard", style: UIAlertAction.Style.cancel ,handler:{_ in }))
-      
-      present(alert, animated: true)
-
-      
-  }
+   
 
 }
 

@@ -150,7 +150,9 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     @IBAction func cart(_ sender: Any) {
         if  UserDefaults.standard.integer(forKey:"loginid") == 0{
-              alertForUser()
+            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+            
+            navigationController?.pushViewController(unauth, animated: true)
             
         }
         else{
@@ -163,7 +165,11 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     @IBAction func favourite(_ sender: Any) {
         if  UserDefaults.standard.integer(forKey:"loginid") == 0{
-            alertForUser()
+            
+            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+            
+            navigationController?.pushViewController(unauth, animated: true)
+            
             
         }
         else{
@@ -195,29 +201,6 @@ extension HomeViewController: UISearchResultsUpdating, UISearchBarDelegate{
                 return filter.title!.lowercased().contains(searchController.searchBar.text!.lowercased())
         })
         Brands_CollectionV.reloadData()
-    }
-    
-      func alertForUser(){
-        let alert = UIAlertController(title: "Alert", message: "You need to login or signUp ", preferredStyle: .alert)
-        
-            //Delet-----From-------coredata------And--------UserDefaults
-        alert.addAction(UIAlertAction(title: "Login", style: .default , handler: { [self] action in
-                    let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
-                    navigationController?.pushViewController(login, animated: true)
-
-        }))
-        
-        alert.addAction(UIAlertAction(title: "SignUp", style: UIAlertAction.Style.default , handler: { [self] action in
-            
-                let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
-                navigationController?.pushViewController(signup, animated: true)
-        }))
-          
-     alert.addAction(UIAlertAction(title: "Discard", style: UIAlertAction.Style.cancel ,handler:{_ in }))
-
-        present(alert, animated: true)
-
-        
     }
 
 }
