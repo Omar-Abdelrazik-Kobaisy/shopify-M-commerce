@@ -38,6 +38,7 @@ class AddressViewController: UIViewController, UITableViewDelegate , UITableView
     }
     @IBAction func AddnewAddressBtn(_ sender: Any) {
         let addressVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
+        //self.present(addressVC, animated: true)
         self.navigationController?.pushViewController(addressVC, animated: true)
     }
     

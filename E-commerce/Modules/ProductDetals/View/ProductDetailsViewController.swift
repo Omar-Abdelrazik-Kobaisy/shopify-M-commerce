@@ -73,11 +73,12 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
         print(UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"))
         if UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"){
-            AppSnackBar.make(in: self.view, message: "The prodcute already exist", duration: .lengthLong).show()
+            AppSnackBar.make(in: self.view, message: "The product already exist", duration: .lengthLong).show()
+            print("saveddd")
         }
         else{
             orderViewModel.creatItem(product: productt!)
-            AppSnackBar.make(in: self.view, message: "The prodcute added to shopping cart", duration: .lengthLong).show()
+            AppSnackBar.make(in: self.view, message: "The product added to shopping cart", duration: .lengthLong).show()
             UserDefaults.standard.setValue(true, forKey: "cart\(productInfo?.product.id  ?? 0)")
                    }
     }

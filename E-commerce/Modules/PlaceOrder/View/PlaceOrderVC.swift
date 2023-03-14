@@ -162,7 +162,7 @@ class PlaceOrderVC: UIViewController {
         }
         else {
             guard let coupon = coupon else { return }
-            Couponlbl.text = coupon + "discount"
+            Couponlbl.text = coupon + " Discount"
             let totalPrice = UserDefaults.standard.integer(forKey: "final")
             SubTotallbl.text = String(totalPrice)
             result = Double(String(SubTotallbl.text!))! + 10.0
@@ -208,7 +208,7 @@ class PlaceOrderVC: UIViewController {
                             }else
                             {
                                 print("post fail")
-                                self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin",flag: false)
+                            self?.showAlert(title: "Order", message: "Fail 🛑, your order not placed try agin",flag: false)
                                 
                             }
                         }
