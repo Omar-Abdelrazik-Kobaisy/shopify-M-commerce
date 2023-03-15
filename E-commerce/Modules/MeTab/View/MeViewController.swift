@@ -27,16 +27,24 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        Wish_TableV.reloadData()
+//        Wish_TableV.reloadData()
 
         
-        wishlistArr = viewModel.getWishlist()
+//        wishlistArr = viewModel.getWishlist()
         if (wishlistArr.count == 0 ){
             Wish_TableV.isHidden = true
         }
         check()
         checkWishList()
         print(wishlistArr.count)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        wishlistArr = viewModel.getWishlist()
+        print(wishlistArr)
+        Wish_TableV.reloadData()
+        
     }
     func check(){
         if orders?.orders.count == 0 {

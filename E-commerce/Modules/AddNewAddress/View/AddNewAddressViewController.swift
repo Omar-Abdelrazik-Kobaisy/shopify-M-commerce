@@ -43,10 +43,10 @@ class AddNewAddressViewController: UIViewController {
     }
     
     @IBAction func AddNewAddressBtn(_ sender: Any) {
-        
+        checkData()
         let id = UserDefaults.standard.integer(forKey: "loginid")
         if isEdit {
-            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" {
+            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" && validate(value: PhoneTF.text!){
                 let params : [String: Any] = ["address" :["id": addressID ?? 0, "address1" :AddressTF.text ?? 0, "country" : CountryTF.text ?? 0, "phone" : PhoneTF.text , "city": CityTF.text]]
                 AddAddress.editAddress(customerId: id, addressID: addressID, address: params) { [weak self] code in
                     self?.statusCode = code
@@ -56,12 +56,12 @@ class AddNewAddressViewController: UIViewController {
                         print(self?.statusCode?.description ?? "")
                     }
                 }
-                checkData()
+                
                 self.showEdit(title: "Congrats", message: "You edit the address")
             }
         } else {
-            checkData()
-            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" {
+            
+            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != ""  && validate(value: PhoneTF.text!){
                 newAddress?.country = CountryTF.text
                 newAddress?.address1 = AddressTF.text
                 newAddress?.phone = PhoneTF.text

@@ -29,4 +29,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 15
+        contentView.layer.cornerRadius = 15
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3))
+        contentView.layer.masksToBounds = true
+    }
+    
 }
