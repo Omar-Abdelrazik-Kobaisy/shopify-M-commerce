@@ -60,6 +60,11 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let rightBarButton = self.navigationItem.rightBarButtonItem
+
+        let cartItems = CartItems.sharedIstance
+        let cartCount = cartItems.getAllCartItems().count
+        rightBarButton?.addBadge(text: "\(cartCount)" , withOffset: CGPoint(x: -60, y: 0))
         print(UserDefaults.standard.string(forKey:"loginfirstName"))
                let url = "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(UserDefaults.standard.integer(forKey:"loginid"))/orders.json"
                

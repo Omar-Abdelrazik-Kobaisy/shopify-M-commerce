@@ -70,6 +70,11 @@ class CategoryViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         productCollectionV.reloadData()
+        let rightBarButton = self.navigationItem.rightBarButtonItem
+
+        let cartItems = CartItems.sharedIstance
+        let cartCount = cartItems.getAllCartItems().count
+        rightBarButton?.addBadge(text: "\(cartCount)" , withOffset: CGPoint(x: -60, y: 0))
     }
     
     fileprivate func showProductByCategory(_ sender: UISegmentedControl) {

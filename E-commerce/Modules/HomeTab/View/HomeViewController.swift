@@ -33,6 +33,11 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
         }
 
     override func viewWillAppear( _ animated: Bool){
+        let rightBarButton = self.navigationItem.rightBarButtonItem
+
+        let cartItems = CartItems.sharedIstance
+        let cartCount = cartItems.getAllCartItems().count
+        rightBarButton?.addBadge(text: "\(cartCount)" , withOffset: CGPoint(x: -60, y: 0))
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
         do {
             try reachability.stopNotifier()
