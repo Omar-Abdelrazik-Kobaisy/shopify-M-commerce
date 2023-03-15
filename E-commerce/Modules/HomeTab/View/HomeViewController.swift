@@ -13,9 +13,9 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     @IBOutlet weak var shoppingCartBtn: UIBarButtonItem!
     @IBOutlet weak var Ads_CollectionV: UICollectionView!
     @IBOutlet weak var Brands_CollectionV: UICollectionView!
-//    let badge = BadgeSwift()
-    //shoppingCartBtn.addSubview(badge, forLayerAt: T##AnimationKeypath)
-    //var hub: BadgeHub?
+    @IBOutlet weak var pageController: UIPageControl!
+    var timer : Timer?
+    var currentCellIndex = 0
     let reachability = try! Reachability()
     var brands:Brands?
     var viewModel = HomeViewModel()
@@ -47,6 +47,7 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        startTimer()
         reachability.stopNotifier()
         self.tabBarController?.navigationItem.hidesBackButton = true
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
@@ -76,6 +77,21 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate,UICollectio
     
     @objc func reachabilityChanged(note: Notification){
         let reachability = note.object as! Reachability
+    }
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc func moveToNextIndex(){
+        if currentCellIndex < couponArr!.count - 1 {
+            currentCellIndex += 1
+        } else {
+            currentCellIndex = 0
+        }
+        
+        Ads_CollectionV.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+        pageController.currentPage = currentCellIndex
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

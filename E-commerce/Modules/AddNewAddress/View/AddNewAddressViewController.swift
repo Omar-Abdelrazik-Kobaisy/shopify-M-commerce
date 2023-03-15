@@ -18,6 +18,8 @@ class AddNewAddressViewController: UIViewController {
     @IBOutlet weak var PhoneTF: UITextField!
     @IBOutlet weak var CityTF: UITextField!
     @IBOutlet weak var ImageAddress: UIImageView!
+    @IBOutlet weak var PopupButton: UIButton!
+    
     
     var ViewModel : AddressViewModel?
     var newAddress : Address?
@@ -31,6 +33,7 @@ class AddNewAddressViewController: UIViewController {
         ViewModel = AddressViewModel()
         newAddress = Address()
         uiTextField()
+        setPopupButton()
         fillTextFields()
     }
     func fillTextFields() {
@@ -41,6 +44,25 @@ class AddNewAddressViewController: UIViewController {
             CountryTF.text = (country ?? "")
         }
     }
+    func setPopupButton(){
+        let optionClosure = { [self](action: UIAction) in
+            print(action.title)
+            CountryTF.text = action.title
+        }
+        
+            self.PopupButton.menu = UIMenu(children : [
+                UIAction(title: "Country",state: .on , handler: optionClosure),
+                UIAction(title: "Egypt", handler: optionClosure),
+                UIAction(title: "Qatar", handler: optionClosure),
+                UIAction(title: "Syria", handler: optionClosure),
+                UIAction(title: "Senegal", handler: optionClosure),
+                UIAction(title: "Tunisia", handler: optionClosure),
+                UIAction(title: "Saudi Arabia",handler: optionClosure),
+                UIAction(title: "United Arab Emirates",handler: optionClosure)])
+        
+                PopupButton.showsMenuAsPrimaryAction = true
+                PopupButton.changesSelectionAsPrimaryAction = true
+        }
     
     @IBAction func AddNewAddressBtn(_ sender: Any) {
         checkData()
