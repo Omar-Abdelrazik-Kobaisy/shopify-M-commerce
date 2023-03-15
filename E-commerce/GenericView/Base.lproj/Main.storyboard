@@ -165,10 +165,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1K-Sx-mcu">
-                                                    <rect key="frame" x="131" y="26" width="175" height="52"/>
+                                                    <rect key="frame" x="116" y="11" width="175" height="38"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="52" id="Jp9-Vw-DcH"/>
+                                                        <constraint firstAttribute="height" constant="38" id="Jp9-Vw-DcH"/>
                                                         <constraint firstAttribute="width" constant="175" id="UoN-01-8V8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hih-4F-bqi">
+                                                    <rect key="frame" x="125" y="57" width="203" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="203" id="jeA-5Q-OdP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -179,12 +188,18 @@
                                             <constraints>
                                                 <constraint firstItem="YJt-uU-pwv" firstAttribute="top" secondItem="E5O-Xu-1rC" secondAttribute="top" constant="10" id="773-1v-CQ1"/>
                                                 <constraint firstItem="YJt-uU-pwv" firstAttribute="leading" secondItem="E5O-Xu-1rC" secondAttribute="leading" constant="20" symbolic="YES" id="Evp-gB-awv"/>
-                                                <constraint firstItem="b1K-Sx-mcu" firstAttribute="leading" secondItem="YJt-uU-pwv" secondAttribute="trailing" constant="23" id="Ixj-rR-J5Q"/>
-                                                <constraint firstItem="b1K-Sx-mcu" firstAttribute="top" secondItem="E5O-Xu-1rC" secondAttribute="top" constant="26" id="Ul0-2L-34p"/>
+                                                <constraint firstItem="hih-4F-bqi" firstAttribute="trailing" secondItem="E5O-Xu-1rC" secondAttribute="trailingMargin" id="FWh-xm-McO"/>
+                                                <constraint firstItem="b1K-Sx-mcu" firstAttribute="leading" secondItem="YJt-uU-pwv" secondAttribute="trailing" constant="8" id="Ixj-rR-J5Q"/>
+                                                <constraint firstItem="hih-4F-bqi" firstAttribute="top" secondItem="b1K-Sx-mcu" secondAttribute="bottom" constant="8" symbolic="YES" id="UBM-9w-w97"/>
+                                                <constraint firstItem="b1K-Sx-mcu" firstAttribute="top" secondItem="E5O-Xu-1rC" secondAttribute="top" constant="11" id="Ul0-2L-34p"/>
+                                                <constraint firstItem="hih-4F-bqi" firstAttribute="width" secondItem="b1K-Sx-mcu" secondAttribute="width" multiplier="1.16" id="a7s-sG-QoL"/>
+                                                <constraint firstItem="hih-4F-bqi" firstAttribute="leading" secondItem="YJt-uU-pwv" secondAttribute="trailing" constant="17" id="fhz-XX-s5p"/>
+                                                <constraint firstItem="hih-4F-bqi" firstAttribute="height" secondItem="b1K-Sx-mcu" secondAttribute="height" multiplier="0.973684" id="x0W-bR-YmW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="label_wish" destination="b1K-Sx-mcu" id="Zto-Tb-3A6"/>
+                                            <outlet property="wishPrice" destination="hih-4F-bqi" id="PYU-vT-TKZ"/>
                                             <outlet property="wish_image" destination="YJt-uU-pwv" id="dKv-k2-6CF"/>
                                         </connections>
                                     </tableViewCell>

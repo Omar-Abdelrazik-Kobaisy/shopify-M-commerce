@@ -34,7 +34,6 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
                 self?.productt = self?.productInfo?.product
                 self?.ProductName.text = self?.productInfo?.product.title
                 
-               // self?.productPrice.text = self?.productInfo?.product.variants[0].price
                   if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
                       self?.productPrice.text = (self?.productInfo?.product.variants[0].price)! + " EGP"
              } else {
@@ -71,46 +70,60 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDelegate {
     }
     
     @IBAction func AddToCartBtnClicked(_ sender: Any) {
-        print(UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"))
-        if UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"){
-            AppSnackBar.make(in: self.view, message: "The product already exist", duration: .lengthLong).show()
-            print("saveddd")
-        }
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            
+            
+            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+            
+            navigationController?.pushViewController(unauth, animated: true)}
         else{
-            orderViewModel.creatItem(product: productt!)
-            AppSnackBar.make(in: self.view, message: "The product added to shopping cart", duration: .lengthLong).show()
-            UserDefaults.standard.setValue(true, forKey: "cart\(productInfo?.product.id  ?? 0)")
-                   }
+            if UserDefaults.standard.bool(forKey: "cart\(productInfo?.product.id  ?? 0)"){
+                AppSnackBar.make(in: self.view, message: "The product already exist", duration: .lengthLong).show()
+            }
+            else{
+                orderViewModel.creatItem(product: productt!)
+                AppSnackBar.make(in: self.view, message: "The product added to shopping cart", duration: .lengthLong).show()
+                UserDefaults.standard.setValue(true, forKey: "cart\(productInfo?.product.id  ?? 0)")
+            }
+            
+        }
     }
     
     @IBAction func FavouriteButton(_ sender: Any) {
-        //------------selected------------button
-        favButtonOutlet.isSelected = !favButtonOutlet.isSelected
-
-        if favButtonOutlet.isSelected {
-            
-            favButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            CoreDataManager.saveToCoreData(productId: productInfo?.product.id ?? 0, productTitle:productInfo?.product.title ?? "", productImg: productInfo?.product.image.src ?? "",productprice: productInfo?.product.variants[0].price ?? "")
-            
-               UserDefaults.standard.set(true, forKey: "\(productInfo?.product.id  ?? 0)")
-              print("selected")
-             print(productInfo?.product.id ?? 0)
-
-
-        }
-        else{
-            //---------------un----------selected(deletion)-----------------
-            favButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
-            print("unselected")
-            print(productInfo?.product.id ?? 0)
-            CoreDataManager.deleteFromCoreData(productId: productInfo?.product.id ?? 0)
-            UserDefaults.standard.set(false, forKey: "\(productInfo?.product.id  ?? 0)")
-
-            
-        }
-
         
-    }
+        if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+            
+            
+            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+            
+            navigationController?.pushViewController(unauth, animated: true)}
+        
+        //------------selected------------button
+        else{
+            favButtonOutlet.isSelected = !favButtonOutlet.isSelected
+            
+            if favButtonOutlet.isSelected {
+                
+                favButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                CoreDataManager.saveToCoreData(productId: productInfo?.product.id ?? 0, productTitle:productInfo?.product.title ?? "", productImg: productInfo?.product.image.src ?? "",productprice: productInfo?.product.variants[0].price ?? "")
+                
+                UserDefaults.standard.set(true, forKey: "\(productInfo?.product.id  ?? 0)")
+                print(productInfo?.product.id ?? 0)
+                
+                
+            }
+            else{
+                //---------------un----------selected(deletion)-----------------
+                favButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                print(productInfo?.product.id ?? 0)
+                CoreDataManager.deleteFromCoreData(productId: productInfo?.product.id ?? 0)
+                UserDefaults.standard.set(false, forKey: "\(productInfo?.product.id  ?? 0)")
+                
+                
+            }
+            
+            
+        }}
     
 }
     

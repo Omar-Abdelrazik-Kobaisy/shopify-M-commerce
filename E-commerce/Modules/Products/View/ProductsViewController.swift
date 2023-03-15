@@ -116,37 +116,40 @@ extension ProductsViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ProductCollectionViewCell
-//        cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
+        
         favId = "\(arr_product[indexPath.row].id ?? 0)"
-        print("abovefavkey "+favId)
         if UserDefaults.standard.bool(forKey: self.favId){
             cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            print("fsavedavkey "+favId)
-            print("add fav")
+
 
         }else{
             cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
-            print("notsavedvedfavkey "+favId)
-            print("not fav")
         }
         cell.product_fav.isSelected = UserDefaults.standard.bool(forKey: self.favId)
         cell.favProd = { [unowned self] in
-            cell.product_fav.isSelected = !cell.product_fav.isSelected
-            
-            if cell.product_fav.isSelected {
+            if  UserDefaults.standard.integer(forKey:"loginid") == 0{
                 
-                cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                CoreDataManager.saveToCoreData(productId: self.arr_product[indexPath.row].id ?? 0, productTitle: self.arr_product[indexPath.row].title ?? "", productImg: self.arr_product[indexPath.row].image.src ?? "",productprice: self.arr_product[indexPath.row].variants.first?.price ?? "")
-                   UserDefaults.standard.set(true, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
-
-            }else{
-                cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
-                CoreDataManager.deleteFromCoreData(productId:  self.arr_product[indexPath.row].id ?? 0)
-                UserDefaults.standard.set(false, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
-
                 
+                let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+                
+                navigationController?.pushViewController(unauth, animated: true)}
+            else{
+                cell.product_fav.isSelected = !cell.product_fav.isSelected
+                
+                if cell.product_fav.isSelected {
+                    
+                    cell.product_fav.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    CoreDataManager.saveToCoreData(productId: self.arr_product[indexPath.row].id ?? 0, productTitle: self.arr_product[indexPath.row].title ?? "", productImg: self.arr_product[indexPath.row].image.src ?? "",productprice: self.arr_product[indexPath.row].variants.first?.price ?? "")
+                    UserDefaults.standard.set(true, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
+                    
+                }else{
+                    cell.product_fav.setImage(UIImage(systemName: "heart"), for: .normal)
+                    CoreDataManager.deleteFromCoreData(productId:  self.arr_product[indexPath.row].id ?? 0)
+                    UserDefaults.standard.set(false, forKey: "\(arr_product[indexPath.row].id  ?? 0)")
+                    
+                    
+                }
             }
-            
         }
         
         

@@ -27,7 +27,8 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        
+        Wish_TableV.reloadData()
+
         
         wishlistArr = viewModel.getWishlist()
         if (wishlistArr.count == 0 ){
@@ -81,6 +82,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
             
             userName.text = "User"
             Wish_TableV.isHidden = true
+            Order_TableV.isHidden = true
 
         }
         
@@ -128,6 +130,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         
         let url = URL(string: wishlistArr[indexPath.row].product_img ?? "")
         cell.wish_image?.kf.setImage(with: url)
+        cell.wishPrice.text = wishlistArr[indexPath.row].product_price
         cell.label_wish.text = wishlistArr[indexPath.row].product_title
         
         return cell

@@ -219,29 +219,35 @@ extension CategoryViewController:UICollectionViewDataSource{
         cell.favourite_btn.isSelected = UserDefaults.standard.bool(forKey: self.favId)
 
         cell.favProd = { [unowned self] in
-            
-            cell.favourite_btn.isSelected = !cell.favourite_btn.isSelected
-            
-            if cell.favourite_btn.isSelected {
+            if  UserDefaults.standard.integer(forKey:"loginid") == 0{
                 
-                cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                CoreDataManager.saveToCoreData(productId: products?.products[indexPath.row].id ?? 0, productTitle:products?.products[indexPath.row].title ?? "", productImg: products?.products[indexPath.row].image.src ?? "",productprice: products?.products[indexPath.row].variants[0].price ?? "")
-                   UserDefaults.standard.set(true, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
-                  print("selected")
-                 print(products?.products[indexPath.row].id ?? 0)
-
-
-            }
+                
+                let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+                
+                navigationController?.pushViewController(unauth, animated: true)}
             else{
-                //---------------un----------selected(deletion)-----------------
-                cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
-                print("unselected")
-                print(products?.products[indexPath.row].id ?? 0)
-                CoreDataManager.deleteFromCoreData(productId: products?.products[indexPath.row].id ?? 0)
-                UserDefaults.standard.set(false, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
-
+                cell.favourite_btn.isSelected = !cell.favourite_btn.isSelected
                 
-            }
+                if cell.favourite_btn.isSelected {
+                    
+                    cell.favourite_btn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    CoreDataManager.saveToCoreData(productId: products?.products[indexPath.row].id ?? 0, productTitle:products?.products[indexPath.row].title ?? "", productImg: products?.products[indexPath.row].image.src ?? "",productprice: products?.products[indexPath.row].variants[0].price ?? "")
+                    UserDefaults.standard.set(true, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
+                    print("selected")
+                    print(products?.products[indexPath.row].id ?? 0)
+                    
+                    
+                }
+                else{
+                    //---------------un----------selected(deletion)-----------------
+                    cell.favourite_btn.setImage(UIImage(systemName: "heart"), for: .normal)
+                    print("unselected")
+                    print(products?.products[indexPath.row].id ?? 0)
+                    CoreDataManager.deleteFromCoreData(productId: products?.products[indexPath.row].id ?? 0)
+                    UserDefaults.standard.set(false, forKey: "\(products?.products[indexPath.row].id  ?? 0)")
+                    
+                    
+                }}
             
         }
         

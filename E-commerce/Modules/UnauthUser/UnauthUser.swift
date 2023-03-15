@@ -17,6 +17,7 @@ class UnauthUser: UIViewController {
     @IBAction func signIn(_ sender: Any) {
 
         let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")as! LoginViewController
+        navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.pushViewController(login, animated: true)
 
     }
@@ -24,6 +25,7 @@ class UnauthUser: UIViewController {
     @IBAction func signUp(_ sender: Any) {
         
         let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController")as! SignUpViewController
+        navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.pushViewController(signup, animated: true)
 
     }
