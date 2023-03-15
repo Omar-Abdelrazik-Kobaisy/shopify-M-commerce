@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Wy-h8-T45">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iEb-7s-CTl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -1052,36 +1052,24 @@
                                     <outlet property="delegate" destination="Aog-Mo-w8E" id="5b2-sX-FO3"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-4d-pla">
-                                <rect key="frame" x="116.66666666666669" y="617" width="160" height="34.333333333333371"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34.329999999999998" id="Bx7-gc-cFK"/>
-                                    <constraint firstAttribute="width" constant="160" id="fGG-pr-vj6"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add New Address">
-                                    <attributedString key="attributedSubtitle"/>
-                                    <color key="baseForegroundColor" red="0.91372549020000005" green="0.41960784309999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="AddnewAddressBtn:" destination="Aog-Mo-w8E" eventType="touchUpInside" id="dYZ-x3-Lbc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KSO-Tk-T7R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4Re-4d-pla" firstAttribute="centerX" secondItem="sGK-bG-3Ez" secondAttribute="centerX" id="6C6-IR-jzU"/>
-                            <constraint firstItem="KSO-Tk-T7R" firstAttribute="bottom" secondItem="4Re-4d-pla" secondAttribute="bottom" constant="166.66666666666663" id="KJA-mz-5R5"/>
+                            <constraint firstItem="KSO-Tk-T7R" firstAttribute="bottom" secondItem="sGK-bG-3Ez" secondAttribute="bottom" constant="245" id="BJo-mt-gfo"/>
                             <constraint firstItem="sGK-bG-3Ez" firstAttribute="top" secondItem="KSO-Tk-T7R" secondAttribute="top" constant="34" id="UBc-hO-zYN"/>
-                            <constraint firstItem="4Re-4d-pla" firstAttribute="top" secondItem="sGK-bG-3Ez" secondAttribute="bottom" constant="44" id="cHY-Va-OXR"/>
+                            <constraint firstItem="sGK-bG-3Ez" firstAttribute="centerX" secondItem="q8z-DM-SCf" secondAttribute="centerX" id="Vvm-SV-8vk"/>
                             <constraint firstItem="sGK-bG-3Ez" firstAttribute="leading" secondItem="q8z-DM-SCf" secondAttribute="leading" id="dX1-vw-bto"/>
-                            <constraint firstItem="4Re-4d-pla" firstAttribute="centerX" secondItem="q8z-DM-SCf" secondAttribute="centerX" id="sA7-Dq-JXB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your addresses" id="BjK-LU-LxK"/>
+                    <navigationItem key="navigationItem" title="Your addresses" id="BjK-LU-LxK">
+                        <barButtonItem key="rightBarButtonItem" title="ADD" id="Q5b-pa-wpg">
+                            <connections>
+                                <action selector="AddBtnClicked:" destination="Aog-Mo-w8E" id="Xqc-gR-Uc7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="AddBtn" destination="4Re-4d-pla" id="3Wl-wj-g93"/>
                         <outlet property="cartImg" destination="Cna-gY-CJr" id="Pmx-Ix-Kzi"/>
                         <outlet property="tableView" destination="sGK-bG-3Ez" id="EM4-EH-G2c"/>
                     </connections>
@@ -1460,7 +1448,13 @@
                             <constraint firstItem="FZo-uz-gkm" firstAttribute="trailing" secondItem="21h-F4-hAr" secondAttribute="trailing" id="sji-Bb-oaz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8gL-5m-fMm"/>
+                    <navigationItem key="navigationItem" id="8gL-5m-fMm">
+                        <barButtonItem key="rightBarButtonItem" title="ADD" id="mwt-BO-lcS">
+                            <connections>
+                                <action selector="AddBtnClicked:" destination="Rxu-Vd-jda" id="yhE-XW-y7I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="Selectedlbl" destination="21h-F4-hAr" id="wHR-xU-c0v"/>
                         <outlet property="noaddresslbl" destination="fXJ-dD-L4C" id="1PU-r7-JJV"/>

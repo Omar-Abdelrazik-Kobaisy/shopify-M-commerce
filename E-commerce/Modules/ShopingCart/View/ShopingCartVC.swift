@@ -95,10 +95,17 @@ class ShopingCartVC: UIViewController , UITableViewDataSource , UITableViewDeleg
         }
 
         func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
             if editingStyle == UITableViewCell.EditingStyle.delete {
-                orderViewModel?.deleteItem(item: models![indexPath.row])
-                models?.remove(at: indexPath.row)
-                tableViewOutlet.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                let alert = UIAlertController(title: "Delete", message: "Are you sure about deletion ?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default , handler: { [weak self] action in
+                    self!.orderViewModel?.deleteItem(item: self!.models![indexPath.row])
+                    self!.models?.remove(at: indexPath.row)
+                    self!.tableViewOutlet.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                self.present(alert, animated: true, completion: nil)
+                
             }
         }
         

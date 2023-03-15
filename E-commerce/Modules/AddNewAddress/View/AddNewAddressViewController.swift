@@ -7,7 +7,11 @@
 import UIKit
 
 class AddNewAddressViewController: UIViewController {
-    
+    var streetName, cityName, country:String?
+    var isEdit = false
+    var addressID: Int!
+    var phone: String!
+    var statusCode : Int?
     @IBOutlet weak var AddAddressBtn: UIButton!
     @IBOutlet weak var CountryTF: UITextField!
     @IBOutlet weak var AddressTF: UITextField!
@@ -24,27 +28,49 @@ class AddNewAddressViewController: UIViewController {
         ImageAddress.layer.cornerRadius = ImageAddress.frame.size.width/2.0
         self.ImageAddress.clipsToBounds = true
         
-        
         ViewModel = AddressViewModel()
         newAddress = Address()
         uiTextField()
-        
+        fillTextFields()
+    }
+    func fillTextFields() {
+        if isEdit{
+            PhoneTF.text = (phone ?? ""  )
+            AddressTF.text = (streetName ?? "")
+            CityTF.text = (cityName ?? "")
+            CountryTF.text = (country ?? "")
+        }
     }
     
     @IBAction func AddNewAddressBtn(_ sender: Any) {
-        checkData()
-        if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" {
-            newAddress?.country = CountryTF.text
-            newAddress?.address1 = AddressTF.text
-            newAddress?.phone = PhoneTF.text
-            newAddress?.city = CityTF.text
-            
-            guard let address = newAddress else { return }
-            ViewModel?.setAddress(setaddress: address)
- 
-        }
-        self.navigationController?.popViewController(animated: true)
         
+        let id = UserDefaults.standard.integer(forKey: "loginid")
+        if isEdit {
+            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" {
+                let params : [String: Any] = ["address" :["id": addressID ?? 0, "address1" :AddressTF.text ?? 0, "country" : CountryTF.text ?? 0, "phone" : PhoneTF.text , "city": CityTF.text]]
+                AddAddress.editAddress(customerId: id, addressID: addressID, address: params) { [weak self] code in
+                    self?.statusCode = code
+                    if self?.statusCode == 200{
+                        print("edit successfully")
+                    }else{
+                        print(self?.statusCode?.description ?? "")
+                    }
+                }
+                checkData()
+                self.showEdit(title: "Congrats", message: "You edit the address")
+            }
+        } else {
+            checkData()
+            if AddressTF.text != "" && CityTF.text != "" && CountryTF.text != "" && PhoneTF.text != "" {
+                newAddress?.country = CountryTF.text
+                newAddress?.address1 = AddressTF.text
+                newAddress?.phone = PhoneTF.text
+                newAddress?.city = CityTF.text
+                guard let address = newAddress else { return }
+                ViewModel?.setAddress(setaddress: address)
+                self.showDone(title: "Congrats", message: "You added a new address")
+            }
+        }
     }
     func checkData() {
         let titleMessage = "Missing Data"
@@ -81,6 +107,23 @@ class AddNewAddressViewController: UIViewController {
     func showAlertError(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showDone(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive) { UIAlertAction in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    func showEdit(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive) { UIAlertAction in
+            self.navigationController?.popViewController(animated: true)
+        }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }

@@ -15,11 +15,19 @@ class AddressViewModel{
             bindingAddress!()
         }
     }
+    let id = UserDefaults.standard.integer(forKey: "loginid")
     func setAddress(setaddress: Address) {
-        let id = UserDefaults.standard.integer(forKey: "loginid")
+       
         AddAddress.CreateAddress(customerId: id, address: setaddress) { check in
             self.ObservableAddress = check
         }
     }
+//    func EditAddress(setaddress: Address  , addId: id ){
+//        let id = UserDefaults.standard.integer(forKey: "loginid")
+//        AddAddress.editAddress(customerId: id, addressID: Address, address: setaddress) { <#Int#> in
+//            <#code#>
+//        }
+        
+    //}
 }
  

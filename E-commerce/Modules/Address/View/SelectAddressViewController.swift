@@ -51,10 +51,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel!.text = customerAddressTable?.addresses![indexPath.row].address1
-        cell.detailTextLabel?.text = customerAddressTable?.addresses![indexPath.row].city
-        cell.imageView?.image=UIImage(systemName: "homekit")
-        cell.imageView?.tintColor = .label
-        cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = customerAddressTable?.addresses![indexPath.row].phone
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -69,6 +66,14 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         self.navigationController?.pushViewController(payementVC, animated: true)
     
     }
+    
+    @IBAction func AddBtnClicked(_ sender: Any) {
+        
+        let addresVC = self.storyboard?.instantiateViewController(withIdentifier: "AddNewAddressViewController") as! AddNewAddressViewController
+        //self.present(addressVC, animated: true)
+        self.navigationController?.pushViewController(addresVC, animated: true)
+    }
+    
     
     
 

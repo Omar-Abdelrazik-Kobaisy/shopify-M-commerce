@@ -723,9 +723,9 @@
 		ABF2FFED29B18C240007845D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DDA4BBAC29B12733004C6406 /* ProductDetailsCellViewController.swift */,
 				DDA4BBAE29B12733004C6406 /* ProductDetailsViewController.swift */,
 				39962DCF29BE189400C1620A /* AppSnackBar.swift */,
+				DDA4BBAC29B12733004C6406 /* ProductDetailsCellViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
