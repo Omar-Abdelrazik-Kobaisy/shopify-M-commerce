@@ -95,5 +95,40 @@ class ApiService : NetworkService , NetworkServicePost , NetworkServiceDel
                 }
                }.resume()
     }
+    
+    static func updateAddress(customer_id : Int , address_id : Int , address : String,complication:@escaping (Int) -> Void) {
+
+        let url = URL(string: "https://12cda6f78842e3d15dd501d7e1fbc322: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@mad-ios1.myshopify.com/admin/api/2023-01/customers/\(customer_id)/addresses/\(address_id)/default")
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "PUT"
+        let userDictionary = ["customer_address" :
+                                ["id": address_id ,"customer_id" : customer_id, "address1" :"\(address)" , "default": true]
+        ]
+        print(userDictionary)
+        urlRequest.httpShouldHandleCookies = false
+        do {
+            
+            let bodyDictionary = try JSONSerialization.data(withJSONObject: userDictionary,options: .prettyPrinted)
+            urlRequest.httpBody = bodyDictionary
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if (data != nil && data?.count != 0){
+                if let httpResponse = response as? HTTPURLResponse {
+                    let response = String(data:data!,encoding: .utf8)
+                     print(response!)
+                    complication(httpResponse.statusCode)
+                    
+                   }
+            }
+            
+        }.resume()
+        
+        
+        
+        
+    }
   
 }

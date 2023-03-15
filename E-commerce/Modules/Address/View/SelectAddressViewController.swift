@@ -17,6 +17,7 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     
     var GetModel : gettingViewModel?
     var customerAddressTable : CustomerAddress?
+    var statusCode : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         checkCartIsEmpty()
@@ -63,6 +64,19 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
         
         UserDefaults.standard.set(customerAddressTable?.addresses![indexPath.row].address1, forKey: "address")
 
+        ApiService.updateAddress(customer_id: UserDefaults.standard.integer(forKey:"loginid")
+                                 , address_id: customerAddressTable?.addresses?[indexPath.row].id ?? 0
+                                 , address: customerAddressTable?.addresses?[indexPath.row].address1 ?? "") { [weak self] code in
+            self?.statusCode = code
+            print(self?.statusCode ?? 0)
+            if self?.statusCode == 200 {
+                print("updated successfully")
+            }else{
+                print(self?.statusCode?.description ?? "")
+            }
+        }
+        
+        
         self.navigationController?.pushViewController(payementVC, animated: true)
     
     }
