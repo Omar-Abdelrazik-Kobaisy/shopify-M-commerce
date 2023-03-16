@@ -25,6 +25,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     var orders : GetOrder?
     var wishlistArr:[FavoriteProduct] = []
     var viewModel = MeViewModel()
+    var orderPrice : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,11 +120,13 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         if tableView == Order_TableV
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "order", for: indexPath) as! OrderTableViewCell
+            orderPrice = (((orders?.orders[indexPath.row].total_price ?? "") as NSString).integerValue ) + 10
+            print(orderPrice)
             if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-                cell.order_price.text = (orders?.orders[indexPath.row].total_price ?? "") + " EGP"
+                cell.order_price.text = String(orderPrice ?? 0)  + " EGP"
             }
             else{
-                cell.order_price.text = (orders?.orders[indexPath.row].total_price ?? "") + " USD"
+                cell.order_price.text =  String(orderPrice ?? 0)  + " USD"
             }
             cell.order_createdat.text = orders?.orders[indexPath.row].created_at
             

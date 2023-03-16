@@ -20,6 +20,18 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var statusCode : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
+//        checkCartIsEmpty()
+//        GetModel = gettingViewModel()
+//        GetModel?.getAddress()
+//        GetModel?.bindingGet = { [weak self] in
+//            DispatchQueue.main.async {
+//                self!.customerAddressTable = self!.GetModel?.ObservableGet
+//                self!.tableView.reloadData()
+//            }
+//        }
+//        checkCartIsEmpty()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         checkCartIsEmpty()
         GetModel = gettingViewModel()
         GetModel?.getAddress()

@@ -11,6 +11,7 @@ class OrdersTableViewController: UITableViewController {
 
     var viewModel = MeViewModel()
     var orders : GetOrder?
+    var orderPrice : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,12 +49,13 @@ class OrdersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OrdersTableViewCell
 
-        
+        orderPrice = (((orders?.orders[indexPath.row].total_price ?? "") as NSString).integerValue ) + 10
+        print(orderPrice)
         if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
-            cell.order_price.text = (orders?.orders[indexPath.row].total_price ?? "") + " EGP"
+            cell.order_price.text = String(orderPrice ?? 0)  + " EGP"
         }
         else{
-            cell.order_price.text = (orders?.orders[indexPath.row].total_price ?? "") + " USD"
+            cell.order_price.text =  String(orderPrice ?? 0)  + " USD"
         }
         
         cell.order_createdat.text = orders?.orders[indexPath.row].created_at
