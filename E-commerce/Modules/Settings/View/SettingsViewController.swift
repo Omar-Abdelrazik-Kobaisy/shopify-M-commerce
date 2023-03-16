@@ -85,8 +85,15 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     case .wifi , .cellular:
         switch (indexPath.row){
         case 0 :
-            let addrVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
-            self.navigationController?.pushViewController(addrVC, animated: true)
+            if  UserDefaults.standard.integer(forKey:"loginid") == 0{
+                            let unauth = self.storyboard?.instantiateViewController(withIdentifier: "UnauthUser")as!UnauthUser
+                            
+                            navigationController?.pushViewController(unauth, animated: true)
+                            
+                        }
+                        else{
+                            let addrVC = self.storyboard?.instantiateViewController(withIdentifier: "AddressViewController") as! AddressViewController
+                            self.navigationController?.pushViewController(addrVC, animated: true)}
         case 1 :
              let alert = UIAlertController(title: "Currency", message: "Choose the currency", preferredStyle: .alert)
              

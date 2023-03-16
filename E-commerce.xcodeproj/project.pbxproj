@@ -42,6 +42,8 @@
 		0783EFB829AFB954009592E7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0783EFB729AFB954009592E7 /* CategoryCollectionViewCell.swift */; };
 		0789BAC529C1FC6E00D43166 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789BAC429C1FC6E00D43166 /* UIBarButtonItem+Badge.swift */; };
 		0789BAC729C1FE6400D43166 /* cartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789BAC629C1FE6400D43166 /* cartItems.swift */; };
+		0789BAC929C2915600D43166 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789BAC829C2915600D43166 /* OrdersTableViewController.swift */; };
+		0789BACB29C2919500D43166 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0789BACA29C2919500D43166 /* OrdersTableViewCell.swift */; };
 		07D25D0429B0C5B200A99E92 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D25D0329B0C5B200A99E92 /* HomeViewModel.swift */; };
 		07D25D0929B0DC4F00A99E92 /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D25D0829B0DC4F00A99E92 /* product.swift */; };
 		0ADC388042B6E65F7FB06981 /* Pods_E_commerce_E_commerceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EF002EAA142A856008C7E9 /* Pods_E_commerce_E_commerceUITests.framework */; };
@@ -148,6 +150,8 @@
 		0783EFB729AFB954009592E7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		0789BAC429C1FC6E00D43166 /* UIBarButtonItem+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Badge.swift"; sourceTree = "<group>"; };
 		0789BAC629C1FE6400D43166 /* cartItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartItems.swift; sourceTree = "<group>"; };
+		0789BAC829C2915600D43166 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
+		0789BACA29C2919500D43166 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		07D25D0329B0C5B200A99E92 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		07D25D0829B0DC4F00A99E92 /* product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product.swift; sourceTree = "<group>"; };
 		39661D6029B692FF00B2C8A5 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -568,6 +572,8 @@
 			children = (
 				DD88141729B122AE006C791A /* OrderDetailsVC.swift */,
 				DD88141629B122AE006C791A /* OrderDetialsTableViewCell.swift */,
+				0789BAC829C2915600D43166 /* OrdersTableViewController.swift */,
+				0789BACA29C2919500D43166 /* OrdersTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1214,8 +1220,10 @@
 				399D85C229B795D6002B7308 /* AddressModel.swift in Sources */,
 				399DC5B629B8E966005B587F /* OrderViewModel.swift in Sources */,
 				071FAB8029B01EF5003D1D3A /* ProductCollectionViewCell.swift in Sources */,
+				0789BAC929C2915600D43166 /* OrdersTableViewController.swift in Sources */,
 				DD0FA16529B3AAF1002692E8 /* CustomerModel.swift in Sources */,
 				39962DD029BE189400C1620A /* AppSnackBar.swift in Sources */,
+				0789BACB29C2919500D43166 /* OrdersTableViewCell.swift in Sources */,
 				0783EFAE29AF9748009592E7 /* HomeViewController.swift in Sources */,
 				DD3262E929BA5D82001330FA /* FavouriteProduct.swift in Sources */,
 				DD88140829B11E2B006C791A /* AddressViewController.swift in Sources */,
@@ -1456,6 +1464,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-commerce/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Shopify;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1486,6 +1495,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-commerce/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Shopify;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -18,6 +18,7 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var Wish_TableV: UITableView!
     
+    @IBOutlet weak var customer_img: UIImageView!
     
     
     @IBOutlet weak var ShoppingCartBtn: UIBarButtonItem!
@@ -27,7 +28,8 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(wishlistArr.count)
+        
+        customer_img.image = UIImage(named: "userpic")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +133,12 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
         
         let url = URL(string: wishlistArr[indexPath.row].product_img ?? "")
         cell.wish_image?.kf.setImage(with: url)
-        cell.wishPrice.text = wishlistArr[indexPath.row].product_price
+        if UserDefaults.standard.string(forKey: "Currency") == "EGP" {
+            cell.wishPrice.text = (wishlistArr[indexPath.row].product_price ?? "") + " EGP"
+        }
+        else{
+            cell.wishPrice.text = (wishlistArr[indexPath.row].product_price ?? "") + " USD"
+        }
         cell.label_wish.text = wishlistArr[indexPath.row].product_title
         
         return cell
@@ -187,6 +194,23 @@ class MeViewController: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
 
    
-
+    @IBAction func moreOrders(_ sender: Any) {
+        
+        let ordersTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrdersTableViewController") as! OrdersTableViewController
+        
+        navigationController?.pushViewController(ordersTableViewController, animated: true)
+    }
+    
+    
+    
+    
+    @IBAction func moreWishes(_ sender: Any) {
+        
+        let WishListViewController = self.storyboard?.instantiateViewController(withIdentifier: "WishListViewController") as! WishListViewController
+        
+        navigationController?.pushViewController(WishListViewController, animated: true)
+        
+    }
+    
 }
 
