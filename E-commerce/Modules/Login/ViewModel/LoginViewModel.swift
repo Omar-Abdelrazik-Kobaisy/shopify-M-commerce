@@ -36,10 +36,10 @@ class loginViewModel{
                     let userDefultId =  UserDefaults.standard.integer(forKey:"loginid")
                         print("JSON STRING IS", userDefultId ?? 0)
                 }
-                if customerEmail != obserable.customers[i].email && customerPasssword == obserable.customers[i].note{
+               else if customerEmail != obserable.customers[i].email && customerPasssword == obserable.customers[i].note{
                  x = 2
                 }
-                if customerEmail == obserable.customers[i].email && customerPasssword != obserable.customers[i].note{
+                else if customerEmail == obserable.customers[i].email && customerPasssword != obserable.customers[i].note{
                  x = 3
                 }
 

@@ -7,11 +7,13 @@
 
 import UIKit
 import Reachability
-
+import CoreData
+import CoreMedia
 class SettingsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     let reachability = try! Reachability()
     @IBOutlet weak var darkOutlet: UISwitch!
     let appDelegate = UIApplication.shared.windows.first
+    var wishListArray :[FavoriteProduct] = []
 
     
     var SettingsArr = ["Address" , "Currency" , "About Us" , "Contact Us"]
@@ -131,7 +133,11 @@ class SettingsViewController: UIViewController , UITableViewDelegate , UITableVi
     
     
     @IBAction func logOutAction(_ sender: Any) {
-        
+        wishListArray = CoreDataManager.fetchFromCoreData()
+        for item in wishListArray
+        {
+            CoreDataManager.deleteFromCoreData(productId: item.product_id ?? 0)
+        }
         UserDefaults.standard.set(0, forKey: "loginid")
         UserDefaults.standard.set("", forKey: "loginfirstName")
         let logOut = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
