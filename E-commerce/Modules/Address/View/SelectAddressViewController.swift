@@ -20,6 +20,11 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
     var statusCode : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        //checkCartIsEmpty()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         checkCartIsEmpty()
         GetModel = gettingViewModel()
         GetModel?.getAddress()
@@ -29,7 +34,6 @@ class SelectAddressViewController: UIViewController , UITableViewDelegate , UITa
                 self!.tableView.reloadData()
             }
         }
-        checkCartIsEmpty()
     }
     
     func checkCartIsEmpty() {

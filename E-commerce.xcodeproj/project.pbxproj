@@ -581,9 +581,9 @@
 		ABF2FFC029B188C20007845D /* ShopingCart */ = {
 			isa = PBXGroup;
 			children = (
+				ABF2FFC229B188C20007845D /* View */,
 				39A5DD2D29B95BAF009BEFCE /* ViewModel */,
 				ABF2FFFC29B18E950007845D /* Model */,
-				ABF2FFC229B188C20007845D /* View */,
 			);
 			path = ShopingCart;
 			sourceTree = "<group>";

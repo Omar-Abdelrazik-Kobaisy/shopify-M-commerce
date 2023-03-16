@@ -67,6 +67,13 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func signup(_ sender: Any) {
+        let signup = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        
+        self.navigationController?.pushViewController(signup, animated: true)
+
+    }
+    
 }
 func textFieldBorder(textField:UITextField){
     textField.layer.cornerRadius = 15.0

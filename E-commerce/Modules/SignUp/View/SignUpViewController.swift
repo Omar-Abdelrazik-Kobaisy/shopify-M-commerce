@@ -91,4 +91,11 @@ class SignUpViewController: UIViewController {
                 alert.dismiss(animated: true)
             }
         }
+    
+    @IBAction func signup(_ sender: Any) {
+        let already = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        
+        self.navigationController?.pushViewController(already, animated: true)
+        
+    }
 }
