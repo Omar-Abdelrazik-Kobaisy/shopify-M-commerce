@@ -10,7 +10,7 @@ provide customers with all functionalities and features they will need with simp
 <img width="739" alt="image" src="https://user-images.githubusercontent.com/79419979/227738523-425fb575-f34a-433b-b6bc-87a95530f82f.png">
 <img width="743" alt="image" src="https://user-images.githubusercontent.com/79419979/227738651-dcf82462-c0cc-4412-a188-060791d3d930.png">
 <img width="135" alt="image" src="https://user-images.githubusercontent.com/79419979/227738692-2573f94d-45f7-4fdd-9f3f-890c1e4499ba.png">
-#Technologies Used:
+# Technologies Used:
 Swift
 MVVM Architecture Pattern
 Shopify API
