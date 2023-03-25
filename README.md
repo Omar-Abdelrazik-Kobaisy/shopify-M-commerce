@@ -15,15 +15,15 @@ provide customers with all functionalities and features they will need with simp
 # Technologies Used:
 
 
-Swift
-MVVM Architecture Pattern
-Shopify API
-Threads
-CoreData
-UserDefaults
-CocoaPods (Alamofire, Kingfisher, Reachability, lottie, Floaty, SnackBar,)
-UIKit
-Constraints.
-Storyboards
-Unit Testing
-Project Management Tools(Trello - Git)
+- Swift
+- MVVM Architecture Pattern
+- Shopify API
+- Threads
+- CoreData
+- UserDefaults
+- CocoaPods (Alamofire, Kingfisher, Reachability, lottie, Floaty, SnackBar,)
+- UIKit
+- Constraints.
+- Storyboards
+- Unit Testing
+- Project Management Tools(Trello - Git)
